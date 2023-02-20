@@ -34,13 +34,14 @@
       }
 
       a {
-        position: relative;
         display: block;
+        position: relative;
         padding: 30px;
         height: 100%;
         text-decoration: none;
 
         span {
+          display: block;
           position: relative;
           transform: translate(0, -50%) scale(10);
           color: #fff;
