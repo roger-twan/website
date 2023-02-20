@@ -16,8 +16,8 @@ export default function Home() {
       <main className={isLogoHover ? 'logo-hover' : ''}>
         <video
           className={style.video}
-          src={`${PUBLIC_ASSETS_PREFIX}background.mp4`}
-          poster={`${PUBLIC_ASSETS_PREFIX}background.jpg`}
+          src={`${PUBLIC_ASSETS_PREFIX}/background.mp4`}
+          poster={`${PUBLIC_ASSETS_PREFIX}/background.jpg`}
           playsInline
           autoPlay
           muted
