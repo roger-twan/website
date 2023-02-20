@@ -42,18 +42,15 @@ export default function Logo(props: LogoProps) {
   
     rect.on('mouseover', () => {
       handleMouseOver?.()
-      // container?.classList.add('logo-hover')
       
-      background.animate(250).attr({fill: '#000'})
-      // .attr({fill: '#000' , opacity: 0 })
+      background.animate(300).attr({fill: '#000'})
       logo.attr({fill: '#fff'})
       text.attr({fill: '#fff'})
     })
     rect.on('mouseout', () => {
       handleMouseOut?.()
-      // container?.classList.remove('logo-hover')
   
-      background.animate(250).attr({fill: '#fff'})
+      background.animate(300).attr({fill: '#fff'})
       logo.attr({fill: '#000'})
       text.attr({fill: '#000'})
     })
