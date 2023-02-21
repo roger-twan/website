@@ -26,7 +26,7 @@ export default function Logo(props: LogoProps) {
   
     const text = draw.text(add => {
       add.tspan("OGER'S").attr({dx: 90, y: 118})
-      add.tspan('LABS').newLine().attr({dx: 47, y: 110})
+      add.tspan('LAB').newLine().attr({dx: 47, y: 110})
     })
     text.font({
       size: 60,

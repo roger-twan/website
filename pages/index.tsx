@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Roger&apos;s Labs</title>
+        <title>Roger&apos;s Lab</title>
       </Head>
       <main className={isLogoHover ? 'logo-hover' : ''}>
         <video
