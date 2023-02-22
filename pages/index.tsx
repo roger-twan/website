@@ -7,6 +7,12 @@ import Nav from '@/components/nav'
 
 export default function Home() {
   const [isLogoHover, setIsLogoHover] = useState<Boolean>(false)
+  const handleLogoMouseOver = () => {
+    setIsLogoHover(true)
+  }
+  const handleLogoMouseOut = () => {
+    setIsLogoHover(false)
+  }
 
   return (
     <>
@@ -39,12 +45,4 @@ export default function Home() {
       </main>
     </>
   )
-
-  function handleLogoMouseOver() {
-    setIsLogoHover(true)
-  }
-
-  function handleLogoMouseOut() {
-    setIsLogoHover(false)
-  }
 }

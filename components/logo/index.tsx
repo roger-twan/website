@@ -11,7 +11,7 @@ export default function Logo(props: LogoProps) {
   const { handleMouseOver, handleMouseOut } = props
   const [isLogoLoaded, setIsLogoLoaded] = useState<Boolean>(false)
 
-  function renderLogo() {
+  const renderLogo = () => {
     const container = document.querySelector('#__next')
     const size = {width: 360, height: 260}
     const draw = SVG().addTo(`.${style.logo}`).size(size.width, size.height)
