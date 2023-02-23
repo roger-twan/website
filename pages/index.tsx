@@ -5,7 +5,7 @@ import style from './index.module.scss'
 import Logo from '@/components/logo'
 import Nav from '@/components/nav'
 
-export default function Home() {
+export default function PageHome() {
   const [isLogoHover, setIsLogoHover] = useState<Boolean>(false)
   const handleLogoMouseOver = () => {
     setIsLogoHover(true)

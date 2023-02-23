@@ -1,0 +1,27 @@
+.layout {
+  .back-home {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100px;
+    height: 100px;
+    padding: 60px 10px 20px 60px;
+    border-radius: 50%;
+    background-color: black;
+    transform: translate(-50%, -50%);
+    opacity: 0.3;
+    transition: all 0.3s;
+    animation: appear 2s 2s ease backwards;
+
+    &:hover {
+      opacity: 1;
+      transition: all 0.5s;
+    }
+  }
+}
+
+@keyframes appear {
+  from { transform: translate(-100%, -100%); }
+  to { transform: translate(-50%, -50%); }
+}

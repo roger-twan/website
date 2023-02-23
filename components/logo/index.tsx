@@ -3,8 +3,8 @@ import {useState, useEffect} from 'react'
 import style from './logo.module.scss'
 
 interface LogoProps {
-  handleMouseOver?: Function;
-  handleMouseOut?: Function;
+  handleMouseOver?: Function
+  handleMouseOut?: Function
 }
 
 export default function Logo(props: LogoProps) {
@@ -25,7 +25,7 @@ export default function Logo(props: LogoProps) {
     logo.path('M680 907 c0 -75 0 -77 28 -82 131 -28 189 -156 119 -263 -35 -52 -88 -72 -190 -72 -66 0 -89 -3 -93 -14 -3 -8 59 -108 142 -230 l148 -216 83 0 c46 0 83 3 83 6 0 3 -47 75 -104 159 l-104 154 52 30 c62 34 111 88 139 150 31 67 30 188 -2 258 -42 95 -150 175 -255 189 l-46 7 0 -76z')
   
     const text = draw.text(add => {
-      add.tspan("OGER'S").attr({dx: 90, y: 118})
+      add.tspan(`OGER'S`).attr({dx: 90, y: 118})
       add.tspan('LAB').newLine().attr({dx: 47, y: 110})
     })
     text.font({

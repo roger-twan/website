@@ -1,23 +1,26 @@
+import Layout from '@/components/layout'
 import Particles from 'react-particles'
-import { Engine } from 'tsparticles-engine'
+import type { Engine } from 'tsparticles-engine'
 import { loadFull } from 'tsparticles'
-import { useEffect, useRef } from 'react'
+import { ReactElement, useEffect, useRef } from 'react'
 import Typed from 'typed.js'
 import Atropos from 'atropos/react'
 import style from './about.module.scss'
 import 'atropos/scss'
 import { PUBLIC_ASSETS_PREFIX } from '@/global.config'
 import Head from 'next/head'
+import Image from 'next/image'
 import { Container, Button, SvgIcon } from '@mui/material'
 import {
   GitHub as GitHubIcon,
   LinkedIn as LinkedInIcon,
 } from '@mui/icons-material'
-import GmailIcon from '@/public/icons/gmail.svg';
-import NotionIcon from '@/public/icons/notion.svg';
-import DiscordIcon from '@/public/icons/discord.svg';
+import GmailIcon from '@/public/icons/gmail.svg'
+import NotionIcon from '@/public/icons/notion.svg'
+import DiscordIcon from '@/public/icons/discord.svg'
+import type { PageWithLayout } from '../_app'
 
-export default function About() {
+const PageAbout: PageWithLayout = () => {
   const particlesOptions = {
     fpsLimit: 120,
     detectRetina: true,
@@ -62,7 +65,7 @@ export default function About() {
   }
   const particlesInit = async (engine: Engine) => { await loadFull(engine) }
 
-  let typed: any = null
+  const typed: any = { current: null }
   const typedEl = useRef(null)
   const typedOptions = {
     strings: [
@@ -79,10 +82,10 @@ export default function About() {
   }
 
   useEffect(() => {
-    typed = new Typed(typedEl.current!, typedOptions)
+    typed.current = new Typed(typedEl.current!, typedOptions)
 
     return () => {
-      typed?.destroy()
+      typed.current?.destroy()
     }
   })
 
@@ -110,14 +113,14 @@ export default function About() {
             className={style.avatar}
             alwaysActive={true}
           >
-            <img src={`${PUBLIC_ASSETS_PREFIX}/avatar.png`} />
+            <Image src={`${PUBLIC_ASSETS_PREFIX}/avatar.png`} alt="" />
           </Atropos>
         </div>
         <div className={style['text-area']}>
           <div className={style.title}>
             Hi
             <br />
-            I'm <span className={style.name}>Roger</span>
+            I&apos;m <span className={style.name}>Roger</span>
           </div>
           <div className={style.role}>A <span className={style.typed} ref={typedEl} /></div>
           <div className={style['btn-wrapper']}>
@@ -179,3 +182,9 @@ export default function About() {
     </>
   )
 }
+
+PageAbout.getLayout = (page: ReactElement) => {
+  return (<Layout>{page}</Layout>)
+}
+
+export default PageAbout
