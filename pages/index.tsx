@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { useState } from 'react'
-import { PUBLIC_ASSETS_PREFIX, NAV_LIST } from '@/global.config'
-import style from '@/styles/home.module.scss'
+import { PUBLIC_ASSETS_PREFIX } from '@/global.config'
+import style from './index.module.scss'
 import Logo from '@/components/logo'
 import Nav from '@/components/nav'
 
@@ -21,7 +21,7 @@ export default function Home() {
       </Head>
       <main className={isLogoHover ? 'logo-hover' : ''}>
         <video
-          className={style.video}
+          className={style['video-background']}
           src={`${PUBLIC_ASSETS_PREFIX}/background.mp4`}
           poster={`${PUBLIC_ASSETS_PREFIX}/background.jpg`}
           playsInline
@@ -34,15 +34,15 @@ export default function Home() {
           handleMouseOut={handleLogoMouseOut}
         />
         <Nav />
-
-        <style jsx global>{`
-          .logo-hover #logo::after,
-          .logo-hover #nav {
-              opacity: 0;
-              transition: all 0.3s;
-          }
-        `}</style>
       </main>
+
+      <style jsx global>{`
+        .logo-hover #logo::after,
+        .logo-hover #nav {
+            opacity: 0;
+            transition: all 0.3s;
+        }
+      `}</style>
     </>
   )
 }

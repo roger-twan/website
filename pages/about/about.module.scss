@@ -1,0 +1,96 @@
+.wrapper {
+  height: 100vh;
+
+  .particles {
+    position: absolute;
+    z-index: -1;
+    animation: fadeIn 3s ease;
+  }
+
+  .avatar {
+    width: 360px;
+    height: 360px;
+    animation: scaleOut 1s ease;
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      filter: saturate(0.3);
+      transition: all 1s;
+
+      &:hover {
+        filter: saturate(1);
+        transition: all 1s;
+      }
+    }
+  }
+
+  .text-area {
+    width: 310px;
+    animation: fadeIn 4s ease;
+
+    .title {
+      font-size: 60px;
+      font-weight: bold;
+
+      .name {
+        background-image: linear-gradient(80deg, #52b3d8 0%, #472a53 20%, #c28e57 50%, #52b3d8 100%);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        animation: colorfulText 3s alternate infinite;
+        -webkit-background-size: 220% 100%;
+      }
+    }
+
+    .role {
+      margin-top: 10px;
+      font-size: 30px;
+
+      .typed {
+        font-weight: bold;
+      }
+    }
+
+    .btn-wrapper {
+      margin-top: 20px;
+      & > a {
+        margin-right: 16px;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
+  to {
+    width: 360px;
+    height: 360px;
+    opacity: 1;
+  }
+}
+
+@keyframes colorfulText {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -100% 0;
+  }
+}

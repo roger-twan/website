@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import style from './index.module.scss'
+import style from './nav.module.scss'
 import { NAV_LIST } from '@/global.config'
 import { useEffect, useState } from 'react'
 

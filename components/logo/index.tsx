@@ -1,6 +1,6 @@
 import { SVG } from '@svgdotjs/svg.js'
 import {useState, useEffect} from 'react'
-import style from './index.module.scss'
+import style from './logo.module.scss'
 
 interface LogoProps {
   handleMouseOver?: Function;
