@@ -12,11 +12,8 @@ const NAV_LIST: NavItem[] = [
   },
   {
     title: 'ABOUT',
-    route: '/about'
+    route: '/about',
   },
 ]
 
-export {
-  PUBLIC_ASSETS_PREFIX,
-  NAV_LIST
-}
+export { PUBLIC_ASSETS_PREFIX, NAV_LIST }

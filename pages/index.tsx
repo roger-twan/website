@@ -39,8 +39,8 @@ export default function PageHome() {
       <style jsx global>{`
         .logo-hover #logo::after,
         .logo-hover #nav {
-            opacity: 0;
-            transition: all 0.3s;
+          opacity: 0;
+          transition: all 0.3s;
         }
       `}</style>
     </>

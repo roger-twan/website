@@ -77,17 +77,38 @@
 }
 
 @keyframes shining {
-  0% { width: 12px; height: 12px; }
-  50% { width: 36px; height: 36px; }
-  100% { width: 12px; height: 12px; }
+  0% {
+    width: 12px;
+    height: 12px;
+  }
+  50% {
+    width: 36px;
+    height: 36px;
+  }
+  100% {
+    width: 12px;
+    height: 12px;
+  }
 }
 
 @keyframes wave-out {
-  from { width: 12px; height: 12px; }
-  to { width: 180vh; height: 180vh; }
+  from {
+    width: 12px;
+    height: 12px;
+  }
+  to {
+    width: 180vh;
+    height: 180vh;
+  }
 }
 
 @keyframes wave-in {
-  from { width: 180vh; height: 180vh; }
-  to { width: 12px; height: 12px; }
+  from {
+    width: 180vh;
+    height: 180vh;
+  }
+  to {
+    width: 12px;
+    height: 12px;
+  }
 }
