@@ -35,7 +35,13 @@
       font-weight: bold;
 
       .name {
-        background-image: linear-gradient(80deg, #52b3d8 0%, #472a53 20%, #c28e57 50%, #52b3d8 100%);
+        background-image: linear-gradient(
+          80deg,
+          #52b3d8 0%,
+          #472a53 20%,
+          #c28e57 50%,
+          #52b3d8 100%
+        );
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
         animation: colorfulText 3s alternate infinite;

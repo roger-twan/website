@@ -19,7 +19,11 @@ interface MyAppProps extends AppProps {
 
 const clientSideEmotionCache = createEmotionCache()
 
-export default function App({ Component, emotionCache = clientSideEmotionCache, pageProps }: MyAppProps) {
+export default function App({
+  Component,
+  emotionCache = clientSideEmotionCache,
+  pageProps,
+}: MyAppProps) {
   const getLayout = Component.getLayout ?? ((page) => page)
 
   return (

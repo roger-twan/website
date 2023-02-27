@@ -13,7 +13,9 @@ export default function Nav() {
     const _animationDelayArr: string[] = []
 
     for (let i = 0; i < NAV_LIST.length; i++) {
-      const offsetTop = `${Math.random() * (MAX_OFFSET_TOP - MIN_OFFSET_TOP) + MIN_OFFSET_TOP}%`
+      const offsetTop = `${
+        Math.random() * (MAX_OFFSET_TOP - MIN_OFFSET_TOP) + MIN_OFFSET_TOP
+      }%`
       const delay = `0s, ${Math.random() + 0.5}s`
 
       _offsetTopArr.push(offsetTop)
@@ -32,21 +34,19 @@ export default function Nav() {
     <div id="nav" className={style.nav}>
       <ul>
         <li />
-        {
-          NAV_LIST.map((nav: NavItem, index: number) =>
-            <li key={index}>
-              <div style={{
+        {NAV_LIST.map((nav: NavItem, index: number) => (
+          <li key={index}>
+            <div
+              style={{
                 top: offsetTopArr[index],
-                animationDelay: animationDelayArr[index]
+                animationDelay: animationDelayArr[index],
               }}
-              />
-              <Link href={nav.route}>
-                <span style={{ top: offsetTopArr[index] }}>
-                  {nav.title}
-                </span>
-              </Link>
-            </li>)
-        }
+            />
+            <Link href={nav.route}>
+              <span style={{ top: offsetTopArr[index] }}>{nav.title}</span>
+            </Link>
+          </li>
+        ))}
         <li />
       </ul>
     </div>
