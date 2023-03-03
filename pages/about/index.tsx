@@ -35,7 +35,7 @@ const PageAbout: PageWithLayout = () => {
         color: '#000',
         enable: true,
         distance: 120,
-        opacity: 0.3
+        opacity: 0.3,
       },
       move: {
         enable: true,
@@ -58,27 +58,26 @@ const PageAbout: PageWithLayout = () => {
         },
         onHover: {
           enable: true,
-          mode: 'repulse'
+          mode: 'repulse',
         },
       },
-    }
+    },
   }
-  const particlesInit = async (engine: Engine) => { await loadFull(engine) }
+  const particlesInit = async (engine: Engine) => {
+    await loadFull(engine)
+  }
 
   const typed: any = { current: null }
   const typedEl = useRef(null)
   const typedOptions = {
-    strings: [
-      'Software Engineer',
-      'Tech Geek',
-    ],
+    strings: ['Software Engineer', 'Tech Geek'],
     loop: true,
   }
 
   const linkButtonStyle = {
     borderRadius: '50%',
     minWidth: 'auto',
-    padding: '10px'
+    padding: '10px',
   }
 
   useEffect(() => {
@@ -100,29 +99,33 @@ const PageAbout: PageWithLayout = () => {
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'space-around',
-          alignItems: 'center'
+          alignItems: 'center',
         }}
       >
         <Particles
           className={style.particles}
           init={particlesInit}
           options={particlesOptions}
+          data-testid="background"
         />
         <div>
-          <Atropos
-            className={style.avatar}
-            alwaysActive={true}
-          >
-            <Image src={`${PUBLIC_ASSETS_PREFIX}/avatar.png`} alt="" />
+          <Atropos className={style.avatar} alwaysActive={true}>
+            <Image
+              data-testid="avatar"
+              src={`${PUBLIC_ASSETS_PREFIX}/avatar.png`}
+              alt=""
+            />
           </Atropos>
         </div>
-        <div className={style['text-area']}>
+        <div className={style['text-area']} data-testid="description">
           <div className={style.title}>
             Hi
             <br />
             I&apos;m <span className={style.name}>Roger</span>
           </div>
-          <div className={style.role}>A <span className={style.typed} ref={typedEl} /></div>
+          <div className={style.role}>
+            A <span className={style.typed} ref={typedEl} />
+          </div>
           <div className={style['btn-wrapper']}>
             <Button
               size="large"
@@ -173,18 +176,18 @@ const PageAbout: PageWithLayout = () => {
         </div>
 
         <style jsx global>{`
-        .atropos-shadow {
-          border-radius: 50%;
-          filter: blur(10px);
-        }
-      `}</style>
+          .atropos-shadow {
+            border-radius: 50%;
+            filter: blur(10px);
+          }
+        `}</style>
       </Container>
     </>
   )
 }
 
 PageAbout.getLayout = (page: ReactElement) => {
-  return (<Layout>{page}</Layout>)
+  return <Layout>{page}</Layout>
 }
 
 export default PageAbout

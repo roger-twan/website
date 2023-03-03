@@ -12,7 +12,6 @@ export default function Logo(props: LogoProps) {
   const [isLogoLoaded, setIsLogoLoaded] = useState<Boolean>(false)
 
   const renderLogo = () => {
-    const container = document.querySelector('#__next')
     const size = { width: 360, height: 260 }
     const draw = SVG().addTo(`.${style.logo}`).size(size.width, size.height)
     const rect = draw.rect(size.width, size.height).fill('#fff')
@@ -64,6 +63,7 @@ export default function Logo(props: LogoProps) {
   return (
     <div
       id="logo"
+      data-testid="logo"
       className={`${style.logo} ${isLogoLoaded ? style['logo-loaded'] : ''}`}
     />
   )
