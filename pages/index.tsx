@@ -24,6 +24,7 @@ export default function PageHome() {
           className={style['video-background']}
           src={`${PUBLIC_ASSETS_PREFIX}/background.mp4`}
           poster={`${PUBLIC_ASSETS_PREFIX}/background.jpg`}
+          data-testid="video"
           playsInline
           autoPlay
           muted

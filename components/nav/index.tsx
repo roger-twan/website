@@ -31,7 +31,7 @@ export default function Nav() {
   })
 
   return (
-    <div id="nav" className={style.nav}>
+    <div id="nav" data-testid="nav" className={style.nav}>
       <ul>
         <li />
         {NAV_LIST.map((nav: NavItem, index: number) => (
