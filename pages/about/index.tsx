@@ -114,6 +114,7 @@ const PageAbout: PageWithLayout = () => {
               data-testid="avatar"
               src={`${PUBLIC_ASSETS_PREFIX}/avatar.png`}
               alt=""
+              fill
             />
           </Atropos>
         </div>
