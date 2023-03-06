@@ -11,6 +11,10 @@ const NAV_LIST: NavItem[] = [
     route: '/web3',
   },
   {
+    title: '3D',
+    route: '/3d',
+  },
+  {
     title: 'ABOUT',
     route: '/about',
   },
