@@ -132,7 +132,7 @@ const PageAbout: PageWithLayout = () => {
               size="large"
               variant="contained"
               sx={linkButtonStyle}
-              href="https://github.com/Roger-twan"
+              href="https://github.com/roger-twan"
               target="_blank"
             >
               <GitHubIcon />
