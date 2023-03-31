@@ -17,7 +17,6 @@ import {
 } from '@mui/icons-material'
 import GmailIcon from '@/public/icons/gmail.svg'
 import NotionIcon from '@/public/icons/notion.svg'
-import DiscordIcon from '@/public/icons/discord.svg'
 import type { PageWithLayout } from '../_app'
 
 const PageAbout: PageWithLayout = () => {
@@ -154,15 +153,6 @@ const PageAbout: PageWithLayout = () => {
               target="_blank"
             >
               <SvgIcon component={GmailIcon} />
-            </Button>
-            <Button
-              size="large"
-              variant="contained"
-              sx={linkButtonStyle}
-              href="https://discordapp.com/users/1072458186692509726"
-              target="_blank"
-            >
-              <SvgIcon component={DiscordIcon} />
             </Button>
             <Button
               size="large"
