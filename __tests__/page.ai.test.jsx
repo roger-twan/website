@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import Web3 from '@/pages/web3'
+import Ai from '@/pages/ai'
 
-describe('Page Web3', () => {
-  render(<Web3 />)
+describe('Page Ai', () => {
+  render(<Ai />)
 
   it('Text rendered', () => {
-    const text = screen.getByText('Coming soon')
+    const text = screen.getByText('In progress')
     expect(text).toBeInTheDocument()
   })
 })
