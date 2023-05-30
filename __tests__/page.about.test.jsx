@@ -1,6 +1,6 @@
 // import { render, screen } from '@testing-library/react'
 // import '@testing-library/jest-dom'
-// import About from '@/pages/about'
+// import About from '@/pages/about/index.page.tsx'
 
 describe('Page About', () => {
   // render(<About />)

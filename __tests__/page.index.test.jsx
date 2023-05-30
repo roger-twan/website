@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import Home from '@/pages/index'
+import Home from '@/pages/index.page.tsx'
 
 describe('Page Home', () => {
   beforeEach(() => {

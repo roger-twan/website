@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import Ai from '@/pages/ai'
+import Ai from '@/pages/ai/index.page.tsx'
 
 describe('Page Ai', () => {
   render(<Ai />)
