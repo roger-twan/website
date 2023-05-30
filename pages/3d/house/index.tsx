@@ -1,15 +1,15 @@
 import { useEffect, useRef } from 'react'
 import {
   AxesHelper,
-  BoxGeometry,
   DirectionalLight,
-  Mesh,
-  MeshPhongMaterial,
+  Group,
   Object3D,
   PerspectiveCamera,
   Scene,
   WebGLRenderer,
 } from 'three'
+import land from './land'
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 
 export default function House() {
   let scene: Object3D | null = null
@@ -25,39 +25,43 @@ export default function House() {
   return <div ref={canvasWrapper} />
 
   function initScene() {
-    scene = new Scene()
-    camera = new PerspectiveCamera(
+    const scene = new Scene()
+    const renderer = new WebGLRenderer({ antialias: true })
+    const camera = new PerspectiveCamera(
       75,
       window.innerWidth / window.innerHeight,
       0.1,
-      1000
+      10000
     )
+    const controls = new OrbitControls(camera, renderer.domElement)
 
-    renderer = new WebGLRenderer({ antialias: true })
     renderer.setPixelRatio(window.devicePixelRatio)
     renderer.setSize(window.innerWidth, window.innerHeight)
     renderer.setClearColor(0xffffff)
     canvasWrapper.current?.appendChild(renderer.domElement)
 
-    const axes = new AxesHelper(50)
+    // AxesHelper
+    const axes = new AxesHelper(5000)
     scene.add(axes)
 
-    const geometry = new BoxGeometry(2, 2, 2)
-    const material = new MeshPhongMaterial({ color: 0x44aa88 })
-    const cube = new Mesh(geometry, material)
-    scene.add(cube)
+    // house object
+    const totalObj = new Group()
+    totalObj.add(land)
+    scene.add(totalObj)
 
+    // set light
     const light = new DirectionalLight(0xffffff, 1)
-    light.position.set(1, 1, 1)
+    light.position.set(1600, 1800, 2000)
     scene.add(light)
 
-    camera.position.set(5, 2, 10)
+    // set camera
+    camera.position.set(600, 1000, 2000)
+    controls.update()
 
     function render() {
-      cube.rotation.x += 0.005
-      cube.rotation.y += 0.005
-      renderer?.render(scene!, camera!)
       requestAnimationFrame(render)
+      renderer?.render(scene!, camera!)
+      controls.update()
     }
     render()
   }
