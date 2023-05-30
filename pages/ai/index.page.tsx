@@ -8,7 +8,8 @@ const PageAi = () => {
       See more on{' '}
       <a
         href="https://roger.twan.life/Idea-Personal-Ai-Clone-Integrate-With-ChatGPT-3D-Virtual-Avatar-and-Cloned-Voice-ea209b7e803b4bda9a6a9f3c24b9ffba"
-        target="_blank" rel="noreferrer"
+        target="_blank"
+        rel="noreferrer"
       >
         [Idea] Personal Ai Clone: Integrate With ChatGPT, 3D Virtual Avatar, and
         Cloned Voice

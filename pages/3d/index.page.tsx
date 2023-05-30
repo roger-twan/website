@@ -1,6 +1,6 @@
 import Layout from '@/components/layout'
 import { ReactElement } from 'react'
-import House from './house'
+import House from './house/index.page'
 
 const PageWeb3 = () => {
   return <House />

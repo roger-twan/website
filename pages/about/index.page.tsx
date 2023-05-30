@@ -17,7 +17,7 @@ import {
 } from '@mui/icons-material'
 import GmailIcon from '@/public/icons/gmail.svg'
 import NotionIcon from '@/public/icons/notion.svg'
-import type { PageWithLayout } from '../_app'
+import type { PageWithLayout } from '../_app.page'
 
 const PageAbout: PageWithLayout = () => {
   const particlesOptions = {
