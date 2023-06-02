@@ -7,9 +7,12 @@ import {
   PerspectiveCamera,
   Scene,
   WebGLRenderer,
+  Vector3,
 } from 'three'
-import land from './land'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
+import CONFIG from './_config'
+import land from './land'
+import building from './building'
 
 export default function House() {
   let scene: Object3D | null = null
@@ -31,7 +34,7 @@ export default function House() {
       75,
       window.innerWidth / window.innerHeight,
       0.1,
-      10000
+      1e10
     )
     const controls = new OrbitControls(camera, renderer.domElement)
 
@@ -47,15 +50,24 @@ export default function House() {
     // house object
     const totalObj = new Group()
     totalObj.add(land)
+    totalObj.add(building)
     scene.add(totalObj)
 
     // set light
     const light = new DirectionalLight(0xffffff, 1)
-    light.position.set(1600, 1800, 2000)
-    scene.add(light)
+    light.position.set(2000, 1800, 1600)
+    const reverseLight = new DirectionalLight(0xffffff, 0.5)
+    reverseLight.position.set(-2000, -1600, -1800)
+    scene.add(light, reverseLight)
 
     // set camera
-    camera.position.set(600, 1000, 2000)
+    camera.position.set(1600, 1600, 3000)
+
+    controls.target = new Vector3(
+      CONFIG.land.size.length / 2,
+      0,
+      CONFIG.land.size.width / 2
+    )
     controls.update()
 
     function render() {

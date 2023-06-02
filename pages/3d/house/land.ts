@@ -1,12 +1,19 @@
-import { BoxGeometry, Mesh, MeshPhongMaterial } from 'three'
+import { Mesh, MeshPhongMaterial, ExtrudeGeometry, Shape } from 'three'
 import CONFIG from './_config'
 
-const geometry = new BoxGeometry(
-  CONFIG.land.size.length,
-  1,
-  CONFIG.land.size.width
-)
+const shape = new Shape()
+shape
+  .moveTo(0, 0)
+  .lineTo(CONFIG.land.size.length, 0)
+  .lineTo(CONFIG.land.size.length, 0.1)
+  .lineTo(0, 0.1)
+  .lineTo(0, 0)
+
+const extrudeGeometry = new ExtrudeGeometry(shape, {
+  depth: CONFIG.land.size.width,
+})
+
 const material = new MeshPhongMaterial({ color: 0x44aa88 })
-const land = new Mesh(geometry, material)
+const land = new Mesh(extrudeGeometry, material)
 
 export default land
