@@ -21,8 +21,8 @@ export default {
   },
   house: {
     size: {
-      length: 1300,
-      width: 1000,
+      width: 1300,
+      depth: 1000,
     },
     wall: {
       internalDepth: 10,
@@ -31,6 +31,17 @@ export default {
     },
     floor1: {
       height: 360,
+    },
+    garage: {
+      size: {
+        width: 600,
+        depth: 600,
+      },
+      gate: {
+        width: 540,
+        height: 330,
+        margin: 30,
+      },
     },
   },
 }
