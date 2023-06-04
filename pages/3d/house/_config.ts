@@ -31,16 +31,23 @@ export default {
     },
     floor1: {
       height: 360,
-    },
-    garage: {
-      size: {
-        width: 600,
-        depth: 600,
+      garage: {
+        size: {
+          width: 600,
+          depth: 600,
+        },
+        gate: {
+          width: 540,
+          height: 240,
+          margin: 30,
+        },
       },
-      gate: {
-        width: 540,
-        height: 330,
-        margin: 30,
+      livingRoom: {
+        frontDoor: {
+          width: 120,
+          height: 200,
+          margin: 10,
+        },
       },
     },
   },

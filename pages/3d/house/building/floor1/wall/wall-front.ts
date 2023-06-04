@@ -2,12 +2,13 @@ import { Mesh, MeshPhongMaterial } from 'three'
 import CONFIG from '../../../_config'
 import generateCubeShape from '@/utils/generateCubeShape'
 import garageGate from '../garage/gate'
+import livingRoomFrontDoor from '../living-room/front-door'
 
 const cube = generateCubeShape(
   CONFIG.house.size.width,
   CONFIG.house.floor1.height,
   CONFIG.house.wall.externalDepth,
-  [garageGate]
+  [garageGate, livingRoomFrontDoor]
 )
 
 const material = new MeshPhongMaterial({ color: CONFIG.house.wall.color })
