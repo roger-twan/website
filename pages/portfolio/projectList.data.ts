@@ -22,7 +22,7 @@ const projectList: ProjectInfo[] = [
       'Dart',
       'Firebase',
       'Dio',
-      'Microservice',
+      'Serverless',
       'SQLite',
       'Cloudflare',
     ],
