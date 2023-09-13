@@ -8,7 +8,6 @@ import Atropos from 'atropos/react'
 import style from './about.module.scss'
 import 'atropos/scss'
 import { PUBLIC_ASSETS_PREFIX } from '@/global.config'
-import Head from 'next/head'
 import Image from 'next/image'
 import { Container, Button, SvgIcon } from '@mui/material'
 import {
@@ -18,6 +17,7 @@ import {
 import GmailIcon from '@/public/icons/gmail.svg'
 import NotionIcon from '@/public/icons/notion.svg'
 import type { PageWithLayout } from '../_app.page'
+import CommonHeader from '@/components/commonHeader'
 
 const PageAbout: PageWithLayout = () => {
   const particlesOptions = {
@@ -89,9 +89,7 @@ const PageAbout: PageWithLayout = () => {
 
   return (
     <>
-      <Head>
-        <title>About Roger</title>
-      </Head>
+      <CommonHeader title="About" />
       <Container
         className={style.wrapper}
         sx={{

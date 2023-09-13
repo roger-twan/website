@@ -1,0 +1,61 @@
+import { StaticImageData } from 'next/image'
+import picLab from '../../public/portfolio/lab.png'
+import picMusic from '../../public/portfolio/music.png'
+import picIELTS from '../../public/portfolio/ielts.png'
+import picLauncher from '../../public/portfolio/plain_launcher.png'
+
+export interface ProjectInfo {
+  title: string
+  img: StaticImageData
+  platforms: string[]
+  techStacks: string[]
+  url: string
+}
+
+const projectList: ProjectInfo[] = [
+  {
+    title: 'Music Player',
+    img: picMusic,
+    platforms: ['MacOS', 'iOS'],
+    techStacks: [
+      'Flutter',
+      'Dart',
+      'Firebase',
+      'Dio',
+      'Microservice',
+      'SQLite',
+      'Cloudflare',
+    ],
+    url: 'https://github.com/roger-twan/music',
+  },
+  {
+    title: 'Lab',
+    img: picLab,
+    platforms: ['Web'],
+    techStacks: [
+      'Next.js',
+      'Typescript',
+      'Three.js',
+      'Jest',
+      'Mui',
+      'Git Action',
+    ],
+    url: 'https://github.com/roger-twan/lab',
+  },
+  {
+    title: 'IELTS Tools',
+    img: picIELTS,
+    platforms: ['Web', 'MacOS'],
+    techStacks: ['React.js', 'Typescript', 'Vite', 'Mui', 'Tauri'],
+    url: 'https://github.com/roger-twan/ielts-tools',
+  },
+  {
+    title: 'Android Launcher',
+    img: picLauncher,
+    platforms: ['Android'],
+    techStacks: ['Flutter', 'Dart'],
+    url: 'https://github.com/roger-twan/plain_launcher',
+  },
+]
+
+export default projectList
