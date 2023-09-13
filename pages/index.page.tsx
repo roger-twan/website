@@ -1,9 +1,9 @@
-import Head from 'next/head'
 import { useState } from 'react'
 import { PUBLIC_ASSETS_PREFIX } from '@/global.config'
 import style from './index.module.scss'
 import Logo from '@/components/logo'
 import Nav from '@/components/nav'
+import CommonHeader from '@/components/commonHeader'
 
 export default function PageHome() {
   const [isLogoHover, setIsLogoHover] = useState<Boolean>(false)
@@ -16,9 +16,7 @@ export default function PageHome() {
 
   return (
     <>
-      <Head>
-        <title>Roger&apos;s Lab</title>
-      </Head>
+      <CommonHeader />
       <main className={isLogoHover ? 'logo-hover' : ''}>
         <video
           className={style['video-background']}
