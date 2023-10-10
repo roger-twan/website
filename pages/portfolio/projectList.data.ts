@@ -3,6 +3,7 @@ import picLab from '../../public/portfolio/lab.png'
 import picMusic from '../../public/portfolio/music.png'
 import picIELTS from '../../public/portfolio/ielts.png'
 import picLauncher from '../../public/portfolio/plain_launcher.png'
+import picTwan from '../../public/portfolio/twan.png'
 
 export interface ProjectInfo {
   title: string
@@ -55,6 +56,13 @@ const projectList: ProjectInfo[] = [
     platforms: ['Android'],
     techStacks: ['Flutter', 'Dart'],
     url: 'https://github.com/roger-twan/plain_launcher',
+  },
+  {
+    title: 'TWAN',
+    img: picTwan,
+    platforms: ['Web', 'Mobile Web'],
+    techStacks: ['Wordpress', 'Docker', 'MySQL'],
+    url: 'https://github.com/roger-twan/wordpress',
   },
 ]
 
