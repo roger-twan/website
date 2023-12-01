@@ -4,7 +4,7 @@ import type { PageWithLayout } from '../_app.page'
 import CommonHeader from '@/components/commonHeader'
 import { GoogleMap, useLoadScript } from '@react-google-maps/api'
 
-const PageFootprint: PageWithLayout = () => {
+const PageTrack: PageWithLayout = () => {
   const { isLoaded } = useLoadScript({
     id: 'google-map-script',
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY as string,
@@ -12,7 +12,7 @@ const PageFootprint: PageWithLayout = () => {
 
   return (
     <>
-      <CommonHeader title="Footprint" />
+      <CommonHeader title="Track" />
 
       {isLoaded ? (
         <GoogleMap
@@ -28,8 +28,8 @@ const PageFootprint: PageWithLayout = () => {
   )
 }
 
-PageFootprint.getLayout = (page: ReactElement) => {
+PageTrack.getLayout = (page: ReactElement) => {
   return <Layout>{page}</Layout>
 }
 
-export default PageFootprint
+export default PageTrack
