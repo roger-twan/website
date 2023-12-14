@@ -15,6 +15,10 @@ const NAV_LIST: NavItem[] = [
     route: '/portfolio',
   },
   {
+    title: 'TRACK',
+    route: '/track',
+  },
+  {
     title: 'ABOUT',
     route: '/about',
   },
