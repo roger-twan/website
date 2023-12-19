@@ -9,7 +9,7 @@ import {
   TransitLayer,
   BicyclingLayer,
 } from '@react-google-maps/api'
-import useSWR from 'swr'
+import useSWRImmutable from 'swr/immutable'
 import style from './track.module.scss'
 import { CustomMarker, MarkerClickEvent } from './custom-marker'
 import { CustomRoute, RouteClickEvent } from './custom-route'
@@ -25,7 +25,7 @@ const PageTrack: PageWithLayout = () => {
     lat: 0,
     lng: 0,
   })
-  const { data, error, isLoading } = useSWR(
+  const { data, error, isLoading } = useSWRImmutable(
     'https://kml.twan.life/api/get_activities',
     fetcher
   )
