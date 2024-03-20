@@ -7,7 +7,6 @@ import Typed from 'typed.js'
 import Atropos from 'atropos/react'
 import style from './about.module.scss'
 import 'atropos/scss'
-import { PUBLIC_ASSETS_PREFIX } from '@/global.config'
 import Image from 'next/image'
 import { Container, Button, SvgIcon } from '@mui/material'
 import {
@@ -107,12 +106,7 @@ const PageAbout: PageWithLayout = () => {
         />
         <div>
           <Atropos className={style.avatar} alwaysActive={true}>
-            <Image
-              data-testid="avatar"
-              src={`${PUBLIC_ASSETS_PREFIX}/avatar.png`}
-              alt=""
-              fill
-            />
+            <Image data-testid="avatar" src="/avatar.png" alt="avatar" fill />
           </Atropos>
         </div>
         <div className={style['text-area']} data-testid="description">

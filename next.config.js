@@ -2,9 +2,6 @@
 
 const nextConfig = {
   reactStrictMode: false,
-  publicRuntimeConfig: {
-    publicAssetsPrefix: getPublicAssetsPrefix(),
-  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
@@ -18,18 +15,6 @@ const nextConfig = {
     dirs: ['components', 'pages', 'utils'],
   },
   pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
-}
-
-function getPublicAssetsPrefix() {
-  const isGithubActions = process.env.GITHUB_ACTIONS || false
-  let prefix = ''
-
-  if (isGithubActions) {
-    const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '')
-    prefix = `/${repo}`
-  }
-
-  return prefix
 }
 
 module.exports = nextConfig
