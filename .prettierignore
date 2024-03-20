@@ -4,3 +4,4 @@
 .prettierignore
 *.png
 .env
+public/CNAME
