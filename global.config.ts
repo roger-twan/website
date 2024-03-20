@@ -1,6 +1,3 @@
-import getConfig from 'next/config'
-
-const PUBLIC_ASSETS_PREFIX = getConfig().publicRuntimeConfig.publicAssetsPrefix
 const NAV_LIST: NavItem[] = [
   {
     title: 'AI',
@@ -24,4 +21,4 @@ const NAV_LIST: NavItem[] = [
   },
 ]
 
-export { PUBLIC_ASSETS_PREFIX, NAV_LIST }
+export { NAV_LIST }

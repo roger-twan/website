@@ -6,7 +6,6 @@ const createJestConfig = nextJest({
 
 /** @type {import('jest').Config} */
 const customJestConfig = {
-  setupFiles: ['./jest.setup.js'],
   moduleDirectories: ['node_modules', '<rootDir>/'],
   moduleNameMapper: {
     '@/(.*)$': '<rootDir>/$1',
