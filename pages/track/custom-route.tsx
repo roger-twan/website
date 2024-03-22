@@ -1,21 +1,12 @@
 import React, { ReactElement, useState } from 'react'
 import { Polyline } from '@react-google-maps/api'
-import {
-  Train,
-  DirectionsWalk,
-  DirectionsBike,
-  DirectionsCar,
-  Flight,
-  Sailing,
-  TwoWheeler,
-} from '@mui/icons-material'
 
 type RouteClickEvent = {
   activityId: string
   duration: number | null
   distance: number | null
   tripMode: number
-  icon: ReactElement
+  // icon: ReactElement
   position: {
     lat: number
     lng: number
@@ -43,38 +34,38 @@ enum TripMode {
 
 type TripModeMapInfo = {
   color: string
-  icon: ReactElement
+  // icon: ReactElement
 }
 
 const getTripColorIcon = (tripMode: TripMode): TripModeMapInfo => {
   const colorsMap: { [key in TripMode]: TripModeMapInfo } = {
     [TripMode.Train]: {
       color: '#ff00ff',
-      icon: <Train />,
+      // icon: <Train />,
     },
     [TripMode.Walk]: {
       color: '#00ff00',
-      icon: <DirectionsWalk />,
+      // icon: <DirectionsWalk />,
     },
     [TripMode.Bicycle]: {
       color: '#00F5FF',
-      icon: <DirectionsBike />,
+      // icon: <DirectionsBike />,
     },
     [TripMode.Car]: {
       color: '#1E90FF',
-      icon: <DirectionsCar />,
+      // icon: <DirectionsCar />,
     },
     [TripMode.Air]: {
       color: '#ff0000',
-      icon: <Flight />,
+      // icon: <Flight />,
     },
     [TripMode.Ship]: {
       color: '#ffff00',
-      icon: <Sailing />,
+      // icon: <Sailing />,
     },
     [TripMode.Motorcycle]: {
       color: '#ff6100',
-      icon: <TwoWheeler />,
+      // icon: <TwoWheeler />,
     },
   }
 
@@ -92,7 +83,7 @@ const CustomRoute = (props: CustomRouteProps) => {
         distance,
         duration,
         tripMode,
-        icon: getTripColorIcon(tripMode).icon,
+        // icon: getTripColorIcon(tripMode).icon,
         position: {
           lat: e.latLng!.lat(),
           lng: e.latLng!.lng(),

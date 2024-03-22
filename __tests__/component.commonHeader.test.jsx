@@ -13,6 +13,6 @@ describe('Component Common Header', () => {
   it('Render title', () => {
     render(<CommonHeader title="test" />)
 
-    expect(document.title).toBe("test | Roger's Lab")
+    expect(document.title).toBe("test | Roger's Website")
   })
 })

@@ -1,7 +1,7 @@
 .logo {
   position: fixed;
   left: 20px;
-  width: 360px;
+  width: 320px;
   height: 100%;
   background-color: #fff;
   transition: all 0.3s;
@@ -14,10 +14,10 @@
   &:after {
     content: "";
     position: absolute;
-    top: 260px;
+    top: 240px;
     left: 0;
     width: 100%;
-    height: calc(100% - 260px);
+    height: calc(100% - 240px);
     background-color: #fff;
     opacity: 1;
     transition: all 0.3s;

@@ -8,15 +8,10 @@ import Atropos from 'atropos/react'
 import style from './about.module.scss'
 import 'atropos/scss'
 import Image from 'next/image'
-import { Container, Button, SvgIcon } from '@mui/material'
-import {
-  GitHub as GitHubIcon,
-  LinkedIn as LinkedInIcon,
-} from '@mui/icons-material'
-import GmailIcon from '@/public/icons/gmail.svg'
-import NotionIcon from '@/public/icons/notion.svg'
 import type { PageWithLayout } from '../_app.page'
 import CommonHeader from '@/components/commonHeader'
+import { Button, Spacer, Text } from '@geist-ui/core'
+import { Github, Linkedin, Mail } from '@geist-ui/icons'
 
 const PageAbout: PageWithLayout = () => {
   const particlesOptions = {
@@ -68,14 +63,14 @@ const PageAbout: PageWithLayout = () => {
   const typed: any = { current: null }
   const typedEl = useRef(null)
   const typedOptions = {
-    strings: ['Software Engineer', 'Tech Geek'],
+    strings: [
+      'Software Engineer',
+      'Tech Geek',
+      'Minimalist',
+      'Guitar Player',
+      'Photographer',
+    ],
     loop: true,
-  }
-
-  const linkButtonStyle = {
-    borderRadius: '50%',
-    minWidth: 'auto',
-    padding: '10px',
   }
 
   useEffect(() => {
@@ -89,72 +84,50 @@ const PageAbout: PageWithLayout = () => {
   return (
     <>
       <CommonHeader title="About" />
-      <Container
-        className={style.wrapper}
-        sx={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'space-around',
-          alignItems: 'center',
-        }}
-      >
+      <div className={style.wrapper}>
         <Particles
           className={style.particles}
           init={particlesInit}
           options={particlesOptions}
           data-testid="background"
         />
-        <div>
-          <Atropos className={style.avatar} alwaysActive={true}>
-            <Image data-testid="avatar" src="/avatar.png" alt="avatar" fill />
-          </Atropos>
-        </div>
+        <Atropos className={style.avatar} alwaysActive={true}>
+          <Image data-testid="avatar" src="/avatar.png" alt="avatar" fill />
+        </Atropos>
         <div className={style['text-area']} data-testid="description">
-          <div className={style.title}>
+          <Text className={style.title}>
             Hi
             <br />
             I&apos;m <span className={style.name}>Roger</span>
-          </div>
-          <div className={style.role}>
+          </Text>
+          <Text className={style.role}>
             A <span className={style.typed} ref={typedEl} />
-          </div>
-          <div className={style['btn-wrapper']}>
+          </Text>
+          <div>
             <Button
-              size="large"
-              variant="contained"
-              sx={linkButtonStyle}
-              href="https://github.com/roger-twan"
-              target="_blank"
-            >
-              <GitHubIcon />
-            </Button>
+              auto
+              type="secondary-light"
+              onClick={() =>
+                window.open('https://github.com/roger-twan', '_blank')
+              }
+              icon={<Github />}
+            />
+            <Spacer w={0.5} inline />
             <Button
-              size="large"
-              variant="contained"
-              sx={linkButtonStyle}
-              href="https://www.linkedin.com/in/roger-twan"
-              target="_blank"
-            >
-              <LinkedInIcon />
-            </Button>
+              auto
+              type="secondary-light"
+              onClick={() =>
+                window.open('https://www.linkedin.com/in/roger-twan', '_blank')
+              }
+              icon={<Linkedin />}
+            />
+            <Spacer w={0.5} inline />
             <Button
-              size="large"
-              variant="contained"
-              sx={linkButtonStyle}
-              href="mailto:roger.twan@gmail.com"
-              target="_blank"
-            >
-              <SvgIcon component={GmailIcon} />
-            </Button>
-            <Button
-              size="large"
-              variant="contained"
-              sx={linkButtonStyle}
-              href="https://roger.twan.life"
-              target="_blank"
-            >
-              <SvgIcon component={NotionIcon} />
-            </Button>
+              auto
+              type="secondary-light"
+              onClick={() => window.open('mailto:roger.twan@gmail.com')}
+              icon={<Mail />}
+            />
           </div>
         </div>
 
@@ -164,7 +137,7 @@ const PageAbout: PageWithLayout = () => {
             filter: blur(10px);
           }
         `}</style>
-      </Container>
+      </div>
     </>
   )
 }

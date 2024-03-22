@@ -6,7 +6,7 @@ interface HeaderProps {
 
 export default function CommonHeader(props: HeaderProps) {
   const { title } = props
-  let fullTitle = "Roger's Lab"
+  let fullTitle = "Roger's Website"
 
   if (title) {
     fullTitle = `${title} | ${fullTitle}`

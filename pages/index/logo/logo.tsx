@@ -12,7 +12,7 @@ export default function Logo(props: LogoProps) {
   const [isLogoLoaded, setIsLogoLoaded] = useState<Boolean>(false)
 
   const renderLogo = () => {
-    const size = { width: 360, height: 260 }
+    const size = { width: 320, height: 240 }
     const draw = SVG().addTo(`.${style.logo}`).size(size.width, size.height)
     const rect = draw.rect(size.width, size.height).fill('#fff')
     const background = draw.rect(size.width, size.height).fill('#fff')
@@ -28,15 +28,21 @@ export default function Logo(props: LogoProps) {
     )
 
     const text = draw.text((add) => {
-      add.tspan(`OGER'S`).attr({ dx: 90, y: 118 })
-      add.tspan('LAB').newLine().attr({ dx: 47, y: 110 })
+      add.tspan(`OGER`).attr({ dx: 90, y: 118 })
     })
     text.font({
       size: 60,
       weight: 500,
     })
 
-    const mask = draw.mask().add(background).add(logo).add(text)
+    const slogan = draw.text((add) => {
+      add.tspan('LESS IS MORE').attr({ dx: 54, y: 156 })
+    })
+    slogan.font({
+      size: 28,
+    })
+
+    const mask = draw.mask().add(background).add(logo).add(text).add(slogan)
     rect.maskWith(mask)
     setIsLogoLoaded(true)
 
@@ -46,6 +52,7 @@ export default function Logo(props: LogoProps) {
       background.animate(300).attr({ fill: '#000' })
       logo.attr({ fill: '#fff' })
       text.attr({ fill: '#fff' })
+      slogan.attr({ fill: '#fff' })
     })
     rect.on('mouseout', () => {
       handleMouseOut?.()
@@ -53,6 +60,7 @@ export default function Logo(props: LogoProps) {
       background.animate(300).attr({ fill: '#fff' })
       logo.attr({ fill: '#000' })
       text.attr({ fill: '#000' })
+      slogan.attr({ fill: '#000' })
     })
   }
 

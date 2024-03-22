@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { PropsWithChildren } from 'react'
 import style from './layout.module.scss'
-import { Home as HomeIcon } from '@mui/icons-material'
 import { useSearchParams } from 'next/navigation'
+import { Home } from '@geist-ui/icons'
 
 export default function Layout({ children }: PropsWithChildren<{}>) {
   const isPure = useSearchParams().get('pure')
@@ -11,12 +11,7 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
     <div className={style.layout}>
       {!isPure && (
         <Link href="/" className={style['back-home']}>
-          <HomeIcon
-            sx={{
-              color: '#fff',
-              fontSize: '20px',
-            }}
-          />
+          <Home />
         </Link>
       )}
       {children}

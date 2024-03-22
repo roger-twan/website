@@ -1,7 +1,6 @@
 import Layout from '@/components/layout'
 import { ReactElement, useEffect, useState } from 'react'
 import type { PageWithLayout } from '../_app.page'
-import { CircularProgress, LinearProgress } from '@mui/material'
 import CommonHeader from '@/components/commonHeader'
 import {
   GoogleMap,
@@ -15,8 +14,10 @@ import { CustomMarker, MarkerClickEvent } from './custom-marker'
 import { CustomRoute, RouteClickEvent } from './custom-route'
 import { CustomInfoWindow, WindowInfo } from './custom-info-window'
 import CustomAutocomplete from './custom-autocomplete'
+import { Spinner } from '@geist-ui/core'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
+const MAP_ID = '7f8977a18f38d728'
 
 const PageTrack: PageWithLayout = () => {
   const [isTilesLoaded, setIsTilesLoaded] = useState<boolean>(false)
@@ -25,7 +26,7 @@ const PageTrack: PageWithLayout = () => {
     lat: 0,
     lng: 0,
   })
-  const { data, error, isLoading } = useSWRImmutable(
+  const { data } = useSWRImmutable(
     'https://kml.twan.life/api/get_activities',
     fetcher
   )
@@ -68,11 +69,11 @@ const PageTrack: PageWithLayout = () => {
   const { isLoaded } = useLoadScript({
     id: 'google-map-script',
     libraries: ['places'],
-    mapIds: ['7f8977a18f38d728'],
+    mapIds: [MAP_ID],
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY as string,
   })
   const mapOptions = {
-    mapId: '7f8977a18f38d728',
+    mapId: MAP_ID,
     zoomControl: true,
     streetViewControl: false,
     mapTypeControl: false,
@@ -110,7 +111,7 @@ const PageTrack: PageWithLayout = () => {
       position: e.position,
       type: 'route',
       content: {
-        icon: e.icon,
+        // icon: e.icon,
         duration: e.duration,
         distance: e.distance,
         tripMode: e.tripMode,
@@ -121,11 +122,9 @@ const PageTrack: PageWithLayout = () => {
   return (
     <>
       <CommonHeader title="Track" />
-
-      {isLoading && <LinearProgress className={style['linear-progress']} />}
       {!isTilesLoaded && (
         <div className={style.mask}>
-          <CircularProgress size={100} />
+          <Spinner className={style['spinner']} />
         </div>
       )}
 

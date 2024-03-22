@@ -1,6 +1,6 @@
 import { Mesh, MeshPhongMaterial } from 'three'
 import CONFIG from '../../../_config'
-import generateCubeShape from '@/utils/generateCubeShape'
+import generateCubeShape from '@/pages/portfolios/3d/generateCubeShape'
 
 const cube = generateCubeShape(
   CONFIG.house.size.width,

@@ -11,10 +11,8 @@
     "cm": "cz"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
-    "@mui/icons-material": "^5.11.9",
-    "@mui/material": "^5.11.10",
+    "@geist-ui/core": "^2.3.8",
+    "@geist-ui/icons": "^1.0.2",
     "@next/font": "13.1.6",
     "@react-google-maps/api": "^2.19.2",
     "@svgdotjs/svg.js": "^3.1.2",
@@ -24,6 +22,7 @@
     "atropos": "^1.0.2",
     "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
+    "inter-ui": "^4.0.2",
     "next": "13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
