@@ -96,7 +96,7 @@ const PageAbout: PageWithLayout = () => {
         </Atropos>
         <div className={style['text-area']} data-testid="description">
           <Text className={style.title}>
-            Hi
+            Hi,
             <br />
             I&apos;m <span className={style.name}>Roger</span>
           </Text>

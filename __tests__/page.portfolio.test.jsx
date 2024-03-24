@@ -6,7 +6,7 @@ describe('Page Portfolio', () => {
   render(<Portfolio />)
 
   it('Text rendered', () => {
-    const text = screen.getByText('Music Player')
+    const text = screen.getByText('Roger Music')
     expect(text).toBeInTheDocument()
   })
 })

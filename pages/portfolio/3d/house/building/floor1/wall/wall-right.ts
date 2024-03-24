@@ -1,6 +1,6 @@
 import { Mesh, MeshPhongMaterial } from 'three'
 import CONFIG from '../../../_config'
-import generateCubeShape from '@/pages/portfolios/3d/generateCubeShape'
+import generateCubeShape from '@/pages/portfolio/3d/generateCubeShape'
 
 const cube = generateCubeShape(
   CONFIG.house.size.depth - CONFIG.house.wall.externalDepth * 2,
@@ -9,8 +9,7 @@ const cube = generateCubeShape(
 )
 
 const material = new MeshPhongMaterial({ color: CONFIG.house.wall.color })
-const leftWall = new Mesh(cube, material)
-leftWall.position.x = CONFIG.house.wall.externalDepth
-leftWall.position.z = CONFIG.house.size.width - CONFIG.house.wall.externalDepth
+const rightWall = new Mesh(cube, material)
+rightWall.position.x = CONFIG.house.wall.externalDepth
 
-export default leftWall
+export default rightWall
