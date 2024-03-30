@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import CommonHeader from '@/components/commonHeader'
+import CommonHeader from '@/components/common-header'
 import style from './index.module.scss'
 import Logo from './logo/logo'
 import Nav from './nav/nav'

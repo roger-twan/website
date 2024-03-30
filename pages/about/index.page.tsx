@@ -9,7 +9,7 @@ import style from './about.module.scss'
 import 'atropos/scss'
 import Image from 'next/image'
 import type { PageWithLayout } from '../_app.page'
-import CommonHeader from '@/components/commonHeader'
+import CommonHeader from '@/components/common-header'
 import { Button, Spacer, Text } from '@geist-ui/core'
 import { Github, Linkedin, Mail } from '@geist-ui/icons'
 

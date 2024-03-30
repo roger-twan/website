@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import CommonHeader from '@/components/commonHeader'
+import CommonHeader from '@/components/common-header'
 
 jest.mock('next/head', () => {
   return {

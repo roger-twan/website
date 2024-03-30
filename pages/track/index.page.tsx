@@ -1,7 +1,7 @@
 import Layout from '@/components/layout'
 import { ReactElement, useEffect, useState } from 'react'
 import type { PageWithLayout } from '../_app.page'
-import CommonHeader from '@/components/commonHeader'
+import CommonHeader from '@/components/common-header'
 import {
   GoogleMap,
   useLoadScript,

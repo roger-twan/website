@@ -1,7 +1,7 @@
 import Layout from '@/components/layout'
 import { ReactElement } from 'react'
 import House from './house/index.page'
-import CommonHeader from '@/components/commonHeader'
+import CommonHeader from '@/components/common-header'
 
 const PageWeb3 = () => {
   return (
