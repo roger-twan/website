@@ -180,16 +180,26 @@
       background-color: inherit;
       border-radius: 0;
     }
+
+    .post-toc {
+      display: none;
+    }
   }
 
   :global .toc {
     ul {
+      list-style-type: none;
+      margin: 0 8pt 0 16pt;
+
       &.toc-level-1 {
         margin: 0;
       }
 
-      li::before {
-        display: none;
+      li {
+        margin-bottom: 0;
+        &::before {
+          display: none;
+        }
       }
 
       .toc-link {
@@ -204,8 +214,21 @@
   }
 }
 
-@media screen and (max-width: 728px) {
+@media screen and (max-width: 480px) {
   .post-page {
     width: auto;
+    flex-direction: column;
+
+    .post-page-main {
+      width: auto;
+
+      .post-toc {
+        display: block;
+      }
+    }
+
+    .post-page-side {
+      display: none;
+    }
   }
 }

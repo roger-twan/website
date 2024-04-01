@@ -180,11 +180,16 @@ const PagePost: PageWithLayout<Props> = (prop: Props) => {
           </Text>
         </div>
         <Divider />
+        <div className={style['post-toc']}>
+          <Text b>Table of Contents</Text>
+          {renderTOC(prop.postToc)}
+        </div>
         <MDXRemote {...prop.content} />
       </div>
       {hasToc(prop.postToc) && (
         <div className={style['post-page-side']}>
           <div className={style['post-page-side-content']}>
+            <Text b>Table of Contents</Text>
             {renderTOC(prop.postToc)}
           </div>
         </div>
