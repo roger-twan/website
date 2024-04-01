@@ -32,7 +32,7 @@ const _fetchPosts = async () => {
   const result: Post[] = []
   for (const folder of Object.keys(_folders)) {
     const folderData = await notesReposReq('/contents/{path}', {
-      path: folder,
+      path: decodeURIComponent(folder),
     })
 
     for (const post of folderData.data) {
