@@ -5,7 +5,7 @@
   margin: 0 auto;
 
   .post-page-main {
-    padding: 0 10px 40px 10px;
+    padding: 0 16px 40px;
     width: 748px;
 
     .post-info-tags {
@@ -76,13 +76,14 @@
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
+        word-break: break-all;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
       }
     }
 
     .thumbnail {
-      margin-left: 60px;
+      margin-left: 4vw;
 
       div {
         border-radius: 0;
@@ -128,6 +129,7 @@
     h1 {
       margin-top: 1rem;
       font-size: 2.2rem;
+      line-height: 1;
     }
 
     table {

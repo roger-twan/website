@@ -160,11 +160,18 @@ const PagePost: PageWithLayout<Props> = (prop: Props) => {
         <Text h1>{prop.title}</Text>
         <div className={style['post-info-tags']}>
           <div>
-            <Tag style={{ marginRight: '8px' }} type="lite">
+            <Tag
+              style={{ marginRight: '8px', marginBottom: '4px' }}
+              type="lite"
+            >
               {prop.category}
             </Tag>
             {prop.tags.map((tag: string) => (
-              <Tag key={tag} style={{ marginRight: '8px' }} type="secondary">
+              <Tag
+                key={tag}
+                style={{ marginRight: '8px', marginBottom: '4px' }}
+                type="secondary"
+              >
                 {tag}
               </Tag>
             ))}
