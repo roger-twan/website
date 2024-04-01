@@ -14,7 +14,7 @@ describe('Component Layout', () => {
   it('Route rendered correctly', () => {
     render(<Layout />)
 
-    const link = screen.getByRole('link')
-    expect(link).toHaveAttribute('href', '/')
+    const homeLink = screen.getAllByRole('link')[0]
+    expect(homeLink).toHaveAttribute('href', '/')
   })
 })

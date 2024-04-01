@@ -1,5 +1,5 @@
-.linear-progress {
-  position: fixed !important;
+.loading {
+  position: fixed;
   top: 0;
   width: 100vw;
 }
@@ -14,6 +14,11 @@
   justify-content: center;
   align-items: center;
   z-index: 1;
+
+  .spinner {
+    width: 50px !important;
+    height: 50px !important;
+  }
 }
 
 .activity-info {

@@ -11,7 +11,7 @@ type RouteContent = {
   duration: number | null
   distance: number | null
   tripMode: number
-  icon: ReactElement
+  // icon: ReactElement
 }
 
 type WindowInfo = {
@@ -65,7 +65,7 @@ const CustomInfoWindow = (props: InfoWindowProps) => {
         {/* route */}
         {windowInfo.type === 'route' && (
           <p className={style['activity-info']}>
-            {(windowInfo.content as RouteContent).icon}
+            {/* {(windowInfo.content as RouteContent).icon} */}
             <span>
               <b>{(windowInfo.content as RouteContent).distance}</b> kilometers
             </span>
