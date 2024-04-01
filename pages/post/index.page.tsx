@@ -21,61 +21,45 @@ interface TagsCount {
   [tagName: string]: number
 }
 
-interface Category {
-  name: string
+interface CategoryInfo {
   count: number
   tagsCount: TagsCount
 }
 
+interface Categories {
+  [categoryName: string]: CategoryInfo
+}
+
 interface Props {
   list: Post[]
-  categories: Category[]
+  categories: Categories
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   const postsData: Post[] = await getPosts()
-  const categories: Category[] = [
-    {
-      name: 'Technical',
-      count: 0,
-      tagsCount: {},
-    },
-    {
-      name: 'General',
-      count: 0,
-      tagsCount: {},
-    },
-    {
-      name: 'Reading',
-      count: 0,
-      tagsCount: {},
-    },
-    {
-      name: 'Life',
-      count: 0,
-      tagsCount: {},
-    },
-  ]
+  const categories: Categories = {}
 
   for (const post of postsData) {
     const { category, tags } = post
-    const categoryInfo = categories.find((item) => item.name === category)
-    const categoryIndex = categories.findIndex((item) => item.name === category)
 
-    if (categoryInfo) {
-      for (let tag of tags) {
-        if (categoryInfo.tagsCount[tag]) {
-          categoryInfo.tagsCount[tag] = ++categoryInfo.tagsCount[tag]
-        } else {
-          categoryInfo.tagsCount[tag] = 1
-        }
+    if (!categories[category]) {
+      categories[category] = {
+        count: 0,
+        tagsCount: {},
       }
-
-      categories.splice(categoryIndex, 1, {
-        ...categoryInfo,
-        count: categoryInfo.count + 1,
-      })
     }
+
+    for (let tag of tags) {
+      if (categories[category].tagsCount[tag]) {
+        categories[category].tagsCount[tag] = ++categories[category].tagsCount[
+          tag
+        ]
+      } else {
+        categories[category].tagsCount[tag] = 1
+      }
+    }
+
+    categories[category].count = categories[category].count + 1
   }
 
   return { props: { list: postsData, categories } }
@@ -210,32 +194,30 @@ const PagePostList: PageWithLayout<Props> = ({ list, categories }: Props) => {
       <div className={style['post-page-side']}>
         <div className={style['post-page-side-content']}>
           <Tree initialExpand>
-            {categories.map((item: Category) => (
+            {Object.keys(categories).map((item: string) => (
               <Tree.Folder
-                name={item.name}
-                extra={item.count.toString()}
-                key={item.name}
+                name={item}
+                extra={categories[item].count.toString()}
+                key={item}
               >
                 <Tree.File
                   name="# All"
-                  onClick={() => onTagClick(item.name)}
+                  onClick={() => onTagClick(item)}
                   className={
-                    selectedCategory === item.name
-                      ? 'category-tag-selected'
-                      : ''
+                    selectedCategory === item ? 'category-tag-selected' : ''
                   }
                 />
-                {Object.keys(item.tagsCount).map((tag: string) => (
+                {Object.keys(categories[item].tagsCount).map((tag: string) => (
                   <Tree.File
                     name={`${tag}`}
-                    extra={item.tagsCount[tag].toString()}
+                    extra={categories[item].tagsCount[tag].toString()}
                     key={tag}
                     className={
-                      selectedTag === `${item.name}/${tag}`
+                      selectedTag === `${item}/${tag}`
                         ? 'category-tag-selected'
                         : ''
                     }
-                    onClick={() => onTagClick(`${item.name}/${tag}`)}
+                    onClick={() => onTagClick(`${item}/${tag}`)}
                   />
                 ))}
               </Tree.Folder>

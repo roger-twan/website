@@ -15,24 +15,15 @@ interface Post {
   rating: string
 }
 
-interface Folder {
-  [key: string]: string
-}
-
-const _folders: Folder = {
-  '🧐 Technical': 'Technical',
-  '😇 General': 'General',
-  '📚 Reading': 'Reading',
-  '🎬 Life Record': 'Life',
-}
+const _folders: string[] = ['Technical', 'General', 'Reading', 'Living']
 
 let _data: Post[] = []
 
 const _fetchPosts = async () => {
   const result: Post[] = []
-  for (const folder of Object.keys(_folders)) {
+  for (const folder of _folders) {
     const folderData = await notesReposReq('/contents/{path}', {
-      path: decodeURIComponent(folder),
+      path: folder,
     })
 
     for (const post of folderData.data) {
@@ -68,9 +59,9 @@ const _fetchPosts = async () => {
         }
 
         result.push({
-          id: _folders[folder] + '__' + post.name.replace('.md', ''),
+          id: folder + '__' + post.name.replace('.md', ''),
           title: post.name.replace('.md', ''),
-          category: _folders[folder],
+          category: folder,
           date: String(metadata.date || metadata['start date'] || ''),
           startDate: String(metadata['start date'] || ''),
           endDate: String(metadata['end date'] || ''),
