@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import { InfoWindow } from '@react-google-maps/api'
-import style from './track.module.scss'
+import style from './trial.module.scss'
 
 type MarkerContent = {
   name: string

@@ -9,7 +9,7 @@ import {
   BicyclingLayer,
 } from '@react-google-maps/api'
 import useSWRImmutable from 'swr/immutable'
-import style from './track.module.scss'
+import style from './trail.module.scss'
 import { CustomMarker, MarkerClickEvent } from './custom-marker'
 import { CustomRoute, RouteClickEvent } from './custom-route'
 import { CustomInfoWindow, WindowInfo } from './custom-info-window'
@@ -19,7 +19,7 @@ import { Spinner } from '@geist-ui/core'
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 const MAP_ID = '7f8977a18f38d728'
 
-const PageTrack: PageWithLayout = () => {
+const PageTrail: PageWithLayout = () => {
   const [isTilesLoaded, setIsTilesLoaded] = useState<boolean>(false)
   const [windowInfo, setWindowInfo] = useState<WindowInfo | null>(null)
   const [centerPoint, setCenterPoint] = useState({
@@ -30,7 +30,7 @@ const PageTrack: PageWithLayout = () => {
     'https://kml.twan.life/api/get_activities',
     fetcher
   )
-  const trackData = {
+  const trailData = {
     activities: data?.activities || {},
     routes: data?.routes
       ? data.routes.map((route: any) => {
@@ -121,7 +121,7 @@ const PageTrack: PageWithLayout = () => {
 
   return (
     <>
-      <CommonHeader title="Track" />
+      <CommonHeader title="Trail" />
       {!isTilesLoaded && (
         <div className={style.mask}>
           <Spinner className={style['spinner']} />
@@ -140,7 +140,7 @@ const PageTrack: PageWithLayout = () => {
           <BicyclingLayer />
           <CustomAutocomplete onSearch={setCenterPoint} />
 
-          {trackData.locations.map((location: any, index: number) => (
+          {trailData.locations.map((location: any, index: number) => (
             <CustomMarker
               key={index}
               activityId={location.activity_id}
@@ -150,7 +150,7 @@ const PageTrack: PageWithLayout = () => {
               click={onMarkClick}
             />
           ))}
-          {trackData.routes.map((route: any, index: number) => (
+          {trailData.routes.map((route: any, index: number) => (
             <CustomRoute
               key={index}
               activityId={route.activity_id}
@@ -164,7 +164,7 @@ const PageTrack: PageWithLayout = () => {
           {windowInfo && (
             <CustomInfoWindow
               windowInfo={windowInfo}
-              activityInfo={trackData.activities[windowInfo.activityId]}
+              activityInfo={trailData.activities[windowInfo.activityId]}
               onClose={() => setWindowInfo(null)}
             />
           )}
@@ -174,6 +174,6 @@ const PageTrack: PageWithLayout = () => {
   )
 }
 
-PageTrack.getLayout = (page: ReactElement) => <Layout>{page}</Layout>
+PageTrail.getLayout = (page: ReactElement) => <Layout>{page}</Layout>
 
-export default PageTrack
+export default PageTrail

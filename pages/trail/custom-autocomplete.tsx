@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Autocomplete } from '@react-google-maps/api'
-import style from './track.module.scss'
+import style from './trail.module.scss'
 
 type CustomAutocompleteProps = {
   onSearch?: (point: { lat: number; lng: number }) => void

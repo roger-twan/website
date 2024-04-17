@@ -16,8 +16,8 @@ const NAV_LIST: NavItem[] = [
   //   route: '/guitar',
   // },
   {
-    title: 'TRACK',
-    route: '/track',
+    title: 'TRAIL',
+    route: '/trail',
   },
   // {
   //   title: 'JOURNAL',
