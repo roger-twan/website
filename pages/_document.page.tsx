@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export default function Document() {
   return (
@@ -8,6 +9,7 @@ export default function Document() {
       </Head>
       <body>
         <Main />
+        <GoogleAnalytics gaId="G-NZ1BEZY4HW" />
         <NextScript />
       </body>
     </Html>
