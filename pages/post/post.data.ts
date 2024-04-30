@@ -62,7 +62,7 @@ const _fetchPosts = async () => {
           id: folder + '__' + post.name.replace('.md', ''),
           title: post.name.replace('.md', ''),
           category: folder,
-          date: String(metadata.date || metadata['start date'] || ''),
+          date: String(metadata.date || metadata['end date'] || ''),
           startDate: String(metadata['start date'] || ''),
           endDate: String(metadata['end date'] || ''),
           tags: metadata.tags.map((tag: string) => tag.split('/')[1]) || [],
