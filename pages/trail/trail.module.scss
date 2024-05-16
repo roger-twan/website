@@ -1,46 +1,9 @@
-.loading {
-  position: fixed;
-  top: 0;
-  width: 100vw;
-}
-
-.mask {
-  position: fixed;
-  top: 0;
-  width: 100vw;
+.map-container {
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
 
-  .spinner {
-    width: 50px !important;
-    height: 50px !important;
-  }
-}
-
-.activity-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navigator {
-  position: absolute;
-  padding: 6px;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  top: 10px;
-  left: 50%;
-  margin-left: -148px;
-  background-color: white;
-
-  input {
-    width: 240px;
-    padding: 2px 6px;
-    border: 1px solid transparent;
-    outline: none;
+  :global .text-muted {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0;
   }
 }

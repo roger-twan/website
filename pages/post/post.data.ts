@@ -13,6 +13,7 @@ interface Post {
   startDate: string
   endDate: string
   rating: string
+  trail: string
 }
 
 const _folders: string[] = ['Technical', 'General', 'Reading', 'Living']
@@ -68,6 +69,7 @@ const _fetchPosts = async () => {
           tags: metadata.tags.map((tag: string) => tag.split('/')[1]) || [],
           thumbnail: thumbnail,
           rating: metadata.rating || '',
+          trail: metadata.Trail || '',
           description: content
             .replace(/<[^>]+>/g, '') // remove html
             .replace(/!\[.*\]\((.*)\)/g, '') // remove image
