@@ -89,6 +89,10 @@ const geoJsonProperties = (trail: Trail) => {
     onEachFeature: (feature: any, layer: any) => {
       feature.properties.name && layer.bindTooltip(feature.properties.name)
       layer.bindPopup(getTrailPopup(trail))
+      layer.on({
+        mouseover: (e: any) => e.target.setStyle({ weight: 6 }),
+        mouseout: (e: any) => e.target.setStyle({ weight: 3 }),
+      })
     },
   }
 }
