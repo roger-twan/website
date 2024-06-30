@@ -97,7 +97,13 @@ const geoJsonProperties = (trail: Trail) => {
   }
 }
 
-const MapComponent = ({ list }: { list: Trail[] }) => {
+const MapComponent = ({
+  list,
+  onReady,
+}: {
+  list: Trail[]
+  onReady?: () => void
+}) => {
   return (
     <MapContainer
       center={DEFAULT_CENTER}
@@ -106,6 +112,7 @@ const MapComponent = ({ list }: { list: Trail[] }) => {
       className={style['map-container']}
       attributionControl={false}
       zoomControl={false}
+      whenReady={() => onReady && onReady()}
     >
       <ZoomControl position="bottomright" />
       <CurrentLocation />
