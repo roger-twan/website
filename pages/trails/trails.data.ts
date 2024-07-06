@@ -1,7 +1,7 @@
 import { notesReposReq } from '@/utils/octokit'
 import metadataParser from 'markdown-yaml-metadata-parser'
 import { parse as yamlParser } from 'yaml'
-import { Post, getPosts } from '../post/post.data'
+import { Post, getPosts } from '../posts/posts.data'
 
 enum Mode {
   Air = 'Air',

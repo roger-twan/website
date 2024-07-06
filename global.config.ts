@@ -1,11 +1,11 @@
 const NAV_LIST: NavItem[] = [
   {
-    title: 'POST',
-    route: '/post',
+    title: 'POSTS',
+    route: '/posts',
   },
   {
-    title: 'PORTFOLIO',
-    route: '/portfolio',
+    title: 'PORTFOLIOS',
+    route: '/portfolios',
   },
   // {
   //   title: 'GALLERY',
@@ -16,8 +16,8 @@ const NAV_LIST: NavItem[] = [
   //   route: '/guitar',
   // },
   {
-    title: 'TRAIL',
-    route: '/trail',
+    title: 'TRAILS',
+    route: '/trails',
   },
   // {
   //   title: 'JOURNAL',

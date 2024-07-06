@@ -2,7 +2,7 @@ import { ReactElement, useEffect, useState } from 'react'
 import { GetStaticProps } from 'next'
 import Layout from '@/components/layout'
 import type { PageWithLayout } from '../_app.page'
-import style from './post.module.scss'
+import style from './posts.module.scss'
 import {
   Text,
   Image,
@@ -15,7 +15,7 @@ import {
 import { compareAsc, format } from 'date-fns'
 import CommonHeader from '@/components/common-header'
 import { ChevronLeft, ChevronRight } from '@geist-ui/icons'
-import { Post, getPosts } from './post.data'
+import { Post, getPosts } from './posts.data'
 
 interface TagsCount {
   [tagName: string]: number

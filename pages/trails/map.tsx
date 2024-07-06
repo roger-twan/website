@@ -11,9 +11,9 @@ import {
 } from 'react-leaflet'
 import Leaflet, { LatLngTuple } from 'leaflet'
 import 'leaflet/dist/leaflet.css'
-import style from './trail.module.scss'
+import style from './trails.module.scss'
 import CurrentLocation from './current-location'
-import { Mode, Trail } from './trail.data'
+import { Mode, Trail } from './trails.data'
 import { gpx } from '@tmcw/togeojson'
 import { format } from 'date-fns'
 

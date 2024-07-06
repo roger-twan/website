@@ -4,9 +4,9 @@ import { ReactElement, useState } from 'react'
 import type { PageWithLayout } from '../_app.page'
 import CommonHeader from '@/components/common-header'
 import { GetStaticProps } from 'next'
-import { Trail, getTrails } from './trail.data'
+import { Trail, getTrails } from './trails.data'
 import { Grid, Loading } from '@geist-ui/core'
-import style from './trail.module.scss'
+import style from './trails.module.scss'
 
 const MapComponent = dynamic(() => import('./map'), { ssr: false })
 
