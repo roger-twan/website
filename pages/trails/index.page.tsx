@@ -25,7 +25,7 @@ const PageTrail: PageWithLayout<Props> = ({ list }: Props) => {
 
   return (
     <>
-      <CommonHeader title="Trail" />
+      <CommonHeader title="Trails" />
       {!isMapReady && (
         <Grid.Container gap={2.5} className={style['map-loading']}>
           <Grid xs={24}>

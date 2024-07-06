@@ -111,7 +111,7 @@ const PagePostList: PageWithLayout<Props> = ({ list, categories }: Props) => {
 
   return (
     <div className={`${style['post-page']} ${style['post-page-list']}`}>
-      <CommonHeader title="Post List" />
+      <CommonHeader title="Posts" />
       <div className={style['post-page-main']}>
         <ul>
           {postList.map((item: Post) => {
