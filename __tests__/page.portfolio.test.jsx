@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import Portfolio from '@/pages/portfolios/index.page.tsx'
+import Portfolio from '@/pages/portfolio/index.page.tsx'
 
-describe('Page Portfolios', () => {
+describe('Page Portfolio', () => {
   render(<Portfolio />)
 
   it('Text rendered', () => {

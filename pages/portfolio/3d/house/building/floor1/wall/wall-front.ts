@@ -1,6 +1,6 @@
 import { Mesh, MeshPhongMaterial } from 'three'
 import CONFIG from '../../../_config'
-import generateCubeShape from '@/pages/portfolios/3d/generate-cube-shape'
+import generateCubeShape from '@/pages/portfolio/3d/generate-cube-shape'
 import garageGate from '../garage/gate'
 import livingRoomFrontDoor from '../living-room/front-door'
 

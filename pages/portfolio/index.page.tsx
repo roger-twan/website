@@ -5,12 +5,12 @@ import Image from 'next/image'
 import projectList, { ProjectInfo } from './project-list.data'
 import { Card, Link, Page, Text, Tag } from '@geist-ui/core'
 import { Infinity } from '@geist-ui/icons'
-import style from './portfolios.module.scss'
+import style from './portfolio.module.scss'
 
-const PagePortfolios = () => {
+const PagePortfolio = () => {
   return (
     <Page>
-      <CommonHeader title="Portfolios" />
+      <CommonHeader title="Portfolio" />
       <div className={style['project-list']}>
         {projectList.map((item: ProjectInfo) => (
           <Card hoverable className={style['project-card']} key={item.title}>
@@ -67,8 +67,8 @@ const PagePortfolios = () => {
   )
 }
 
-PagePortfolios.getLayout = (page: ReactElement) => {
+PagePortfolio.getLayout = (page: ReactElement) => {
   return <Layout>{page}</Layout>
 }
 
-export default PagePortfolios
+export default PagePortfolio

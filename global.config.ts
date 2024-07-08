@@ -4,8 +4,8 @@ const NAV_LIST: NavItem[] = [
     route: '/posts',
   },
   {
-    title: 'PORTFOLIOS',
-    route: '/portfolios',
+    title: 'PORTFOLIO',
+    route: '/portfolio',
   },
   // {
   //   title: 'GALLERY',

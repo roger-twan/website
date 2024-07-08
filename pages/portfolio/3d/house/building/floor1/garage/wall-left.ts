@@ -1,21 +1,20 @@
 import { Mesh, MeshPhongMaterial } from 'three'
 import CONFIG from '../../../_config'
-import generateCubeShape from '@/pages/portfolios/3d/generate-cube-shape'
+import generateCubeShape from '@/pages/portfolio/3d/generate-cube-shape'
 
 const cube = generateCubeShape(
-  CONFIG.house.floor1.garage.size.width + CONFIG.house.wall.internalDepth,
+  CONFIG.house.floor1.garage.size.depth,
   CONFIG.house.floor1.height,
   CONFIG.house.wall.internalDepth
 )
 
 const material = new MeshPhongMaterial({ color: CONFIG.house.wall.color })
-const backWall = new Mesh(cube, material)
-
-backWall.rotateY(-Math.PI / 2)
-backWall.position.x =
+const leftWall = new Mesh(cube, material)
+leftWall.position.x =
   CONFIG.house.size.depth -
   CONFIG.house.floor1.garage.size.width -
   CONFIG.house.wall.externalDepth
-backWall.position.z = CONFIG.house.wall.externalDepth
+leftWall.position.z =
+  CONFIG.house.floor1.garage.size.width + CONFIG.house.wall.externalDepth
 
-export default backWall
+export default leftWall
