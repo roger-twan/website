@@ -37,7 +37,7 @@ interface Props {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const postList = await getPosts()
-  const paths = postList.map((post) => ({ params: { post: post.id } }))
+  const paths = postList.map((post) => ({ params: { posts: post.id } }))
   return { paths, fallback: false }
 }
 
