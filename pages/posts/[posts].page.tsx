@@ -43,7 +43,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (content) => {
   const postList = await getPosts()
-  const post = postList.find((post) => post.id === content.params?.post)
+  const post = postList.find((post) => post.id === content.params?.posts)
+  console.log(post)
   let postToc
   const ctx = await serialize(post?.content || '', {
     mdxOptions: {
