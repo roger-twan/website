@@ -70,7 +70,7 @@ const getTrailPopup = (trail: Trail) => {
   `
 
   trail.relativePost &&
-    (content += `Post: <a href="/post/${trail.relativePost.id}" target="_blank">${trail.relativePost.title}</a>`)
+    (content += `Post: <a href="/posts/${trail.relativePost.id}" target="_blank">${trail.relativePost.title}</a>`)
 
   return content
 }

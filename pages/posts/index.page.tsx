@@ -119,13 +119,13 @@ const PagePostList: PageWithLayout<Props> = ({ list, categories }: Props) => {
               <li key={item.title}>
                 <div className={style['post-list-item']}>
                   <div className={style['post-info']}>
-                    <Link href={`/post/${item.id}`} target="_blank">
+                    <Link href={`/posts/${item.id}`} target="_blank">
                       <Text h3 className={style['post-title']}>
                         {item.title}
                       </Text>
                     </Link>
 
-                    <Link href={`/post/${item.id}`} target="_blank">
+                    <Link href={`/posts/${item.id}`} target="_blank">
                       <Text p className={style['post-description']}>
                         {item.description}
                       </Text>
@@ -159,7 +159,7 @@ const PagePostList: PageWithLayout<Props> = ({ list, categories }: Props) => {
                   </div>
                   {item.thumbnail && (
                     <Link
-                      href={`/post/${item.id}`}
+                      href={`/posts/${item.id}`}
                       target="_blank"
                       className={style['thumbnail']}
                     >
