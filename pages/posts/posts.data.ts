@@ -83,7 +83,7 @@ const _fetchPosts = async () => {
             .slice(0, 300),
           content: content
             .replace(/\$(\S[^\$\n]+\S)\$/g, '$$$$$1$$$') // replace math expression
-            .replace('plantuml-svg', 'plantuml'),
+            .replaceAll('plantuml-svg', 'plantuml'),
         })
       }
     }
