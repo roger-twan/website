@@ -3,27 +3,17 @@ import { GetStaticProps } from 'next'
 import Layout from '@/components/layout'
 import type { PageWithLayout } from '../_app.page'
 import style from './posts.module.scss'
-import {
-  Text,
-  Image,
-  Divider,
-  Link,
-  Tag,
-  Tree,
-  Pagination,
-} from '@geist-ui/core'
 import { compareAsc, format } from 'date-fns'
 import CommonHeader from '@/components/common-header'
-import { ChevronLeft, ChevronRight } from '@geist-ui/icons'
 import { Post, getPosts } from './posts.data'
 
-interface TagsCount {
+interface spansCount {
   [tagName: string]: number
 }
 
 interface CategoryInfo {
   count: number
-  tagsCount: TagsCount
+  tagsCount: spansCount
 }
 
 interface Categories {
@@ -69,7 +59,7 @@ const PagePostList: PageWithLayout<Props> = ({ list, categories }: Props) => {
   const [page, setPage] = useState(1)
   const [pageSize, setPageSize] = useState(10)
   const [total, setTotal] = useState(0)
-  const [selectedTag, setSelectedTag] = useState('')
+  const [selectedspan, setSelectedspan] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('')
   const [postList, setPostList] = useState<Post[]>([])
 
@@ -78,8 +68,8 @@ const PagePostList: PageWithLayout<Props> = ({ list, categories }: Props) => {
       compareAsc(new Date(b.date), new Date(a.date))
     )
 
-    if (selectedTag) {
-      const info = selectedTag.split('/')
+    if (selectedspan) {
+      const info = selectedspan.split('/')
       result = result.filter(
         (item) => item.category === info[0] && item.tags.includes(info[1])
       )
@@ -92,22 +82,22 @@ const PagePostList: PageWithLayout<Props> = ({ list, categories }: Props) => {
     window.scrollTo(0, 0)
   }
 
-  const onTagClick = (tag: string) => {
+  const onspanClick = (tag: string) => {
     setPage(1)
     setTotal(0)
 
     if (tag.indexOf('/') > -1) {
       setSelectedCategory('')
-      setSelectedTag(selectedTag === tag ? '' : tag)
+      setSelectedspan(selectedspan === tag ? '' : tag)
     } else {
-      setSelectedTag('')
+      setSelectedspan('')
       setSelectedCategory(selectedCategory === tag ? '' : tag)
     }
   }
 
   useEffect(() => {
     setList()
-  }, [list, page, pageSize, selectedTag, selectedCategory])
+  }, [list, page, pageSize, selectedspan, selectedCategory])
 
   return (
     <div className={`${style['post-page']} ${style['post-page-list']}`}>
@@ -119,110 +109,74 @@ const PagePostList: PageWithLayout<Props> = ({ list, categories }: Props) => {
               <li key={item.title}>
                 <div className={style['post-list-item']}>
                   <div className={style['post-info']}>
-                    <Link href={`/posts/${item.id}`} target="_blank">
-                      <Text h3 className={style['post-title']}>
-                        {item.title}
-                      </Text>
-                    </Link>
+                    <a href={`/posts/${item.id}`} target="_blank" rel="noreferrer">
+                      <p className={style['post-title']}>{item.title}</p>
+                    </a>
 
-                    <Link href={`/posts/${item.id}`} target="_blank">
-                      <Text p className={style['post-description']}>
+                    <a href={`/posts/${item.id}`} target="_blank" rel="noreferrer">
+                      <p className={style['post-description']}>
                         {item.description}
-                      </Text>
-                    </Link>
+                      </p>
+                    </a>
 
                     <div className={style['post-info-tags']}>
                       <div>
-                        <Tag
-                          style={{ marginRight: '8px' }}
-                          type="lite"
-                          scale={0.6}
-                        >
+                        <span style={{ marginRight: '8px' }}>
                           {item.category}
-                        </Tag>
+                        </span>
                         {item.tags.map((tag: string) => (
-                          <Tag
-                            key={tag}
-                            style={{ marginRight: '8px' }}
-                            type="secondary"
-                            scale={0.6}
-                          >
+                          <span key={tag} style={{ marginRight: '8px' }}>
                             {tag}
-                          </Tag>
+                          </span>
                         ))}
                         {item.rating}
                       </div>
-                      <Text type="secondary" small>
-                        {format(new Date(item.date), 'LLL dd, yyyy')}
-                      </Text>
+                      <p>{format(new Date(item.date), 'LLL dd, yyyy')}</p>
                     </div>
                   </div>
                   {item.thumbnail && (
-                    <Link
+                    <a
                       href={`/posts/${item.id}`}
                       target="_blank"
-                      className={style['thumbnail']}
+                      className={style['thumbnail']} rel="noreferrer"
                     >
-                      <Image
-                        src={item.thumbnail}
-                        width="112px"
-                        height="112px"
-                      />
-                    </Link>
+                      <img src={item.thumbnail} width="112px" height="112px" />
+                    </a>
                   )}
                 </div>
-                <Divider />
+                <hr />
               </li>
             )
           })}
         </ul>
 
-        <Pagination
-          count={Math.ceil(total / pageSize)}
-          page={page}
-          onChange={(page) => setPage(page)}
-          className={style['pagination']}
-        >
-          <Pagination.Next>
-            <ChevronRight />
-          </Pagination.Next>
-          <Pagination.Previous>
-            <ChevronLeft />
-          </Pagination.Previous>
-        </Pagination>
+        <div className={style['pagination']}>{Math.ceil(total / pageSize)}</div>
       </div>
       <div className={style['post-page-side']}>
         <div className={style['post-page-side-content']}>
-          <Tree initialExpand>
+          <div>
             {Object.keys(categories).map((item: string) => (
-              <Tree.Folder
-                name={item}
-                extra={categories[item].count.toString()}
-                key={item}
-              >
-                <Tree.File
-                  name="# All"
-                  onClick={() => onTagClick(item)}
+              <div key={item}>
+                <div
+                  onClick={() => onspanClick(item)}
                   className={
                     selectedCategory === item ? 'category-tag-selected' : ''
                   }
                 />
                 {Object.keys(categories[item].tagsCount).map((tag: string) => (
-                  <Tree.File
-                    name={`${tag}`}
-                    extra={categories[item].tagsCount[tag].toString()}
+                  <div
                     key={tag}
                     className={
-                      selectedTag === `${item}/${tag}`
+                      selectedspan === `${item}/${tag}`
                         ? 'category-tag-selected'
                         : ''
                     }
-                    onClick={() => onTagClick(`${item}/${tag}`)}
+                    onClick={() => onspanClick(`${item}/${tag}`)}
                   />
                 ))}
-              </Tree.Folder>
+              </div>
             ))}
-          </Tree>
+          </div>
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ const octokit = new Octokit({
 })
 
 const notesReposReq = (request: string, values: any, headers?: any) => {
+  return { data: [] } // TODO: delete this
   return octokit.request(`GET /repos/{owner}/{repo}${request}`, {
     owner: 'roger-twan',
     repo: 'notes',

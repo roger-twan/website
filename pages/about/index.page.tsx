@@ -10,8 +10,6 @@ import 'atropos/scss'
 import Image from 'next/image'
 import type { PageWithLayout } from '../_app.page'
 import CommonHeader from '@/components/common-header'
-import { Button, Spacer, Text } from '@geist-ui/core'
-import { Github, Linkedin, Mail } from '@geist-ui/icons'
 
 const PageAbout: PageWithLayout = () => {
   const particlesOptions = {
@@ -95,38 +93,27 @@ const PageAbout: PageWithLayout = () => {
           <Image data-testid="avatar" src="/avatar.png" alt="avatar" fill />
         </Atropos>
         <div className={style['text-area']} data-testid="description">
-          <Text className={style.title}>
+          <p className={style.title}>
             Hi,
             <br />
             I&apos;m <span className={style.name}>Roger</span>
-          </Text>
-          <Text className={style.role}>
+          </p>
+          <p className={style.role}>
             A <span className={style.typed} ref={typedEl} />
-          </Text>
+          </p>
           <div>
-            <Button
-              auto
-              type="secondary-light"
+            <button
               onClick={() =>
                 window.open('https://github.com/roger-twan', '_blank')
               }
-              icon={<Github />}
             />
-            <Spacer w={0.5} inline />
-            <Button
-              auto
-              type="secondary-light"
+            <button
               onClick={() =>
                 window.open('https://www.linkedin.com/in/roger-twan', '_blank')
               }
-              icon={<Linkedin />}
             />
-            <Spacer w={0.5} inline />
-            <Button
-              auto
-              type="secondary-light"
+            <button
               onClick={() => window.open('mailto:roger.twan@gmail.com')}
-              icon={<Mail />}
             />
           </div>
         </div>

@@ -2,7 +2,6 @@ import type { GetStaticProps, GetStaticPaths } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import { ReactElement } from 'react'
-import { Divider, Tag, Text } from '@geist-ui/core'
 import Layout from '@/components/layout'
 import CommonHeader from '@/components/common-header'
 import { PageWithLayout } from '../_app.page'
@@ -157,38 +156,34 @@ const PagePost: PageWithLayout<Props> = (prop: Props) => {
         keywords={prop.tags.join(',')}
       />
       <div className={style['post-page-main']}>
-        <Text h1>{prop.title}</Text>
+        <p>{prop.title}</p>
         <div className={style['post-info-tags']}>
           <div>
-            <Tag
-              style={{ marginRight: '8px', marginBottom: '4px' }}
-              type="lite"
-            >
+            <span style={{ marginRight: '8px', marginBottom: '4px' }}>
               {prop.category}
-            </Tag>
+            </span>
             {prop.tags.map((tag: string) => (
-              <Tag
+              <span
                 key={tag}
                 style={{ marginRight: '8px', marginBottom: '4px' }}
-                type="secondary"
               >
                 {tag}
-              </Tag>
+              </span>
             ))}
             {prop.rating}
           </div>
-          <Text type="secondary">
+          <p>
             {prop.startDate &&
               `${format(new Date(prop.startDate!), 'LLL dd, yyyy')} ~ ${format(
                 new Date(prop.endDate!),
                 'LLL dd, yyyy'
               )}`}
             {!prop.startDate && format(new Date(prop.date), 'LLL dd, yyyy')}
-          </Text>
+          </p>
         </div>
-        <Divider />
+        <hr />
         <div className={style['post-toc']}>
-          <Text b>Table of Contents</Text>
+          <p>Table of Contents</p>
           {renderTOC(prop.postToc)}
         </div>
         <MDXRemote {...prop.content} />
@@ -196,7 +191,7 @@ const PagePost: PageWithLayout<Props> = (prop: Props) => {
       {hasToc(prop.postToc) && (
         <div className={style['post-page-side']}>
           <div className={style['post-page-side-content']}>
-            <Text b>Table of Contents</Text>
+            <p>Table of Contents</p>
             {renderTOC(prop.postToc)}
           </div>
         </div>

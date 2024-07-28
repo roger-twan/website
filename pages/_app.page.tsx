@@ -1,10 +1,9 @@
 import type { ReactElement, ReactNode } from 'react'
 import type { AppProps } from 'next/app'
 import { NextPage } from 'next'
-import { GeistProvider, CssBaseline } from '@geist-ui/core'
 import { GoogleTagManager } from '@next/third-parties/google'
 import Script from 'next/script'
-import 'inter-ui/inter.css'
+import './_global.css'
 
 export type PageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -18,7 +17,7 @@ export default function App({ Component, pageProps }: MyAppProps) {
   const getLayout = Component.getLayout ?? ((page) => page)
 
   return (
-    <GeistProvider>
+    <div>
       <GoogleTagManager gtmId="G-4MLJN88VXV" />
       <Script id="google-analytics">
         {`
@@ -28,8 +27,7 @@ export default function App({ Component, pageProps }: MyAppProps) {
           gtag('config', 'G-4MLJN88VXV');
         `}
       </Script>
-      <CssBaseline />
       {getLayout(<Component {...pageProps} />)}
-    </GeistProvider>
+    </div>
   )
 }

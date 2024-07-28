@@ -3,67 +3,50 @@ import Layout from '@/components/layout'
 import { ReactElement } from 'react'
 import Image from 'next/image'
 import projectList, { ProjectInfo } from './project-list.data'
-import { Card, Link, Page, Text, Tag } from '@geist-ui/core'
-import { Infinity } from '@geist-ui/icons'
 import style from './portfolio.module.scss'
 
 const PagePortfolio = () => {
   return (
-    <Page>
+    <div>
       <CommonHeader title="Portfolio" />
       <div className={style['project-list']}>
         {projectList.map((item: ProjectInfo) => (
-          <Card hoverable className={style['project-card']} key={item.title}>
+          <div className={style['project-card']} key={item.title}>
             <Image
               className={style['project-img']}
               src={item.img}
               alt={item.title}
               placeholder="blur"
             />
-            <Card.Content>
-              <Text b>{item.title}</Text>
+            <div>
+              <p>{item.title}</p>
               <br />
               {item.platforms.map((platform: string) => (
-                <Tag
-                  key={platform}
-                  style={{ marginRight: '4px' }}
-                  type="lite"
-                  scale={0.5}
-                >
+                <span key={platform} style={{ marginRight: '4px' }}>
                   {platform}
-                </Tag>
+                </span>
               ))}
               {item.techStacks.map((tech: string) => (
-                <Tag
-                  key={tech}
-                  style={{ marginRight: '4px' }}
-                  type="secondary"
-                  scale={0.5}
-                >
+                <span key={tech} style={{ marginRight: '4px' }}>
                   {tech}
-                </Tag>
+                </span>
               ))}
-              <Text className={style['project-description']} p small>
-                {item.description}
-              </Text>
-              <Link
+              <p className={style['project-description']}>{item.description}</p>
+              <a
                 className={style['project-link']}
                 target="_blank"
-                href={item.codeSource}
-                color
-                block
+                href={item.codeSource} rel="noreferrer"
               >
                 View Code
-              </Link>
-            </Card.Content>
-          </Card>
+              </a>
+            </div>
+          </div>
         ))}
-        <Card className={style['project-card-coming']}>
-          <Infinity size={50} color="#999" />
-          <Text type="secondary">Developing...</Text>
-        </Card>
+        <div className={style['project-card-coming']}>
+          <p>Developing...</p>
+        </div>
       </div>
-    </Page>
+    </div>
   )
 }
 

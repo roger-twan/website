@@ -1,7 +1,6 @@
 import { PropsWithChildren, useState } from 'react'
 import style from './layout.module.scss'
 import { useSearchParams } from 'next/navigation'
-import { Menu } from '@geist-ui/icons'
 import { NAV_LIST } from '@/global.config'
 import Link from 'next/link'
 
@@ -18,10 +17,9 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
           }`}
           onMouseLeave={() => setIsMenuOpen(false)}
         >
-          <Menu
+          <div
             className={style['navigation-icon']}
             color="white"
-            size={30}
             onMouseOver={() => setIsMenuOpen(true)}
           />
           <nav className={style['navigation']}>

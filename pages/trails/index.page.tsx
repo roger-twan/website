@@ -5,7 +5,6 @@ import type { PageWithLayout } from '../_app.page'
 import CommonHeader from '@/components/common-header'
 import { GetStaticProps } from 'next'
 import { Trail, getTrails } from './trails.data'
-import { Grid, Loading } from '@geist-ui/core'
 import style from './trails.module.scss'
 
 const MapComponent = dynamic(() => import('./map'), { ssr: false })
@@ -27,11 +26,9 @@ const PageTrail: PageWithLayout<Props> = ({ list }: Props) => {
     <>
       <CommonHeader title="Trails" />
       {!isMapReady && (
-        <Grid.Container gap={2.5} className={style['map-loading']}>
-          <Grid xs={24}>
-            <Loading spaceRatio={2.5} />
-          </Grid>
-        </Grid.Container>
+        <div className={style['map-loading']}>
+          <p>loading...</p>
+        </div>
       )}
       <MapComponent
         list={JSON.parse(list)}
