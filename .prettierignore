@@ -3,5 +3,8 @@
 .husky
 .prettierignore
 *.png
+*.fbx
+*.svg
+*.glb
 .env
 public/CNAME
