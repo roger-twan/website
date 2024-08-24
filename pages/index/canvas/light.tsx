@@ -8,7 +8,7 @@ const Light = () => {
       {/* fill light */}
       <spotLight position={[10, 5, 10]} intensity={0.6} color={color} />
 
-      {/* hair light */}
+      {/* back light */}
       <spotLight position={[5, 5, -5]} intensity={0.6} color={color} />
     </>
   )

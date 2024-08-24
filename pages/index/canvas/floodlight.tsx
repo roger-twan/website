@@ -29,8 +29,8 @@ const Searchlight = () => {
   useFrame((state) => {
     if (meshRef.current) {
       const target = new THREE.Vector3(
-        state.mouse.x * 3,
-        state.mouse.y * 3,
+        state.mouse.x * 6,
+        state.mouse.y * 6,
         -10
       )
       const ref: THREE.Mesh = meshRef.current

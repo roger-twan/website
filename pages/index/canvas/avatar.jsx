@@ -3,7 +3,7 @@ import { useGLTF, useAnimations, useFBX } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 
-const AvatarModel = () => {
+const AvatarModel = (props) => {
   const avatarRef = useRef()
   const { nodes, materials } = useGLTF('models/default.glb')
   const { animations: standingAnimation } = useFBX('animations/standing.fbx')
@@ -19,10 +19,49 @@ const AvatarModel = () => {
 
   useEffect(() => {
     actions['Standing'].reset().play()
-    // Object.values(materials).forEach((material) => {
-    //   material.wireframe = true
-    // })
+    Object.values(materials).forEach((material) => {
+      material.transparent = true
+      material.opacity = 0
+    })
+    startShow()
   }, [])
+
+  const animateOpacity = (material, targetOpacity, duration = 1000) => {
+    const startOpacity = material.opacity
+    const startTime = performance.now()
+
+    const animate = () => {
+      const elapsed = (performance.now() - startTime) / duration
+      const progress = Math.min(elapsed, 1)
+      material.opacity = THREE.MathUtils.lerp(
+        startOpacity,
+        targetOpacity,
+        progress
+      )
+      material.needsUpdate = true
+
+      if (progress < 1) {
+        requestAnimationFrame(animate)
+      }
+      if (progress === 1 && props.onAnimateEnd) {
+        props.onAnimateEnd()
+      }
+    }
+
+    animate()
+  }
+
+  const startShow = () => {
+    Object.values(materials).forEach((material) => {
+      animateOpacity(material, 1)
+    })
+  }
+
+  const startHide = () => {
+    Object.values(materials).forEach((material) => {
+      animateOpacity(material, 0)
+    })
+  }
 
   return (
     <group ref={avatarRef} dispose={null}>
