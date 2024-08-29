@@ -1,19 +1,22 @@
 import { Text3D, Center, RoundedBox } from '@react-three/drei'
 import GradientShaderMaterial from '@/components/gradient-shader-material'
-import { useFrame, Vector3 } from '@react-three/fiber'
+import { useFrame, useThree, Vector3 } from '@react-three/fiber'
 import * as THREE from 'three'
 import { forwardRef, useImperativeHandle, useState } from 'react'
+import useIsMobile from '@/components/use-is-mobile'
 
 interface Value {
   value: string
   description: string
-  position: (width: number, height: number) => Vector3
+  position: (opts: {
+    width: number
+    height: number
+    isMobile: boolean
+  }) => Vector3
   offset: Vector3
 }
 
 interface ValueListProps {
-  width: number
-  height: number
   onValueHover?: (position: Vector3) => void
   onValueHoverEnd?: () => void
 }
@@ -25,9 +28,9 @@ const values: Value[] = [
   {
     value: 'Reliability',
     description: 'Trust is a precious thing in the world',
-    position: (width: number, height: number) => [
-      0,
-      height / 2 - 0.2,
+    position: (opts) => [
+      opts.isMobile ? -0.1 : 0,
+      opts.height / 2 - 0.2,
       POSITION_Z,
     ],
     offset: [0.07, 0.008, 0],
@@ -35,9 +38,9 @@ const values: Value[] = [
   {
     value: 'Openness',
     description: 'Embrace new things and different opinions',
-    position: (width: number, height: number) => [
-      -width / 2 + 0.55,
-      0.1,
+    position: (opts) => [
+      opts.isMobile ? 0.1 : -opts.width / 2 + 0.55,
+      opts.isMobile ? opts.height / 2 - 0.34 : 0.1,
       POSITION_Z,
     ],
     offset: [0.065, 0, 0],
@@ -45,9 +48,9 @@ const values: Value[] = [
   {
     value: 'Growth',
     description: 'Continuous learning and self-improvement',
-    position: (width: number, height: number) => [
-      width / 2 - 0.45,
-      0.1,
+    position: (opts) => [
+      opts.width / 2 - 0.45,
+      opts.isMobile ? 0 : 0.1,
       POSITION_Z,
     ],
     offset: [0.08, 0, 0],
@@ -55,9 +58,9 @@ const values: Value[] = [
   {
     value: 'Exploration',
     description: 'Stay curious, be brave in exploring the unknown',
-    position: (width: number, height: number) => [
-      -width / 2 + 0.55,
-      -0.3,
+    position: (opts) => [
+      -opts.width / 2 + 0.55,
+      opts.isMobile ? -0.18 : -0.3,
       POSITION_Z,
     ],
     offset: [0.055, -0.007, 0],
@@ -65,9 +68,9 @@ const values: Value[] = [
   {
     value: 'Respect',
     description: 'Respect others and yourself, peace for all',
-    position: (width: number, height: number) => [
-      width / 2 - 0.45,
-      -0.3,
+    position: (opts) => [
+      opts.width / 2 - 0.45,
+      opts.isMobile ? -opts.height / 2 + 0.25 : -0.3,
       POSITION_Z,
     ],
     offset: [0.08, -0.007, 0],
@@ -78,6 +81,8 @@ const ValueList = forwardRef((props: ValueListProps, ref) => {
   const [scale, setScale] = useState(0)
   const [targetScale, setTargetScale] = useState(0)
   const [groupPosition, setGroupPosition] = useState<Vector3>([0, -0.3, 0])
+  const { width, height } = useThree((state) => state.viewport)
+  const isMobile = useIsMobile()
 
   useImperativeHandle(ref, () => ({
     show: () => {
@@ -116,7 +121,11 @@ const ValueList = forwardRef((props: ValueListProps, ref) => {
   return (
     <group scale={scale} position={groupPosition}>
       {values.map(({ value, description, position, offset }) => (
-        <Center position={position(props.width, props.height)} key={value}>
+        <Center
+          position={position({ width, height, isMobile })}
+          key={value}
+          scale={isMobile ? 0.8 : 1}
+        >
           <mesh
             position={[0.16, 0.02, -0.02]}
             onPointerOver={(e) => handlePointerOver(e.object)}
