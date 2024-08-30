@@ -1,4 +1,3 @@
-import CommonHeader from '@/components/common-header'
 import Layout from '@/components/layout'
 import { ReactElement } from 'react'
 import Image from 'next/image'
@@ -8,7 +7,6 @@ import style from './portfolio.module.scss'
 const PagePortfolio = () => {
   return (
     <div>
-      <CommonHeader title="Portfolio" />
       <div className={style['project-list']}>
         {projectList.map((item: ProjectInfo) => (
           <div className={style['project-card']} key={item.title}>
@@ -35,7 +33,8 @@ const PagePortfolio = () => {
               <a
                 className={style['project-link']}
                 target="_blank"
-                href={item.codeSource} rel="noreferrer"
+                href={item.codeSource}
+                rel="noreferrer"
               >
                 View Code
               </a>
@@ -51,7 +50,7 @@ const PagePortfolio = () => {
 }
 
 PagePortfolio.getLayout = (page: ReactElement) => {
-  return <Layout>{page}</Layout>
+  return <Layout title="Portfolio">{page}</Layout>
 }
 
 export default PagePortfolio

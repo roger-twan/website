@@ -1,26 +1,28 @@
-import Head from 'next/head'
+import { default as NextHead } from 'next/head'
 
-interface HeaderProps {
+export interface HeadProps {
   title?: string
   description?: string
   keywords?: string
 }
 
-export default function CommonHeader(props: HeaderProps) {
+const Head = (props: HeadProps) => {
   const { title } = props
-  let fullTitle = "Roger's Website"
+  let fullTitle = 'Roger Twan'
 
   if (title) {
     fullTitle = `${title} | ${fullTitle}`
   }
 
   return (
-    <Head>
+    <NextHead>
       <title>{fullTitle}</title>
       {props.description && (
         <meta name="description" content={props.description} />
       )}
       {props.keywords && <meta name="keywords" content={props.keywords} />}
-    </Head>
+    </NextHead>
   )
 }
+
+export default Head

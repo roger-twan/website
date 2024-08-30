@@ -20,9 +20,9 @@ const Ai = (props: AiProps) => {
 
   return (
     <>
-      <Mask position={maskPosition}>
+      <Mask position={maskPosition} className="!z-30">
         <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white text-3xl">
-          My AI assistant is coming soon.
+          AI assistant is coming soon.
         </p>
 
         <button

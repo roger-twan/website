@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import CommonHeader from '@/components/common-header'
+import Head from '@/components/head'
 
 jest.mock('next/head', () => {
   return {
@@ -9,10 +9,10 @@ jest.mock('next/head', () => {
   }
 })
 
-describe('Component Common Header', () => {
+describe('Component Head', () => {
   it('Render title', () => {
-    render(<CommonHeader title="test" />)
+    render(<Head title="test" />)
 
-    expect(document.title).toBe("test | Roger's Website")
+    expect(document.title).toBe('test | Roger Twan')
   })
 })

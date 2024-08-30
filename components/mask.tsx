@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 
 interface MaskProps {
+  className?: string
+  fullScreen?: boolean
   position?: [number, number]
   children?: React.ReactNode
 }
@@ -17,10 +19,15 @@ const Mask = (props: MaskProps) => {
     }
 
     setVisible(!!props.position)
+    document.body.style.overflow = !!props.position ? 'hidden' : 'auto'
   }, [props.position])
 
   return (
-    <div className={`fixed w-full h-full ${visible ? 'visible' : 'invisible'}`}>
+    <div
+      className={`fixed w-full h-full z-10 ${props.className} ${
+        visible ? 'visible' : 'invisible'
+      }`}
+    >
       <div
         className={`
           absolute
@@ -30,7 +37,11 @@ const Mask = (props: MaskProps) => {
           rounded-full
           duration-500
           bg-lime-400
-          ${visible ? 'scale-150 shadow-2xl' : 'scale-100 shadow-none'}
+          ${
+            visible
+              ? `${props.fullScreen ? 'scale-[5]' : 'scale-150'} shadow-2xl`
+              : 'scale-100 shadow-none'
+          }
         `}
         style={{
           left: currentPosition?.[0],

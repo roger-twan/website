@@ -6,5 +6,6 @@
 *.fbx
 *.svg
 *.glb
+*.ttf
 .env
 public/CNAME

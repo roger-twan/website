@@ -1,21 +1,15 @@
-import CommonHeader from '@/components/common-header'
+import { ReactElement, useState } from 'react'
+import { PageWithLayout } from '../_app.page'
+import Layout from '@/components/layout'
 import HomeCanvas from './canvas/canvas'
-import { useEffect, useState } from 'react'
 import Ai from './ai/ai'
 
-export default function PageHome() {
+const PageHome: PageWithLayout = () => {
   const [icosahedronPosition, setIcosahedronPosition] =
     useState<[number, number]>()
 
-  // useEffect(() => {
-  //   document.addEventListener('click', (event: any) => {
-  //     setIcosahedronPosition([event.clientX, event.clientY])
-  //   })
-  // }, [])
-
   return (
     <>
-      <CommonHeader />
       {icosahedronPosition === undefined && (
         <HomeCanvas onIcosahedronClick={setIcosahedronPosition} />
       )}
@@ -26,3 +20,9 @@ export default function PageHome() {
     </>
   )
 }
+
+PageHome.getLayout = (page: ReactElement) => {
+  return <Layout>{page}</Layout>
+}
+
+export default PageHome
