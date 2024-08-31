@@ -1,9 +1,9 @@
 import { StaticImageData } from 'next/image'
-import picMusic from '../../public/portfolio/music.png'
-import picIELTS from '../../public/portfolio/ielts.png'
-import picLauncher from '../../public/portfolio/plain_launcher.png'
-import picTwan from '../../public/portfolio/twan.png'
-import picObsidianR2 from '../../public/portfolio/obisidan-r2.png'
+import picMusic from '../../public/projects/music.png'
+import picIELTS from '../../public/projects/ielts.png'
+import picLauncher from '../../public/projects/plain_launcher.png'
+import picTwan from '../../public/projects/twan.png'
+import picObsidianR2 from '../../public/projects/obisidan-r2.png'
 
 export interface ProjectInfo {
   title: string

@@ -9,3 +9,13 @@
     src: url(/fonts/Orbitron_Regular.ttf) format("tff");
   }
 }
+
+@layer components {
+  mjx-container[jax="SVG"][display="true"] {
+    text-align: left !important;
+    overflow-x: auto;
+  }
+  mjx-container > svg {
+    display: inline;
+  }
+}

@@ -6,14 +6,14 @@ import Script from 'next/script'
 import './_global.css'
 
 export type PageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
-  getLayout?: (page: ReactElement) => ReactNode
+  getLayout?: (page: ReactElement, pageProps: P) => ReactNode
 }
 
-interface MyAppProps extends AppProps {
+interface AppPropsWithLayout extends AppProps {
   Component: PageWithLayout
 }
 
-export default function App({ Component, pageProps }: MyAppProps) {
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page)
 
   return (
@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }: MyAppProps) {
           gtag('config', 'G-4MLJN88VXV');
         `}
       </Script>
-      {getLayout(<Component {...pageProps} />)}
+      {getLayout(<Component {...pageProps} />, pageProps)}
     </div>
   )
 }

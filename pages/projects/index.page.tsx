@@ -1,10 +1,10 @@
 import Layout from '@/components/layout'
 import { ReactElement } from 'react'
 import Image from 'next/image'
-import projectList, { ProjectInfo } from './project-list.data'
+import projectList, { ProjectInfo } from './projects.data'
 import style from './portfolio.module.scss'
 
-const PagePortfolio = () => {
+const PageProjects = () => {
   return (
     <div>
       <div className={style['project-list']}>
@@ -49,8 +49,8 @@ const PagePortfolio = () => {
   )
 }
 
-PagePortfolio.getLayout = (page: ReactElement) => {
+PageProjects.getLayout = (page: ReactElement) => {
   return <Layout title="Portfolio">{page}</Layout>
 }
 
-export default PagePortfolio
+export default PageProjects

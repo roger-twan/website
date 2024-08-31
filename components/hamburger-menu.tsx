@@ -34,7 +34,7 @@ const HamburgerMenu = forwardRef(
 
     return (
       <div
-        className={`relative w-10 h-8 cursor-pointer scale-75 opacity-50 z-20 transition-all ${props.className} hover:opacity-100`}
+        className={`relative w-10 h-8 cursor-pointer scale-75 opacity-30 z-20 transition-all ${props.className} hover:opacity-100`}
         onClick={(e: React.MouseEvent) => onMenuClick(e)}
       >
         <span

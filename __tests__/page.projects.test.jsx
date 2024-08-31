@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import Portfolio from '@/pages/portfolio/index.page.tsx'
+import Projects from '@/pages/projects/index.page.tsx'
 
-describe('Page Portfolio', () => {
-  render(<Portfolio />)
+describe('Page Projects', () => {
+  render(<Projects />)
 
   it('Text rendered', () => {
     const text = screen.getByText('Roger Music')

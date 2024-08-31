@@ -4,8 +4,7 @@ const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN,
 })
 
-const notesReposReq = (request: string, values: any, headers?: any) => {
-  return { data: [] } // TODO: delete this
+const notesRepoReq = (request: string, values: any, headers?: any) => {
   return octokit.request(`GET /repos/{owner}/{repo}${request}`, {
     owner: 'roger-twan',
     repo: 'notes',
@@ -17,4 +16,4 @@ const notesReposReq = (request: string, values: any, headers?: any) => {
   })
 }
 
-export { notesReposReq }
+export { notesRepoReq }

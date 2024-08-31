@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        orbitron: ['Orbitron'],
+        orbitron: ['Orbitron', 'sans-serif'],
       },
       keyframes: {
         'focus-in-contract': {
@@ -37,5 +37,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 }

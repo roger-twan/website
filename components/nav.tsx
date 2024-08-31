@@ -14,8 +14,8 @@ const navList = [
     path: '/blog',
   },
   {
-    name: 'portfolio',
-    path: '/portfolio',
+    name: 'projects',
+    path: '/projects',
   },
   {
     name: 'About',
@@ -26,9 +26,12 @@ const navList = [
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [menuVisible, setMenuVisible] = useState(false)
-  const [menuClickPosition, setMenuClickPosition] = useState<[number, number]>()
+  const [menuClickPosition, setMenuClickPosition] = useState<[number, number]>([
+    0, 0,
+  ])
   const [offsetLeft, setOffsetLeft] = useState<number>(0)
   const [maskFullScreen, setMaskFullScreen] = useState(false)
+  const [showMask, setShowMask] = useState(false)
   const menuBtnRef = useRef<any>(null)
   const router = useRouter()
   const currentPath = usePathname()
@@ -51,9 +54,10 @@ const Nav = () => {
 
     if (isOpen) {
       setMenuClickPosition([e.clientX, e.clientY])
+      setShowMask(true)
       setMenuVisible(true)
     } else {
-      setTimeout(() => setMenuClickPosition(undefined), 350)
+      setTimeout(() => setShowMask(false), 350)
       setTimeout(() => setMenuVisible(false), 500)
     }
   }
@@ -66,7 +70,7 @@ const Nav = () => {
     setMaskFullScreen(true)
     setTimeout(() => {
       setMaskFullScreen(false)
-      setMenuClickPosition(undefined)
+      setShowMask(false)
     }, 350)
     setTimeout(() => setMenuVisible(false), 500)
     setTimeout(() => router.push(path), 100)
@@ -88,7 +92,11 @@ const Nav = () => {
         onClick={onMenuBtnClick}
         ref={menuBtnRef}
       />
-      <Mask position={menuClickPosition} fullScreen={maskFullScreen} />
+      <Mask
+        show={showMask}
+        position={menuClickPosition}
+        fullScreen={maskFullScreen}
+      />
       <nav
         className={`fixed z-10 top-20 -translate-x-1/2 ${
           menuVisible ? 'visible' : 'invisible'
