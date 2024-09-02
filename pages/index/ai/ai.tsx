@@ -7,20 +7,24 @@ interface AiProps {
 }
 
 const Ai = (props: AiProps) => {
-  const [maskPosition, setMaskPosition] = useState<[number, number]>()
+  const [maskPosition, setMaskPosition] = useState<[number, number]>([0, 0])
+  const [showMask, setShowMask] = useState(false)
 
   useEffect(() => {
-    setMaskPosition(props.position)
+    if (props.position) {
+      setMaskPosition(props.position)
+      setShowMask(props.position !== undefined)
+    }
   }, [props.position])
 
   const onClickClose = () => {
-    setMaskPosition(undefined)
+    setShowMask(false)
     setTimeout(() => props.onClose?.(), 500)
   }
 
   return (
     <>
-      <Mask position={maskPosition} className="!z-30">
+      <Mask show={showMask} position={maskPosition} className="!z-30">
         <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white text-3xl">
           AI assistant is coming soon.
         </p>
