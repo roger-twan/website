@@ -90,8 +90,11 @@ const PageBlog: PageWithLayout<PageBlogProps> = (props: PageBlogProps) => {
     setPostClickPosition([e.clientX, e.clientY])
     setShowMask(true)
     setMaskFullScreen(true)
+    setTimeout(() => {
+      setMaskFullScreen(false)
+      setShowMask(false)
+    }, 500)
     setTimeout(() => router.push(path), 100)
-    setTimeout(() => setShowMask(false), 500)
   }
 
   useEffect(() => setList(), [props.list, page, pageSize, selectedTag])
