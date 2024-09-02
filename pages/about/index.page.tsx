@@ -2,59 +2,63 @@ import Layout from '@/components/layout'
 import Particles from 'react-particles'
 import type { Engine } from 'tsparticles-engine'
 import { loadFull } from 'tsparticles'
-import { ReactElement, useEffect, useRef } from 'react'
+import { ReactElement, useEffect, useRef, useState } from 'react'
 import Typed from 'typed.js'
 import Atropos from 'atropos/react'
-import style from './about.module.scss'
 import 'atropos/scss'
 import Image from 'next/image'
-import type { PageWithLayout } from '../_app.page'
-import CommonHeader from '@/components/common-header'
-import { Button, Spacer, Text } from '@geist-ui/core'
-import { Github, Linkedin, Mail } from '@geist-ui/icons'
+import { PageWithLayout } from '../_app.page'
+import Portfolio from '../../public/portfolio.jpg'
+import Skills from './skills'
+import Timeline from './timeline'
+import SocialMedia from './social-media'
 
 const PageAbout: PageWithLayout = () => {
-  const particlesOptions = {
-    fpsLimit: 120,
-    detectRetina: true,
-    particles: {
-      size: {
-        value: { min: 1, max: 5 },
-      },
-      color: {
-        value: '#000',
-      },
-      links: {
-        color: '#000',
-        enable: true,
-        distance: 120,
-        opacity: 0.3,
-      },
-      move: {
-        enable: true,
-        direction: 'none' as 'none',
-        outModes: 'bounce' as 'bounce',
-        speed: 1,
-      },
-      number: {
-        value: 200,
-      },
-      opacity: {
-        value: 0.3,
-      },
-    },
-    interactivity: {
-      events: {
-        onClick: {
-          enable: true,
-          mode: 'push',
+  const [particlesOptions, setParticlesOptions] = useState<any>()
+
+  const getParticlesOptions = (number: number) => {
+    return {
+      fpsLimit: 120,
+      detectRetina: true,
+      particles: {
+        size: {
+          value: { min: 1, max: 5 },
         },
-        onHover: {
+        color: {
+          value: '#000',
+        },
+        links: {
+          color: '#000',
           enable: true,
-          mode: 'repulse',
+          distance: 120,
+          opacity: 0.1,
+        },
+        move: {
+          enable: true,
+          direction: 'none' as 'none',
+          outModes: 'bounce' as 'bounce',
+          speed: 1,
+        },
+        number: {
+          value: number,
+        },
+        opacity: {
+          value: 0.25,
         },
       },
-    },
+      interactivity: {
+        events: {
+          onClick: {
+            enable: true,
+            mode: 'push',
+          },
+          onHover: {
+            enable: true,
+            mode: 'repulse',
+          },
+        },
+      },
+    }
   }
   const particlesInit = async (engine: Engine) => {
     await loadFull(engine)
@@ -63,87 +67,73 @@ const PageAbout: PageWithLayout = () => {
   const typed: any = { current: null }
   const typedEl = useRef(null)
   const typedOptions = {
-    strings: [
-      'Software Engineer',
-      'Tech Geek',
-      'Minimalist',
-      'Guitar Player',
-      'Photographer',
-    ],
+    strings: ['Full-Stack Developer', 'Guitar Player', 'Photographer'],
     loop: true,
+    typeSpeed: 80,
+    backSpeed: 30,
+    backDelay: 1500,
   }
 
   useEffect(() => {
     typed.current = new Typed(typedEl.current!, typedOptions)
+    setParticlesOptions(getParticlesOptions(Math.floor(window.innerWidth / 8)))
+    window.addEventListener('resize', () =>
+      setParticlesOptions(
+        getParticlesOptions(Math.floor(window.innerWidth / 8))
+      )
+    )
 
     return () => {
       typed.current?.destroy()
+      window.removeEventListener('resize', () =>
+        setParticlesOptions(
+          getParticlesOptions(Math.floor(window.innerWidth / 8))
+        )
+      )
     }
-  })
+  }, [])
 
   return (
-    <>
-      <CommonHeader title="About" />
-      <div className={style.wrapper}>
-        <Particles
-          className={style.particles}
-          init={particlesInit}
-          options={particlesOptions}
-          data-testid="background"
+    <div className="flex flex-col items-center mt-16">
+      <Particles
+        className="animate-fade-in"
+        init={particlesInit}
+        options={particlesOptions}
+      />
+      <Atropos
+        className="w-40 h-40 sm:w-80 sm:h-80 animate-scale-in"
+        alwaysActive={true}
+      >
+        <Image
+          className="w-full h-full rounded-full"
+          src={Portfolio}
+          alt="portfolio"
+          fill
         />
-        <Atropos className={style.avatar} alwaysActive={true}>
-          <Image data-testid="avatar" src="/avatar.png" alt="avatar" fill />
-        </Atropos>
-        <div className={style['text-area']} data-testid="description">
-          <Text className={style.title}>
-            Hi,
-            <br />
-            I&apos;m <span className={style.name}>Roger</span>
-          </Text>
-          <Text className={style.role}>
-            A <span className={style.typed} ref={typedEl} />
-          </Text>
-          <div>
-            <Button
-              auto
-              type="secondary-light"
-              onClick={() =>
-                window.open('https://github.com/roger-twan', '_blank')
-              }
-              icon={<Github />}
-            />
-            <Spacer w={0.5} inline />
-            <Button
-              auto
-              type="secondary-light"
-              onClick={() =>
-                window.open('https://www.linkedin.com/in/roger-twan', '_blank')
-              }
-              icon={<Linkedin />}
-            />
-            <Spacer w={0.5} inline />
-            <Button
-              auto
-              type="secondary-light"
-              onClick={() => window.open('mailto:roger.twan@gmail.com')}
-              icon={<Mail />}
-            />
-          </div>
-        </div>
-
-        <style jsx global>{`
-          .atropos-shadow {
-            border-radius: 50%;
-            filter: blur(10px);
-          }
-        `}</style>
+      </Atropos>
+      <div className="mt-10 sm:mt-16 text-center">
+        <p className="text-4xl">
+          Hi, I&apos;m <span className="font-bold">Roger</span>
+        </p>
+        <p className="text-2xl font-bold">
+          <span
+            ref={typedEl}
+            className="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% text-transparent bg-clip-text bg-[length:200%_100%] animate-background-animation"
+          />
+        </p>
       </div>
-    </>
+
+      <Skills className="mt-12 sm:mt-16" />
+
+      <Timeline className="mt-12 sm:mt-20 h-[520px]" />
+
+      <SocialMedia className="my-12 sm:my-20" />
+    </div>
   )
 }
 
 PageAbout.getLayout = (page: ReactElement) => {
-  return <Layout>{page}</Layout>
+  return <Layout title="About">{page}</Layout>
 }
 
 export default PageAbout

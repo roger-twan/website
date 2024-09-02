@@ -1,6 +1,6 @@
 import { visit } from 'unist-util-visit'
 
-export default function rehypeVideoPlugin() {
+const rehypeVideoPlugin = () => {
   return (tree: any) => {
     visit(tree, 'element', (node: any) => {
       const videoReg = /https?:\/\/youtu\.be/
@@ -20,3 +20,5 @@ export default function rehypeVideoPlugin() {
     })
   }
 }
+
+export default rehypeVideoPlugin
