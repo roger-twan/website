@@ -18,15 +18,19 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <div>
-      <GoogleTagManager gtmId="G-4MLJN88VXV" />
-      <Script id="google-analytics">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments)}
-          gtag('js', new Date());
-          gtag('config', 'G-4MLJN88VXV');
-        `}
-      </Script>
+      {process.env.NODE_ENV === 'production' && (
+        <>
+          <GoogleTagManager gtmId="G-4MLJN88VXV" />
+          <Script id="google-analytics">
+            {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments)}
+            gtag('js', new Date());
+            gtag('config', 'G-4MLJN88VXV');
+          `}
+          </Script>
+        </>
+      )}
       {getLayout(<Component {...pageProps} />, pageProps)}
     </div>
   )
