@@ -19,3 +19,8 @@
     display: inline;
   }
 }
+
+.atropos-shadow {
+  border-radius: 50%;
+  filter: blur(10px) !important;
+}

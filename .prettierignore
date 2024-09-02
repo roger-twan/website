@@ -3,6 +3,7 @@
 .husky
 .prettierignore
 *.png
+*.jpg
 *.fbx
 *.svg
 *.glb
