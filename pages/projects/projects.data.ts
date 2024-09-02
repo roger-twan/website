@@ -8,7 +8,6 @@ import picObsidianR2 from '../../public/projects/obisidan-r2.png'
 export interface ProjectInfo {
   title: string
   img: StaticImageData
-  platforms: string[]
   techStacks: string[]
   description: string
   codeSource: string
@@ -18,8 +17,7 @@ const projectList: ProjectInfo[] = [
   {
     title: 'Obsidian R2',
     img: picObsidianR2,
-    platforms: ['Obsidian'],
-    techStacks: ['Plugin', 'Typescript'],
+    techStacks: ['Typescript'],
     description:
       'An Obsidian plugin that upload files to Cloudflare R2 and embed them in Obsidian',
     codeSource: 'https://github.com/roger-twan/obsidian-r2',
@@ -27,7 +25,6 @@ const projectList: ProjectInfo[] = [
   {
     title: 'Roger Music',
     img: picMusic,
-    platforms: ['MacOS', 'iOS'],
     techStacks: [
       'Flutter',
       'Dart',
@@ -43,7 +40,6 @@ const projectList: ProjectInfo[] = [
   {
     title: 'IELTS Tools',
     img: picIELTS,
-    platforms: ['Web', 'MacOS'],
     techStacks: ['React.js', 'Typescript', 'Vite', 'Mui', 'Tauri'],
     description: 'An IELTS practice tools app',
     codeSource: 'https://github.com/roger-twan/ielts-tools',
@@ -51,7 +47,6 @@ const projectList: ProjectInfo[] = [
   {
     title: 'TWAN',
     img: picTwan,
-    platforms: ['Web', 'Mobile Web'],
     techStacks: ['Wordpress', 'Docker', 'MySQL'],
     description: 'A wordpress docker image',
     codeSource: 'https://github.com/roger-twan/wordpress',
@@ -59,7 +54,6 @@ const projectList: ProjectInfo[] = [
   {
     title: 'Plain Launcher',
     img: picLauncher,
-    platforms: ['Android'],
     techStacks: ['Flutter', 'Dart'],
     description: 'An android launcher designed to be senior-friendly',
     codeSource: 'https://github.com/roger-twan/plain_launcher',
