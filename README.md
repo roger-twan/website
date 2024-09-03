@@ -48,3 +48,7 @@ See [here](https://coveralls.io/github/Roger-twan/lab?branch=main).
 ### 3.0.0 (2024-09-02)
 
 - New UI presentation, along with innovative technology and a new architecture.
+
+### 3.0.1 (2024-09-03)
+
+- [Bug fix] [Menu disappear animation](https://github.com/roger-twan/website/issues/20)

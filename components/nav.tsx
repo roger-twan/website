@@ -98,7 +98,7 @@ const Nav = () => {
         fullScreen={maskFullScreen}
       />
       <nav
-        className={`fixed z-10 top-20 -translate-x-1/2 ${
+        className={`fixed z-30 top-20 -translate-x-1/2 ${
           menuVisible ? 'visible' : 'invisible'
         }`}
         style={{ left: offsetLeft }}
