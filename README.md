@@ -12,8 +12,8 @@
   <image src="https://img.shields.io/badge/dynamic/json?label=Three&query=dependencies.three&url=https%3A%2F%2Fraw.githubusercontent.com%2FRoger-twan%2Flab%2Fmain%2Fpackage.json">
   <image src="https://img.shields.io/badge/dynamic/json?label=D3&query=dependencies.d3&url=https%3A%2F%2Fraw.githubusercontent.com%2FRoger-twan%2Flab%2Fmain%2Fpackage.json">
   <image src="https://github.com/Roger-twan/lab/actions/workflows/nextjs.yml/badge.svg">
-  <image src="https://coveralls.io/repos/github/Roger-twan/lab/badge.svg?branch=main)](https://coveralls.io/github/Roger-twan/lab?branch=main">
-  <image src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/">
+  <image src="https://coveralls.io/repos/github/Roger-twan/lab/badge.svg?branch=main">
+  <image src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg">
 </p>
 <hr>
 
