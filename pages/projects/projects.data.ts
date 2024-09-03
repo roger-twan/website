@@ -4,6 +4,7 @@ import picIELTS from '../../public/projects/ielts.png'
 import picLauncher from '../../public/projects/plain_launcher.png'
 import picTwan from '../../public/projects/twan.png'
 import picObsidianR2 from '../../public/projects/obisidan-r2.png'
+import picRecruitment from '../../public/projects/recruitment.png'
 
 export interface ProjectInfo {
   title: string
@@ -14,6 +15,14 @@ export interface ProjectInfo {
 }
 
 const projectList: ProjectInfo[] = [
+  {
+    title: 'Nest Recruitment',
+    img: picRecruitment,
+    techStacks: ['Nest.js', 'MySQL', 'TypeORM', 'React.js', 'Swagger', 'SWR'],
+    description:
+      'A comprehensive recruitment system featuring an admin platform and a backend server.',
+    codeSource: 'https://github.com/roger-twan/nest-server',
+  },
   {
     title: 'Obsidian R2',
     img: picObsidianR2,
