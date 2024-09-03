@@ -12,7 +12,7 @@ const BackList = () => {
     setClickPosition([e.clientX, e.clientY])
     setShowMask(true)
     setMaskFullScreen(true)
-    setTimeout(() => router.push('/blog'), 100)
+    setTimeout(() => router.push('/blog'), 300)
     setTimeout(() => setShowMask(false), 500)
   }
 
