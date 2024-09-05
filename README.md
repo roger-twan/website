@@ -52,3 +52,7 @@ See [here](https://coveralls.io/github/Roger-twan/lab?branch=main).
 ### 3.0.1 (2024-09-03)
 
 - [Bug fix] [Menu disappear animation](https://github.com/roger-twan/website/issues/20)
+
+### 3.0.2 (2024-09-04)
+
+- [Improvement] Support for multiple project links.

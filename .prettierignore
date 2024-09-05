@@ -4,6 +4,7 @@
 .prettierignore
 *.png
 *.jpg
+*.jpeg
 *.fbx
 *.svg
 *.glb
