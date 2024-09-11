@@ -32,7 +32,7 @@ npm run dev
 npm run test
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to view the result.
+Open [http://localhost:3000](http://localhost:3000) in the browser to view the result.
 
 ## 📑 GitHub Pages & Actions
 
@@ -56,3 +56,7 @@ See [here](https://coveralls.io/github/Roger-twan/lab?branch=main).
 ### 3.0.2 (2024-09-04)
 
 - [Improvement] Support for multiple project links.
+
+### 3.0.3 (2024-09-11)
+
+- [Improvement] Remove the cursor pointer on the project title to avoid causing confusion.

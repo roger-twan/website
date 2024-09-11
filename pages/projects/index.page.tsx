@@ -78,7 +78,7 @@ const PageProjects = () => {
               />
             </div>
             <div className="flex flex-1 flex-col bg-gray-100 rounded-b p-2">
-              <h2 className="block font-bold cursor-pointer">{item.title}</h2>
+              <h2 className="block font-bold">{item.title}</h2>
               <div className="mt-1.5 flex flex-wrap">
                 {item.techStacks.map((tech: string) => (
                   <span
