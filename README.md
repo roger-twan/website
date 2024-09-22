@@ -60,3 +60,7 @@ See [here](https://coveralls.io/github/Roger-twan/lab?branch=main).
 ### 3.0.3 (2024-09-11)
 
 - [Improvement] Remove the cursor pointer on the project title to avoid causing confusion.
+
+### 3.0.4 (2024-09-21)
+
+- [Improvement] Add a Python project.

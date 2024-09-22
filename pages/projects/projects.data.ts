@@ -21,6 +21,19 @@ export interface ProjectInfo {
 
 const projectList: ProjectInfo[] = [
   {
+    title: 'Image Joiner',
+    img: picStudio,
+    techStacks: ['Python', 'Pillow'],
+    description:
+      'A lightweight Python script to seamlessly merge multiple images into a single output.',
+    links: [
+      {
+        type: 'GitHub',
+        url: 'https://github.com/roger-twan/image-joiner',
+      },
+    ],
+  },
+  {
     title: "Roger's Studio",
     img: picStudio,
     techStacks: ['Figma', 'UI', 'UX', 'Bootstrap', 'Animate.css'],
