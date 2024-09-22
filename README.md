@@ -64,3 +64,7 @@ See [here](https://coveralls.io/github/Roger-twan/lab?branch=main).
 ### 3.0.4 (2024-09-21)
 
 - [Improvement] Add a Python project.
+
+### 3.1.0 (2024-09-22)
+
+- [New Feature] Add Gallery page.
