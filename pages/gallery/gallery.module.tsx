@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import Image from 'next/image'
 import { Photo } from './gallery.data'
 import LightGallery from 'lightgallery/react'
 import lgThumbnail from 'lightgallery/plugins/thumbnail'
@@ -16,6 +17,7 @@ interface GalleryModuleProps {
 }
 
 const GalleryModule = (props: GalleryModuleProps) => {
+  console.log(props.list)
   useEffect(() => {
     const container = document.querySelector('.gallery-container')
     if (container) {
@@ -54,7 +56,21 @@ const GalleryModule = (props: GalleryModuleProps) => {
           }</p>
           `}
         >
-          <img src={item.link} alt={item.title + item.index} />
+          <div
+            className="w-full relative"
+            style={{ paddingTop: item.exif.radio * 100 + '%' }}
+          >
+            <Image
+              className="transition data-[loaded=false]:animate-pulse data-[loaded=false]:bg-gray-200 hover:scale-125 hover:z-10"
+              src={item.link}
+              alt={item.title + item.index}
+              fill
+              data-loaded="false"
+              onLoad={(e) =>
+                e.currentTarget.setAttribute('data-loaded', 'true')
+              }
+            />
+          </div>
         </a>
       ))}
     </LightGallery>

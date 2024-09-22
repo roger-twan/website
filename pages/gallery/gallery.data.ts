@@ -1,6 +1,7 @@
 import { notesRepoReq } from '@/utils/octokit'
 import metadataParser from 'markdown-yaml-metadata-parser'
 import ExifReader from 'exifreader'
+import { compareAsc } from 'date-fns'
 
 interface Exif {
   camera: string
@@ -9,6 +10,7 @@ interface Exif {
   focalLength: string
   shutterSpeed: string
   iso: string
+  radio: number
 }
 
 export interface Photo {
@@ -31,6 +33,7 @@ const _getPhotoExif = async (link: RequestInfo | URL) => {
     focalLength: '',
     shutterSpeed: '',
     iso: '',
+    radio: 0,
   }
 
   try {
@@ -45,6 +48,8 @@ const _getPhotoExif = async (link: RequestInfo | URL) => {
     const len = tags['LensSpecification']?.description || ''
     const make = tags['Make']?.description || ''
     const model = tags['Model']?.description || ''
+    const width = tags['Image Width']?.value || 0
+    const height = tags['Image Height']?.value || 0
 
     info = {
       camera: `${make} ${model}`,
@@ -53,6 +58,7 @@ const _getPhotoExif = async (link: RequestInfo | URL) => {
       focalLength: focalLength,
       shutterSpeed: shutterSpeed,
       iso: 'ISO: ' + iso,
+      radio: Number(height) / Number(width),
     }
   } catch (error) {
     console.error('Error fetching image metadata:', error)
@@ -84,7 +90,7 @@ const _fetchPhotos = async () => {
     const matches = content.match(/\(([^)]+)\)/g)
     const photos = matches.map((match: string) => match.slice(1, -1))
 
-    photos.forEach(async (link: string, index: number) => {
+    for (const [index, link] of photos.entries()) {
       const exif = await _getPhotoExif(link)
       result.push({
         index: index + 1,
@@ -95,10 +101,12 @@ const _fetchPhotos = async () => {
         link: link,
         exif: exif,
       })
-    })
+    }
   }
 
-  _data = result
+  _data = result.sort((a: Photo, b: Photo) =>
+    compareAsc(new Date(b.date), new Date(a.date))
+  )
 }
 
 const getPhotos = async () => {
