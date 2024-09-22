@@ -14,8 +14,12 @@ const navList = [
     path: '/blog',
   },
   {
-    name: 'projects',
+    name: 'Projects',
     path: '/projects',
+  },
+  {
+    name: 'Gallery',
+    path: '/gallery',
   },
   {
     name: 'About',
@@ -98,7 +102,7 @@ const Nav = () => {
         fullScreen={maskFullScreen}
       />
       <nav
-        className={`fixed z-30 top-20 -translate-x-1/2 ${
+        className={`fixed z-30 top-10 md:top-20 -translate-x-1/2 ${
           menuVisible ? 'visible' : 'invisible'
         }`}
         style={{ left: offsetLeft }}
