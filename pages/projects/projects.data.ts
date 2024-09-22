@@ -3,9 +3,10 @@ import picMusic from '../../public/projects/music.png'
 import picIELTS from '../../public/projects/ielts.png'
 import picLauncher from '../../public/projects/plain_launcher.png'
 import picTwan from '../../public/projects/twan.png'
-import picObsidianR2 from '../../public/projects/obisidan-r2.png'
+import picObsidianR2 from '../../public/projects/obsidian-r2.png'
 import picRecruitment from '../../public/projects/recruitment.png'
 import picStudio from '../../public/projects/roger_studio.jpeg'
+import picImageJoiner from '../../public/projects/image-joiner.png'
 
 export interface Link {
   type: string
@@ -22,7 +23,7 @@ export interface ProjectInfo {
 const projectList: ProjectInfo[] = [
   {
     title: 'Image Joiner',
-    img: picStudio,
+    img: picImageJoiner,
     techStacks: ['Python', 'Pillow'],
     description:
       'A lightweight Python script to seamlessly merge multiple images into a single output.',
