@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  output: 'export',
   reactStrictMode: false,
   eslint: {
     dirs: ['components', 'pages', 'utils'],
