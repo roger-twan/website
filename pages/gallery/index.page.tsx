@@ -24,7 +24,7 @@ const PageGallery: PageWithLayout<PageGalleryProps> = (
     <>
       <RandomBgContainer className="h-40 sm:h-60">
         <h1 className="text-5xl [text-shadow:_-2px_2px_black] text-white font-orbitron">
-          Gallery
+          GALLERY
         </h1>
       </RandomBgContainer>
       <GalleryModule list={props.list} />

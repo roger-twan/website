@@ -21,13 +21,13 @@ const GalleryModule = (props: GalleryModuleProps) => {
   useEffect(() => {
     const container = document.querySelector('.gallery-container')
     if (container) {
-      const msnry = new Masonry(container, {
+      const masonry = new Masonry(container, {
         itemSelector: '.gallery-item',
         columnWidth: '.gallery-item',
         percentPosition: true,
       })
 
-      imagesLoaded(container).on('progress', () => msnry.layout())
+      imagesLoaded(container).on('progress', () => masonry.layout())
     }
   }, [])
 
@@ -65,6 +65,7 @@ const GalleryModule = (props: GalleryModuleProps) => {
               src={item.link}
               alt={item.title + item.index}
               fill
+              quality={1}
               data-loaded="false"
               onLoad={(e) =>
                 e.currentTarget.setAttribute('data-loaded', 'true')
