@@ -68,3 +68,8 @@ See [here](https://coveralls.io/github/Roger-twan/lab?branch=main).
 ### 3.1.0 (2024-09-22)
 
 - [New Feature] Add Gallery page.
+
+### 3.1.1 (2024-09-28)
+
+- [Improvement] Optimize the photos quality in the Gallery page.
+- [Improvement] Upgrade Next version to v14.
