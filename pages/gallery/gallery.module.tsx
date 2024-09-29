@@ -1,16 +1,14 @@
 import { useEffect } from 'react'
 import { Photo } from './gallery.data'
 import LightGallery from 'lightgallery/react'
-import lgThumbnail from 'lightgallery/plugins/thumbnail'
 import lgAutoplay from 'lightgallery/plugins/autoplay'
 import Masonry from 'masonry-layout'
 import imagesLoaded from 'imagesloaded'
 import { format } from 'date-fns'
+import LazyLoadImage from '@/components/lazy-load-image'
 
 import 'lightgallery/css/lightgallery.css'
-import 'lightgallery/css/lg-thumbnail.css'
 import 'lightgallery/css/lg-autoplay.css'
-import LazyLoadImage from '@/components/lazy-load-image'
 
 interface GalleryModuleProps {
   list: Photo[]
@@ -34,7 +32,7 @@ const GalleryModule = (props: GalleryModuleProps) => {
     <LightGallery
       elementClassNames="gallery-container"
       download={false}
-      plugins={[lgThumbnail, lgAutoplay]}
+      plugins={[lgAutoplay]}
     >
       {props.list.map((item: Photo) => (
         <a
