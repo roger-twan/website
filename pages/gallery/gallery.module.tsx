@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import Image from 'next/image'
 import { Photo } from './gallery.data'
 import LightGallery from 'lightgallery/react'
 import lgThumbnail from 'lightgallery/plugins/thumbnail'
@@ -11,13 +10,13 @@ import { format } from 'date-fns'
 import 'lightgallery/css/lightgallery.css'
 import 'lightgallery/css/lg-thumbnail.css'
 import 'lightgallery/css/lg-autoplay.css'
+import LazyLoadImage from '@/components/lazy-load-image'
 
 interface GalleryModuleProps {
   list: Photo[]
 }
 
 const GalleryModule = (props: GalleryModuleProps) => {
-  console.log(props.list)
   useEffect(() => {
     const container = document.querySelector('.gallery-container')
     if (container) {
@@ -60,16 +59,10 @@ const GalleryModule = (props: GalleryModuleProps) => {
             className="w-full relative"
             style={{ paddingTop: item.exif.radio * 100 + '%' }}
           >
-            <Image
-              className="transition data-[loaded=false]:animate-pulse data-[loaded=false]:bg-gray-200 hover:scale-125 hover:z-10"
+            <LazyLoadImage
+              className="hover:scale-125 hover:z-10"
               src={item.link}
               alt={item.title + item.index}
-              fill
-              quality={1}
-              data-loaded="false"
-              onLoad={(e) =>
-                e.currentTarget.setAttribute('data-loaded', 'true')
-              }
             />
           </div>
         </a>
