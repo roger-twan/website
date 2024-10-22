@@ -18,6 +18,10 @@
   mjx-container > svg {
     display: inline;
   }
+  pre {
+    padding: 0 !important;
+    background-color: transparent !important;
+  }
 }
 
 .atropos-shadow {
