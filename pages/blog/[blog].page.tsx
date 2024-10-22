@@ -16,6 +16,8 @@ import rehypeMathjax from 'rehype-mathjax'
 import rehypeVideoPlugin from '@/utils/rehype-video-plugin'
 import simplePlantUML from '@akebifiky/remark-simple-plantuml'
 import remarkWikiLink from 'remark-wiki-link'
+import rehypeHighlight from 'rehype-highlight'
+import 'highlight.js/styles/default.css'
 import RandomBgContainer from '@/components/random-bg-container'
 import BackList from './back-list'
 import Drawer from '@/components/drawer'
@@ -57,6 +59,7 @@ export const getStaticProps: GetStaticProps = async (content) => {
         rehypeSlug,
         rehypeVideoPlugin,
         rehypeMathjax as Pluggable,
+        rehypeHighlight as Pluggable,
         [
           rehypeToc,
           {
