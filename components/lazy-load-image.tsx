@@ -23,7 +23,7 @@ const LazyLoadImage = ({ src, alt, className }: LazyLoadImageProps) => {
       },
       {
         root: null,
-        threshold: 0.05,
+        threshold: 0, // default
       }
     )
 
@@ -41,7 +41,7 @@ const LazyLoadImage = ({ src, alt, className }: LazyLoadImageProps) => {
   const getRandomDelay = () => `${Math.random() * 1}s`
 
   return (
-    <div ref={imageRef}>
+    <div ref={imageRef} className="absolute w-full h-full top-0">
       {isVisible ? (
         <Image
           className={`transition data-[loaded=false]:animate-pulse data-[loaded=false]:bg-gray-200 ${className}`}
