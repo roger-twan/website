@@ -73,3 +73,7 @@ See [here](https://coveralls.io/github/Roger-twan/lab?branch=main).
 
 - [Improvement] Optimize the photos quality in the Gallery page.
 - [Improvement] Upgrade Next version to v14.
+
+### 3.1.2 (2024-11-29)
+
+- [Improvement] Add a Node.js project -- Simple API.

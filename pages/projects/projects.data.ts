@@ -1,12 +1,13 @@
 import { StaticImageData } from 'next/image'
-import picMusic from '../../public/projects/music.png'
-import picIELTS from '../../public/projects/ielts.png'
-import picLauncher from '../../public/projects/plain_launcher.png'
-import picTwan from '../../public/projects/twan.png'
-import picObsidianR2 from '../../public/projects/obsidian-r2.png'
-import picRecruitment from '../../public/projects/recruitment.png'
+import picMusic from '../../public/projects/music.jpeg'
+import picIELTS from '../../public/projects/ielts.jpeg'
+import picLauncher from '../../public/projects/plain_launcher.jpeg'
+import picTwan from '../../public/projects/twan.jpeg'
+import picObsidianR2 from '../../public/projects/obsidian-r2.jpeg'
+import picRecruitment from '../../public/projects/recruitment.jpeg'
 import picStudio from '../../public/projects/roger_studio.jpeg'
-import picImageJoiner from '../../public/projects/image-joiner.png'
+import picImageJoiner from '../../public/projects/image-joiner.jpeg'
+import picSimpleApi from '../../public/projects/simple-api.jpeg'
 
 export interface Link {
   type: string
@@ -21,6 +22,18 @@ export interface ProjectInfo {
 }
 
 const projectList: ProjectInfo[] = [
+  {
+    title: 'Simple API',
+    img: picSimpleApi,
+    techStacks: ['Node.js', 'Express', 'Jest', 'MVC', 'RESTful'],
+    description: 'A simple MVC RESTful API with Express and Jest.',
+    links: [
+      {
+        type: 'GitHub',
+        url: 'https://github.com/roger-twan/simple-api',
+      },
+    ],
+  },
   {
     title: 'Image Joiner',
     img: picImageJoiner,
