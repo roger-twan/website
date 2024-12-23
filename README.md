@@ -77,3 +77,7 @@ See [here](https://coveralls.io/github/Roger-twan/lab?branch=main).
 ### 3.1.2 (2024-11-29)
 
 - [Improvement] Add a Node.js project -- Simple API.
+
+### 3.1.3 (2024-12-22)
+
+- [Improvement] Add a Java project -- SSO.

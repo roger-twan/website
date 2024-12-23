@@ -14,7 +14,7 @@ export default {
     Dart: 78,
     Python: 58,
     PHP: 56,
-    Java: 50,
+    Java: 56,
   },
   'Frameworks & Libraries': {
     'React.js': 88,
@@ -26,6 +26,11 @@ export default {
     'Nest.js': 82,
     Flutter: 80,
     Storybook: 32,
+    Tailwind: 70,
+    'Spring Boot': 52,
+    Redis: 60,
+    JUnit: 56,
+    Playwright: 60,
   },
   Databases: {
     MySQL: 80,

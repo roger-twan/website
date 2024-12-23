@@ -8,6 +8,7 @@ import picRecruitment from '../../public/projects/recruitment.jpeg'
 import picStudio from '../../public/projects/roger_studio.jpeg'
 import picImageJoiner from '../../public/projects/image-joiner.jpeg'
 import picSimpleApi from '../../public/projects/simple-api.jpeg'
+import picSSO from '../../public/projects/sso.jpeg'
 
 export interface Link {
   type: string
@@ -22,6 +23,33 @@ export interface ProjectInfo {
 }
 
 const projectList: ProjectInfo[] = [
+  {
+    title: 'SSO',
+    img: picSSO,
+    techStacks: [
+      'Java',
+      'Spring Boot',
+      'MySQL',
+      'Redis',
+      'JUnit',
+      'Playwright',
+      'Log4j',
+      'Thymeleaf',
+      'Tailwind',
+    ],
+    description:
+      'An SSO (Single Sign-On) System Implemented with Java Spring MVC.',
+    links: [
+      {
+        type: 'GitHub',
+        url: 'https://github.com/roger-twan/SSO',
+      },
+      {
+        type: 'Blog',
+        url: '/blog/SSO%20-%20Single%20Sign%20On',
+      },
+    ],
+  },
   {
     title: 'Simple API',
     img: picSimpleApi,
@@ -92,6 +120,10 @@ const projectList: ProjectInfo[] = [
         type: 'GitHub',
         url: 'https://github.com/roger-twan/obsidian-r2',
       },
+      {
+        type: 'Blog',
+        url: '/blog/Migrate%20from%20Notion%20to%20Obsidian',
+      },
     ],
   },
   {
@@ -111,6 +143,10 @@ const projectList: ProjectInfo[] = [
       {
         type: 'GitHub',
         url: 'https://github.com/roger-twan/music',
+      },
+      {
+        type: 'Blog',
+        url: '/blog/Building%20a%20Cross-Platform%20Serverless%20Music%20App',
       },
     ],
   },
@@ -147,6 +183,10 @@ const projectList: ProjectInfo[] = [
       {
         type: 'GitHub',
         url: 'https://github.com/roger-twan/plain_launcher',
+      },
+      {
+        type: 'Blog',
+        url: '/blog/Building%20An%20Android%20Launcher%20Designed%20To%20Be%20Senior-Friendly',
       },
     ],
   },
