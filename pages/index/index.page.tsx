@@ -7,6 +7,7 @@ import Loading from './loading'
 import Mask from '@/components/mask'
 import { ThreeEvent } from '@react-three/fiber'
 import { useRouter } from 'next/router'
+import SkillsWordCloud from './skills-word-cloud'
 
 const PageHome: PageWithLayout = () => {
   const [icosahedronPosition, setIcosahedronPosition] =
@@ -49,6 +50,7 @@ const PageHome: PageWithLayout = () => {
         position={menuClickPosition}
         fullScreen={maskFullScreen}
       />
+      <SkillsWordCloud />
     </>
   )
 }

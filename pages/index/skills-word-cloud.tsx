@@ -1,21 +1,30 @@
 import { useEffect, useRef, useState } from 'react'
 import * as d3 from 'd3'
 import cloud from 'd3-cloud'
+import skillsData from '../about/skills.data'
 
 interface Word {
   text: string
   size: number
 }
 
-const WordCloud = ({ words }: { words: Word[] }) => {
+const WordCloud = () => {
   const svgRef = useRef<any>()
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
+
+  const words: Word[] = []
+
+  for (const CategoryValue of Object.values(skillsData)) {
+    for (const [key, value] of Object.entries(CategoryValue)) {
+      words.push({ text: key, size: value })
+    }
+  }
 
   useEffect(() => {
     const handleResize = () =>
       setDimensions({
         width: window.innerWidth,
-        height: window.innerHeight / 3,
+        height: window.innerHeight,
       })
 
     window.addEventListener('resize', handleResize)
@@ -32,7 +41,7 @@ const WordCloud = ({ words }: { words: Word[] }) => {
     const layout = cloud()
       .size([dimensions.width, dimensions.height])
       .words(words.map((d) => ({ text: d.text, size: d.size })))
-      .padding(5)
+      .padding(20)
       .rotate(() => ~~(Math.random() * 2) * 45)
       .font('Impact')
       .fontSize((d: Word) => d.size)
@@ -53,7 +62,11 @@ const WordCloud = ({ words }: { words: Word[] }) => {
         .data(words)
         .enter()
         .append('text')
-        .style('font-size', (d: Word) => `${d.size}px`)
+        .style(
+          'font-size',
+          (d: Word) => `${(d.size * window.innerWidth) / 4000}px`
+        )
+        .style('opacity', 0.5)
         .style('font-family', 'Impact')
         .style(
           'fill',

@@ -9,7 +9,6 @@ import 'atropos/scss'
 import Image from 'next/image'
 import { PageWithLayout } from '../_app.page'
 import Portfolio from '../../public/portfolio.jpg'
-import Skills from './skills'
 import Timeline from './timeline'
 import SocialMedia from './social-media'
 
@@ -122,8 +121,6 @@ const PageAbout: PageWithLayout = () => {
           />
         </p>
       </div>
-
-      <Skills className="mt-12 sm:mt-16" />
 
       <Timeline className="mt-12 sm:mt-20 h-[520px]" />
 
