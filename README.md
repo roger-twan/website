@@ -75,7 +75,7 @@ See [here](https://coveralls.io/github/Roger-twan/lab?branch=main).
 
 ### 3.1.1 (2024-09-28)
 
-- [Improvement] Optimize the photos quality in the Gallery page.
+- [Improvement] [Optimize the photos quality in the Gallery page](https://github.com/roger-twan/website/issues/24)
 - [Improvement] Upgrade Next version to v14.
 
 ### 3.1.2 (2024-11-29)
@@ -88,6 +88,6 @@ See [here](https://coveralls.io/github/Roger-twan/lab?branch=main).
 
 ### 3.2.0 (2024-12-26)
 
-- [Improvement] Add loading to the homepage.
-- [Improvement] Display menu on the homepage instead of the value.
+- [Improvement] [Add loading to the homepage](https://github.com/roger-twan/website/issues/27)
+- [Improvement] [Display menu on the homepage instead of the value](https://github.com/roger-twan/website/issues/21)
 - [Bugfix] Fix len model display issue.
