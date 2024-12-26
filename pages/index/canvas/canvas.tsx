@@ -15,6 +15,7 @@ const AvatarModel = dynamic(() => import('./avatar'), { ssr: false })
 
 interface HomeCanvasProps {
   visible?: boolean
+  onCanvasReady?: () => void
   onIcosahedronClick?: (position: [number, number]) => void
 }
 
@@ -48,7 +49,7 @@ const HomeCanvas = (props: HomeCanvasProps) => {
       camera={{ position: [0, 0, 1.9], fov: 40 }}
       className="!fixed h-screen"
     >
-      <Logo />
+      <Logo onLogoReady={props.onCanvasReady} />
       <AvatarModel onAnimateEnd={startWelComeAnimation} />
       <Floodlight />
       <spotLight position={[5, 5, -5]} intensity={0.6} color="white" />
