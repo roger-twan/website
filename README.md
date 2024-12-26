@@ -19,15 +19,19 @@
 
 ## 📸 Screenshot
 
-![screenshot](doc/screenshot.png)
+![screenshot](doc/screenshot.jpeg)
 
 ## ⚒️ Development
+
+Create a `.env.local` file on the root directory and add `GITHUB_TOKEN` to it.
 
 ```bash
 # install dependencies
 npm install
+
 # run server
 npm run dev
+
 # run unit test
 npm run test
 ```
@@ -81,3 +85,9 @@ See [here](https://coveralls.io/github/Roger-twan/lab?branch=main).
 ### 3.1.3 (2024-12-22)
 
 - [Improvement] Add a Java project -- SSO.
+
+### 3.2.0 (2024-12-26)
+
+- [Improvement] Add loading to the homepage.
+- [Improvement] Display menu on the homepage instead of the value.
+- [Bugfix] Fix len model display issue.

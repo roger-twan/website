@@ -45,7 +45,7 @@ const _getPhotoExif = async (link: RequestInfo | URL) => {
     const focalLength = tags['FocalLength']?.description || ''
     const aperture = tags['FNumber']?.description || ''
     const iso = tags['ISOSpeedRatings']?.description || ''
-    const len = tags['LensSpecification']?.description || ''
+    const len = tags['LensModel']?.description || ''
     const make = tags['Make']?.description || ''
     const model = tags['Model']?.description || ''
     const width = tags['Image Width']?.value || 0
@@ -73,8 +73,9 @@ const _fetchPhotos = async () => {
   const folderData = await notesRepoReq('/contents/{path}', {
     path: 'Gallery',
   })
+  const albums = folderData.data
 
-  for (const album of folderData.data) {
+  for (const album of albums) {
     const albumData = await notesRepoReq(
       '/contents/{path}',
       {

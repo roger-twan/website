@@ -1,14 +1,18 @@
 import { Center, Extrude } from '@react-three/drei'
-import { useFrame, useLoader, Vector3 } from '@react-three/fiber'
+import { useFrame, useLoader } from '@react-three/fiber'
 import { useEffect, useMemo, useState } from 'react'
 import * as THREE from 'three'
 import { SVGLoader } from 'three/examples/jsm/loaders/SVGLoader'
+
+interface LogoProps {
+  onLogoReady?: () => void
+}
 
 const getRandomColor = () => {
   return new THREE.Color(Math.random(), Math.random(), Math.random())
 }
 
-const Logo = () => {
+const Logo = (props: LogoProps) => {
   const svgData = useLoader(SVGLoader, '/logo.svg')
   const [currentColor, setCurrentColor] = useState(getRandomColor())
   const [targetColor, setTargetColor] = useState(getRandomColor())
@@ -16,6 +20,7 @@ const Logo = () => {
   const [position, setPosition] = useState<THREE.Vector3>(
     new THREE.Vector3(-0, 0, -10)
   )
+  const [logoReady, setLogoReady] = useState(false)
 
   const shapes = useMemo(() => {
     return svgData.paths.map((p) => p.toShapes(true))
@@ -34,6 +39,11 @@ const Logo = () => {
     position.lerp(new THREE.Vector3(0, 0, -3), 0.4)
     setPosition(position.clone())
     setScale((prev) => Math.min(prev + 0.001, 0.004))
+
+    if (!logoReady) {
+      setLogoReady(true)
+      props.onLogoReady?.()
+    }
   })
 
   return (

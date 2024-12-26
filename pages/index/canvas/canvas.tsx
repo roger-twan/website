@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic'
-import { Canvas, Vector3 } from '@react-three/fiber'
+import { Canvas, ThreeEvent, Vector3 } from '@react-three/fiber'
 import Floodlight from './floodlight'
 import Light from './light'
 import Controls from './controls'
@@ -9,13 +9,15 @@ import * as THREE from 'three'
 import delay from '@/utils/delay'
 import Logo from './logo'
 import HelloText from './hello-text'
-import ValueList from './value-list'
+import MenuList from './menu-list'
 
 const AvatarModel = dynamic(() => import('./avatar'), { ssr: false })
 
 interface HomeCanvasProps {
   visible?: boolean
+  onCanvasReady?: () => void
   onIcosahedronClick?: (position: [number, number]) => void
+  onMenuClick?: (e: ThreeEvent<MouseEvent>, path: string) => void
 }
 
 const HomeCanvas = (props: HomeCanvasProps) => {
@@ -48,7 +50,7 @@ const HomeCanvas = (props: HomeCanvasProps) => {
       camera={{ position: [0, 0, 1.9], fov: 40 }}
       className="!fixed h-screen"
     >
-      <Logo />
+      <Logo onLogoReady={props.onCanvasReady} />
       <AvatarModel onAnimateEnd={startWelComeAnimation} />
       <Floodlight />
       <spotLight position={[5, 5, -5]} intensity={0.6} color="white" />
@@ -58,12 +60,13 @@ const HomeCanvas = (props: HomeCanvasProps) => {
         onClick={(position) => props.onIcosahedronClick?.(position)}
       />
       <HelloText ref={helloTextRef} />
-      <ValueList
+      <MenuList
         ref={valueListRef}
-        onValueHover={setIcosahedronPosition}
-        onValueHoverEnd={() =>
+        onMenuHover={setIcosahedronPosition}
+        onMenuHoverEnd={() =>
           setIcosahedronPosition(new THREE.Vector3(0, -0.3, 0.3))
         }
+        onMenuClick={props.onMenuClick}
       />
       <Light />
     </Canvas>
