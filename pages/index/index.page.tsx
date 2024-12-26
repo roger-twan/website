@@ -23,8 +23,11 @@ const PageHome: PageWithLayout = () => {
     setMenuClickPosition([e.clientX, e.clientY])
     setShowMask(true)
     setMaskFullScreen(true)
-    setTimeout(() => router.push(path), 300)
-    setTimeout(() => setShowMask(false), 500)
+    setTimeout(() => {
+      router.push(path)
+      document.body.style.overflow = 'auto'
+    }, 500)
+    setTimeout(() => setShowMask(false), 800)
   }
 
   return (
