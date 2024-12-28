@@ -1,5 +1,6 @@
 import Mask from '@/components/mask'
 import { useEffect, useState } from 'react'
+import CloseIcon from '@/public/icons/close.svg'
 
 interface AiProps {
   position?: [number, number]
@@ -34,20 +35,7 @@ const Ai = (props: AiProps) => {
           className="fixed -translate-x-1/2 -translate-y-1/2"
           style={{ top: maskPosition?.[1], left: maskPosition?.[0] }}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="size-12 text-white"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-            />
-          </svg>
+          <CloseIcon className="size-12 text-white" />
         </button>
       </Mask>
     </>

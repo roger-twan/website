@@ -91,3 +91,9 @@ See [here](https://coveralls.io/github/Roger-twan/lab?branch=main).
 - [Improvement] [Add loading to the homepage](https://github.com/roger-twan/website/issues/27)
 - [Improvement] [Display menu on the homepage instead of the value](https://github.com/roger-twan/website/issues/21)
 - [Bugfix] Fix len model display issue.
+
+### 3.3.0 (2024-12-28)
+
+- [Improvement] Redesigned Home page
+- [Improvement] Add skill journey to About page
+- [Improvement] Improve SVG file

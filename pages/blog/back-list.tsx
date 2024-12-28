@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Mask from '@/components/mask'
+import BackIcon from '@/public/icons/back.svg'
 
 const BackList = () => {
   const [clickPosition, setClickPosition] = useState<[number, number]>([0, 0])
@@ -22,20 +23,7 @@ const BackList = () => {
         className="fixed top-4 left-4 opacity-30 hover:opacity-100 transition-opacity"
         onClick={onMenuBtnClick}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={3}
-          stroke="currentColor"
-          className="size-8"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-          />
-        </svg>
+        <BackIcon className="size-8" />
       </button>
       <Mask
         show={showMask}

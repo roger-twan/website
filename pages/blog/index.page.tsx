@@ -11,6 +11,7 @@ import TagDrawer from './tag-drawer'
 import TagSide from './tag-side'
 import { useRouter } from 'next/router'
 import Mask from '@/components/mask'
+import UpDownIcon from '@/public/icons/up-down.svg'
 
 export interface Tags {
   [tagName: string]: number
@@ -107,20 +108,7 @@ const PageBlog: PageWithLayout<PageBlogProps> = (props: PageBlogProps) => {
           onClick={() => setOpenDrawer(true)}
         >
           #{selectedTag ? `${selectedTag}` : 'All'}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="ml-1 size-3"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
-            />
-          </svg>
+          <UpDownIcon className="ml-1 size-3" />
         </button>
         <TagDrawer
           isOpen={openDrawer}
