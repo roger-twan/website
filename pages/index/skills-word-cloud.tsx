@@ -1,23 +1,43 @@
 import { useEffect, useRef, useState } from 'react'
 import * as d3 from 'd3'
 import cloud from 'd3-cloud'
-import skillsData from '../about/skills.data'
+import skillsData, { Level } from '../about/skills.data'
 
 interface Word {
   text: string
   size: number
 }
 
-const WordCloud = () => {
+const SkillsWordCloud = () => {
   const svgRef = useRef<any>()
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
 
   const words: Word[] = []
 
-  for (const CategoryValue of Object.values(skillsData)) {
-    for (const [key, value] of Object.entries(CategoryValue)) {
-      words.push({ text: key, size: value })
+  for (const skill of skillsData) {
+    let value = 0
+
+    switch (skill.level) {
+      case Level.Beginner:
+        value = 1
+        break
+      case Level.Intermediate:
+        value = 2
+        break
+      case Level.Proficient:
+        value = 3
+        break
+      case Level.Advanced:
+        value = 4
+        break
+      case Level.Expert:
+        value = 5
+        break
+      default:
+        break
     }
+
+    words.push({ text: skill.name, size: value * 20 })
   }
 
   useEffect(() => {
@@ -81,7 +101,7 @@ const WordCloud = () => {
     }
   }, [dimensions])
 
-  return <svg ref={svgRef} />
+  return <svg ref={svgRef} className="animation-fade-in duration-1000" />
 }
 
-export default WordCloud
+export default SkillsWordCloud

@@ -3,7 +3,7 @@ import { format, sub } from 'date-fns'
 const data = [
   {
     type: 'education',
-    title: 'B.CS',
+    title: 'BCS',
     unit: 'Yunan Minzu University',
     location: 'Kunming, China',
     startDate: new Date(2010, 9),
@@ -39,7 +39,7 @@ const data = [
     unit: 'Freelance',
     location: 'Remote',
     startDate: new Date(2022, 6),
-    endDate: new Date(),
+    endDate: new Date(2024, 12),
   },
   {
     type: 'education',
@@ -48,6 +48,14 @@ const data = [
     location: 'Ottawa, Canada',
     startDate: new Date(2024, 1),
     endDate: new Date(2025, 12),
+  },
+  {
+    type: 'work',
+    title: 'Software Engineer',
+    unit: 'Toropal',
+    location: 'Remote',
+    startDate: new Date(2024, 12),
+    endDate: new Date(2025, 4),
   },
 ]
 
@@ -110,23 +118,6 @@ const TimeLine = ({ className }: { className?: string }) => {
                 <li className="mb-1">{item.location}</li>
               </ul>
             </div>
-
-            {index === formattedData.length - 1 && (
-              <div
-                className={`absolute -bottom-3 ${isOdd ? 'left-5' : 'right-5'}`}
-              >
-                <div
-                  className={`flex items-center text-nowrap ${
-                    !isOdd && 'flex-row-reverse'
-                  } `}
-                >
-                  <span
-                    className={`w-14 h-px bg-black ${!isOdd ? 'ml-1' : 'mr-1'}`}
-                  />
-                  {format(item.endDate, 'MMMM yyyy')}
-                </div>
-              </div>
-            )}
           </div>
         )
       })}

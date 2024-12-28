@@ -8,9 +8,10 @@ import Atropos from 'atropos/react'
 import 'atropos/scss'
 import Image from 'next/image'
 import { PageWithLayout } from '../_app.page'
-import Portfolio from '../../public/portfolio.jpg'
+import Portfolio from '@/public/portfolio.jpg'
 import Timeline from './timeline'
 import SocialMedia from './social-media'
+import Skills from './skills'
 
 const PageAbout: PageWithLayout = () => {
   const [particlesOptions, setParticlesOptions] = useState<any>()
@@ -122,9 +123,11 @@ const PageAbout: PageWithLayout = () => {
         </p>
       </div>
 
-      <Timeline className="mt-12 sm:mt-20 h-[520px]" />
+      <Skills className="mt-12 sm:mt-20 relative z-1 bg-white bg-opacity-75 w-full lg:w-4/5" />
 
-      <SocialMedia className="my-12 sm:my-20" />
+      <Timeline className="mt-12 sm:mt-20 h-[520px] relative z-1" />
+
+      <SocialMedia className="my-12 sm:my-20 relative z-1" />
     </div>
   )
 }
