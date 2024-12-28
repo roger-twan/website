@@ -47,7 +47,7 @@ Integrated with GitHub Actions, GitHub Pages will automatically deploy whenever 
 Unit test coverage report has uploaded to Coveralls.
 See [here](https://coveralls.io/github/Roger-twan/lab?branch=main).
 
-## 📝 Change Log
+## 📝 Change Logs
 
 ### 3.0.0 (2024-09-02)
 

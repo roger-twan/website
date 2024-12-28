@@ -22,13 +22,14 @@ async function generateScreenshots(urls) {
         width: urlObj.size[0],
         height: urlObj.size[1],
       },
+      deviceScaleFactor: 2,
     })
     const page = await context.newPage()
     await page.goto(urlObj.url, { waitUntil: 'networkidle' })
     await page.screenshot({
       path: urlObj.outputPath,
       fullPage: true,
-      quality: 100,
+      quality: 80,
     })
     page.close()
   }
@@ -37,7 +38,7 @@ async function generateScreenshots(urls) {
 }
 
 ;(async function () {
-  console.log('Start screenshot...')
+  console.log('Start screenshots...')
   await generateScreenshots(URLS).catch(console.error)
   console.log('Completed!')
 })()
