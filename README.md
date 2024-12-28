@@ -97,3 +97,7 @@ See [here](https://coveralls.io/github/Roger-twan/lab?branch=main).
 - [Improvement] Redesigned Home page
 - [Improvement] Add skill journey to About page
 - [Improvement] Improve SVG file
+
+### 3.4.0 (2024-12-28)
+
+- [New Feature] Add skills screenshot feature using Playwright
