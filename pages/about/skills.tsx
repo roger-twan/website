@@ -1,10 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import skillsData, { Level, Skill, Category } from './skills.data'
 import QuestionIcon from '@/public/icons/question.svg'
 
 const COLORS = ['#E5E7EB', '#FFEDD5', '#47A4E3', '#54B685', '#616AE9']
 
-const Skills = ({ className }: { className?: string }) => {
+type SkillsProp = {
+  className?: string
+  showYear?: boolean
+}
+
+const Skills = (props: SkillsProp) => {
   const [showYear, setShowYear] = useState(true)
   const levelSortedList: Skill[] = skillsData.sort(
     (a: Skill, b: Skill) => b.level - a.level
@@ -54,8 +59,14 @@ const Skills = ({ className }: { className?: string }) => {
     }`
   }
 
+  useEffect(() => {
+    if (props.showYear !== undefined) {
+      setShowYear(props.showYear)
+    }
+  }, [props.showYear])
+
   return (
-    <div className={`${className}`}>
+    <div className={`${props.className}`}>
       <ul className="flex gap-x-4 gap-y-1 mb-2 justify-center flex-wrap text-sm">
         <li className="flex items-center text-gray-600">
           <span
