@@ -101,3 +101,7 @@ See [here](https://coveralls.io/github/Roger-twan/lab?branch=main).
 ### 3.4.0 (2024-12-28)
 
 - [New Feature] Add skills screenshot feature using Playwright
+
+### 3.4.1 (2025-01-05)
+
+- [Improvement] Add new skill & update project tags

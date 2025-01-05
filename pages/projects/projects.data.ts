@@ -53,8 +53,15 @@ const projectList: ProjectInfo[] = [
   {
     title: 'Simple API',
     img: picSimpleApi,
-    techStacks: ['Node.js', 'Express', 'Jest', 'MVC', 'RESTful'],
-    description: 'A simple MVC RESTful API with Express and Jest.',
+    techStacks: [
+      'Node.js',
+      'Express',
+      'Jest',
+      'RESTful',
+      'PostgreSQL',
+      'Prisma',
+    ],
+    description: 'A simple RESTful API with Express and PostgreSQL.',
     links: [
       {
         type: 'GitHub',

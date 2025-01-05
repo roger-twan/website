@@ -376,6 +376,13 @@ const list: Skill[] = [
     year: 2024,
     iconColor: '#FE0803',
   },
+  {
+    name: 'Prisma',
+    level: Level.Intermediate,
+    category: Category.Backend,
+    year: 2025,
+    iconColor: '#2D3748',
+  },
 
   // Databases
   {
@@ -405,7 +412,7 @@ const list: Skill[] = [
   },
   {
     name: 'PostgreSQL',
-    level: Level.Beginner,
+    level: Level.Intermediate,
     category: Category.Database,
     year: 2024,
   },
