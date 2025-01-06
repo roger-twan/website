@@ -389,7 +389,7 @@ const list: Skill[] = [
     category: Category.Backend,
     year: 2024,
     icon: 'apachemaven',
-    iconColor: '##C71A36',
+    iconColor: '#C71A36',
   },
 
   // Databases
