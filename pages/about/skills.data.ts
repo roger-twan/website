@@ -383,6 +383,14 @@ const list: Skill[] = [
     year: 2025,
     iconColor: '#2D3748',
   },
+  {
+    name: 'Maven',
+    level: Level.Intermediate,
+    category: Category.Backend,
+    year: 2024,
+    icon: 'apachemaven',
+    iconColor: '##C71A36',
+  },
 
   // Databases
   {
@@ -566,6 +574,18 @@ const list: Skill[] = [
   },
   {
     name: 'Agile',
+    level: Level.Advanced,
+    category: Category.Methodology,
+    year: 2017,
+  },
+  {
+    name: 'Scrum',
+    level: Level.Advanced,
+    category: Category.Methodology,
+    year: 2017,
+  },
+  {
+    name: 'Sprint',
     level: Level.Advanced,
     category: Category.Methodology,
     year: 2017,
