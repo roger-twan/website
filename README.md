@@ -2,7 +2,7 @@
   <image src="doc/logo.png" with="128" height="128">
 </p>
 <h3 align="center">Roger Twan</h3>
-<p align="center">Personal website base on Next and Tailwind. Visit <a href="https://roger.ink" target="_blank">here</a></p>
+<p align="center">Personal website developed using Next and Tailwind. Visit <a href="https://roger.ink" target="_blank">here</a></p>
 <p align="center">
   <image src="https://img.shields.io/badge/dynamic/json?label=Version&query=version&url=https%3A%2F%2Fraw.githubusercontent.com%2FRoger-twan%2Flab%2Fmain%2Fpackage.json&color=cyan">
   <image src="https://img.shields.io/badge/dynamic/json?label=NODE&query=engines.node&url=https%3A%2F%2Fraw.githubusercontent.com%2FRoger-twan%2Flab%2Fmain%2Fpackage.json&color=purple">
