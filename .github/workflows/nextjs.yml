@@ -82,10 +82,10 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           path: ./out
-      - name: Coveralls
-        uses: coverallsapp/github-action@v2.3.6
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Coveralls
+      #   uses: coverallsapp/github-action@v2.3.6
+      #   with:
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
 
   # Deployment job
   deploy:
