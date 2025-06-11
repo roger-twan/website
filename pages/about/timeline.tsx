@@ -47,7 +47,7 @@ const data = [
     unit: 'Algonquin College',
     location: 'Ottawa, Canada',
     startDate: new Date(2024, 1),
-    endDate: new Date(2025, 12),
+    endDate: new Date(2025, 8),
   },
   {
     type: 'work',
@@ -55,7 +55,7 @@ const data = [
     unit: 'Toropal',
     location: 'Remote',
     startDate: new Date(2024, 12),
-    endDate: new Date(2025, 4),
+    endDate: new Date(),
   },
 ]
 

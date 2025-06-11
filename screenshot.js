@@ -1,33 +1,42 @@
-const { chromium } = require('playwright-chromium')
+require('dotenv').config({ path: '.env.local' })
 
-const URLS = [
+const { chromium } = require('playwright-chromium')
+const HOST = 'https://code.roger.ink/proxy/3000'
+
+const PAGES = [
   {
-    url: 'http://localhost:3000/skills',
+    url: `${HOST}/skills`,
     outputPath: 'doc/skills-screenshot.jpeg',
-    size: [1920, 666],
   },
   {
-    url: 'http://localhost:3000/skills?hideYear',
+    url: `${HOST}/skills?hideYear`,
     outputPath: 'doc/skills-screenshot-hideYear.jpeg',
-    size: [1920, 230],
   },
 ]
 
-async function generateScreenshots(urls) {
+async function generateScreenshots() {
   const browser = await chromium.launch()
+  const context = await browser.newContext({
+    viewport: {
+      width: 1000,
+      height: 300,
+    },
+    deviceScaleFactor: 2,
+  })
+  context.addCookies([
+    {
+      name: 'code-server-session',
+      value: process.env.CODE_SERVER_SESSION,
+      domain: 'code.roger.ink',
+      path: '/',
+    },
+  ])
 
-  for (const urlObj of urls) {
-    const context = await browser.newContext({
-      viewport: {
-        width: urlObj.size[0],
-        height: urlObj.size[1],
-      },
-      deviceScaleFactor: 2,
-    })
+  for (const pageObj of PAGES) {
     const page = await context.newPage()
-    await page.goto(urlObj.url, { waitUntil: 'networkidle' })
+    await page.goto(pageObj.url, { waitUntil: 'networkidle' })
     await page.screenshot({
-      path: urlObj.outputPath,
+      path: pageObj.outputPath,
       fullPage: true,
       quality: 80,
     })
@@ -39,6 +48,11 @@ async function generateScreenshots(urls) {
 
 ;(async function () {
   console.log('Start screenshots...')
-  await generateScreenshots(URLS).catch(console.error)
-  console.log('Completed!')
+  try {
+    await generateScreenshots()
+    console.log('Completed!')
+  } catch (e) {
+    console.error('Failed!')
+    console.error(e)
+  }
 })()
