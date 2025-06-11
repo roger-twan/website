@@ -105,3 +105,8 @@ See [here](https://coveralls.io/github/Roger-twan/lab?branch=main).
 ### 3.4.1 (2025-01-05)
 
 - [Improvement] Add new skill & update project tags
+
+### 3.4.2 (2025-06-10)
+
+- [improvement] Adjust configuration for cloud development environment.
+- [improvement] Update skills & portfolio
