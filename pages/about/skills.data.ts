@@ -142,7 +142,7 @@ const list: Skill[] = [
   },
   {
     name: 'WordPress',
-    level: Level.Intermediate,
+    level: Level.Proficient,
     category: Category.Frontend,
     year: 2016,
     iconColor: '#21759B',
@@ -313,7 +313,7 @@ const list: Skill[] = [
   },
   {
     name: 'Express',
-    level: Level.Intermediate,
+    level: Level.Proficient,
     category: Category.Backend,
     year: 2017,
   },
@@ -390,6 +390,12 @@ const list: Skill[] = [
     year: 2024,
     icon: 'apachemaven',
     iconColor: '#C71A36',
+  },
+  {
+    name: 'Sequelize',
+    level: Level.Proficient,
+    category: Category.Backend,
+    year: 2025,
   },
 
   // Databases
@@ -669,6 +675,12 @@ const list: Skill[] = [
   },
   {
     name: 'Swagger',
+    level: Level.Proficient,
+    category: Category.Tools,
+    year: 2024,
+  },
+  {
+    name: 'PlantUML',
     level: Level.Proficient,
     category: Category.Tools,
     year: 2024,

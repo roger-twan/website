@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  assetPrefix: process.env.NODE_ENV === 'development' ? '/proxy/3000/' : '',
   output: 'export',
   reactStrictMode: false,
   eslint: {
