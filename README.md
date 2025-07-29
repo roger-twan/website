@@ -110,3 +110,7 @@ See [here](https://coveralls.io/github/Roger-twan/lab?branch=main).
 
 - [improvement] Adjust configuration for cloud development environment.
 - [improvement] Update skills & portfolio
+
+### 4.0.0 (2025-07-29)
+
+- [improvement] New interface design
