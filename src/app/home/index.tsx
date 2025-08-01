@@ -10,24 +10,25 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row items-center min-h-[75vh] text-center lg:text-left">
             <div className="lg:w-1/2 w-full mb-10 lg:mb-0">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Creative Digital Designer &amp; Developer
+                I Build Complete Digital Products
               </h1>
               <p className="text-lg md:text-xl mb-6">
-                Transforming ideas into stunning digital experiences through
-                innovative design and cutting-edge development.
+                From UX design to full-stack development, mobile app creation,
+                deployment, and system architecture — I deliver end-to-end
+                solutions.
               </p>
               <div className="flex gap-4 justify-center lg:justify-start">
                 <Link
                   href="/portfolio"
-                  className="bg-white text-blue-700 font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-100 transition z-10"
+                  className="bg-white text-blue-700 font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-200 transition z-10"
                 >
-                  View My Work
+                  View Portfolio
                 </Link>
                 <Link
                   href="/contact"
                   className="border border-white text-white font-semibold px-6 py-3 rounded-lg hover:bg-white hover:text-blue-700 transition z-10"
                 >
-                  Get In Touch
+                  Contact Me
                 </Link>
               </div>
             </div>
