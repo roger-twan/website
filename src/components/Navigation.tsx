@@ -128,8 +128,8 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`nav-link text-gray-300 hover:text-white transition-colors duration-300 ${
-                  pathname === link.href ? 'text-white font-bold' : ''
+                className={`nav-link text-gray-300 hover:text-white transition-colors duration-200 ${
+                  pathname === link.href ? 'text-white border-b' : ''
                 }`}
               >
                 {link.label}
