@@ -93,9 +93,9 @@ export default function Navigation() {
             >
               <span className="sr-only">Open main menu</span>
               {isMobileMenuOpen ? (
-                <IconClose className="h-6 w-6" />
+                <IconClose className="size-6" />
               ) : (
-                <IconMenu className="h-6 w-6" />
+                <IconMenu className="size-6" />
               )}
             </button>
           </div>

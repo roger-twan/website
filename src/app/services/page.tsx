@@ -66,45 +66,6 @@ export default function Services() {
     },
   ];
 
-  const process = [
-    {
-      step: '01',
-      title: 'Discovery',
-      description:
-        'Understanding your goals, requirements, and target audience through detailed consultation.',
-    },
-    {
-      step: '02',
-      title: 'Planning',
-      description:
-        'Creating comprehensive project plans, timelines, and technical specifications.',
-    },
-    {
-      step: '03',
-      title: 'Design',
-      description:
-        'Developing wireframes, prototypes, and visual designs that align with your brand.',
-    },
-    {
-      step: '04',
-      title: 'Development',
-      description:
-        'Building your solution using modern technologies and best practices.',
-    },
-    {
-      step: '05',
-      title: 'Testing',
-      description:
-        'Rigorous testing across devices and browsers to ensure quality and performance.',
-    },
-    {
-      step: '06',
-      title: 'Launch',
-      description:
-        'Deploying your project and providing ongoing support and maintenance.',
-    },
-  ];
-
   return (
     <div className="w-full p-0">
       {/* Hero Section */}
@@ -179,34 +140,6 @@ export default function Services() {
                     Get Started
                   </a>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="bg-gray-100 dark:bg-neutral-800 py-16">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-center">My Process</h2>
-            <p className="text-lg text-center max-w-2xl">
-              A proven methodology that ensures successful project delivery
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {process.map((step, index) => (
-              <div
-                key={index}
-                className="bg-white dark:bg-neutral-900 rounded-lg shadow p-8 flex flex-col items-center"
-              >
-                <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-600 text-white text-2xl font-bold mb-4">
-                  {step.step}
-                </span>
-                <h5 className="font-bold mb-2">{step.title}</h5>
-                <p className="text-center text-gray-700 dark:text-gray-300">
-                  {step.description}
-                </p>
               </div>
             ))}
           </div>
