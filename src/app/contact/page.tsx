@@ -45,7 +45,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Information & Form */}
-      <section className="py-16 bg-white dark:bg-neutral-900">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-12">
             {/* Contact Details */}
@@ -86,7 +86,7 @@ export default function Contact() {
                   </span>
                   <div>
                     <h6 className="font-bold mb-1">Location</h6>
-                    <p className="mb-0 text-gray-700 dark:text-gray-300">
+                    <p className="mb-0 text-gray-700">
                       Ottawa, Ontario, Canada
                     </p>
                   </div>
@@ -130,7 +130,7 @@ export default function Contact() {
                     </label>
                     <input
                       type="text"
-                      className="w-full border border-gray-300 dark:border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       id="name"
                       name="name"
                       value={formData.name}
@@ -144,7 +144,7 @@ export default function Contact() {
                     </label>
                     <input
                       type="email"
-                      className="w-full border border-gray-300 dark:border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       id="email"
                       name="email"
                       value={formData.email}
@@ -159,7 +159,7 @@ export default function Contact() {
                   </label>
                   <input
                     type="text"
-                    className="w-full border border-gray-300 dark:border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     id="subject"
                     name="subject"
                     value={formData.subject}
@@ -172,7 +172,7 @@ export default function Contact() {
                     Message *
                   </label>
                   <textarea
-                    className="w-full border border-gray-300 dark:border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     id="message"
                     name="message"
                     rows={6}
@@ -197,7 +197,7 @@ export default function Contact() {
       </section>
 
       {/* Services Section */}
-      <section className="bg-gray-100 dark:bg-neutral-800 py-16">
+      <section className="bg-gray-100 py-16">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-center">
@@ -208,32 +208,32 @@ export default function Contact() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white dark:bg-neutral-900 rounded-lg shadow p-8 flex flex-col items-center">
+            <div className="bg-white rounded-lg shadow p-8 flex flex-col items-center">
               <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-600 text-white text-2xl mb-4">
                 <i className="bi bi-laptop"></i>
               </span>
               <h5 className="font-bold mb-2">Web Development</h5>
-              <p className="text-center text-gray-700 dark:text-gray-300">
+              <p className="text-center text-gray-700">
                 Custom websites and web applications built with modern
                 technologies and best practices.
               </p>
             </div>
-            <div className="bg-white dark:bg-neutral-900 rounded-lg shadow p-8 flex flex-col items-center">
+            <div className="bg-white rounded-lg shadow p-8 flex flex-col items-center">
               <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-600 text-white text-2xl mb-4">
                 <i className="bi bi-phone"></i>
               </span>
               <h5 className="font-bold mb-2">Mobile Development</h5>
-              <p className="text-center text-gray-700 dark:text-gray-300">
+              <p className="text-center text-gray-700">
                 Cross-platform mobile applications for iOS and Android
                 platforms.
               </p>
             </div>
-            <div className="bg-white dark:bg-neutral-900 rounded-lg shadow p-8 flex flex-col items-center">
+            <div className="bg-white rounded-lg shadow p-8 flex flex-col items-center">
               <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-yellow-400 text-white text-2xl mb-4">
                 <i className="bi bi-palette"></i>
               </span>
               <h5 className="font-bold mb-2">UI/UX Design</h5>
-              <p className="text-center text-gray-700 dark:text-gray-300">
+              <p className="text-center text-gray-700">
                 User-centered design solutions that enhance user experience and
                 drive engagement.
               </p>
@@ -243,7 +243,7 @@ export default function Contact() {
       </section>
 
       {/* Availability Section */}
-      <section className="py-16 bg-white dark:bg-neutral-900">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-center">
@@ -251,21 +251,21 @@ export default function Contact() {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-green-50 dark:bg-green-900 rounded-lg shadow p-8 flex flex-col items-center">
+            <div className="bg-green-5 rounded-lg shadow p-8 flex flex-col items-center">
               <h5 className="text-green-600 font-bold mb-3 flex items-center">
                 <i className="bi bi-check-circle mr-2"></i>Available for New
                 Projects
               </h5>
-              <p className="text-center text-gray-700 dark:text-gray-300">
+              <p className="text-center text-gray-700">
                 I&apos;m currently accepting new client work and excited to
                 collaborate on interesting projects.
               </p>
             </div>
-            <div className="bg-blue-50 dark:bg-blue-900 rounded-lg shadow p-8 flex flex-col items-center">
+            <div className="bg-blue-50 rounded-lg shadow p-8 flex flex-col items-center">
               <h5 className="text-blue-600 font-bold mb-3 flex items-center">
                 <i className="bi bi-clock mr-2"></i>Response Time
               </h5>
-              <p className="text-center text-gray-700 dark:text-gray-300">
+              <p className="text-center text-gray-700">
                 I typically respond to inquiries within 24 hours during business
                 days.
               </p>

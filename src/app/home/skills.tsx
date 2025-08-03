@@ -57,7 +57,7 @@ export default function SkillsModule() {
         {process.map((step, index) => (
           <div
             key={index}
-            className="group relative bg-gray-100 dark:bg-neutral-800 rounded-lg shadow p-6 flex flex-col items-center hover:text-white transition-all duration-300 overflow-hidden"
+            className="group relative bg-gray-100 rounded-lg shadow p-6 flex flex-col items-center hover:text-white transition-all duration-300 overflow-hidden"
           >
             <div className="absolute inset-0 -translate-y-full bg-gradient-to-br from-blue-600 to-purple-700  group-hover:translate-y-0 transition-all duration-300 z-0"></div>
             <div className="relative text-center z-10">
@@ -65,7 +65,7 @@ export default function SkillsModule() {
                 {step.step}
               </span>
               <h5 className="font-bold mb-2">{step.title}</h5>
-              <p className="text-center text-gray-700 dark:text-gray-300 group-hover:text-gray-200 transition duration-300">
+              <p className="text-center text-gray-700 group-hover:text-gray-200 transition duration-300">
                 {step.description}
               </p>
               <div className="flex flex-wrap justify-center gap-3 mt-4">

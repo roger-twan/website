@@ -133,7 +133,7 @@ export default function Portfolio() {
       </section>
 
       {/* Portfolio Overview */}
-      <section className="py-16 bg-white dark:bg-neutral-900">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-center">
@@ -147,34 +147,28 @@ export default function Portfolio() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-            <div className="bg-blue-50 dark:bg-blue-900 rounded-lg shadow p-6 text-center">
+            <div className="bg-blue-50 rounded-lg shadow p-6 text-center">
               <h3 className="text-blue-600 font-bold text-3xl">9</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Projects Completed
-              </p>
+              <p className="text-gray-600">Projects Completed</p>
             </div>
-            <div className="bg-green-50 dark:bg-green-900 rounded-lg shadow p-6 text-center">
+            <div className="bg-green-50 rounded-lg shadow p-6 text-center">
               <h3 className="text-green-600 font-bold text-3xl">5</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Web Applications
-              </p>
+              <p className="text-gray-600">Web Applications</p>
             </div>
-            <div className="bg-cyan-50 dark:bg-cyan-900 rounded-lg shadow p-6 text-center">
+            <div className="bg-cyan-50 rounded-lg shadow p-6 text-center">
               <h3 className="text-cyan-600 font-bold text-3xl">2</h3>
-              <p className="text-gray-600 dark:text-gray-300">Mobile Apps</p>
+              <p className="text-gray-600">Mobile Apps</p>
             </div>
-            <div className="bg-yellow-50 dark:bg-yellow-900 rounded-lg shadow p-6 text-center">
+            <div className="bg-yellow-50 rounded-lg shadow p-6 text-center">
               <h3 className="text-yellow-600 font-bold text-3xl">2</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Design Projects
-              </p>
+              <p className="text-gray-600">Design Projects</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Featured Projects */}
-      <section className="bg-gray-100 dark:bg-neutral-800 py-16">
+      <section className="bg-gray-100 py-16">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-center">
@@ -190,9 +184,9 @@ export default function Portfolio() {
               .map((item) => (
                 <div
                   key={item.id}
-                  className="bg-white dark:bg-neutral-900 rounded-lg shadow-lg overflow-hidden flex flex-col"
+                  className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col"
                 >
-                  <div className="flex items-center justify-center bg-gray-200 dark:bg-neutral-700 h-64">
+                  <div className="flex items-center justify-center bg-gray-200 h-64">
                     <i className="bi bi-image text-6xl text-gray-400"></i>
                   </div>
                   <div className="p-6 flex-1 flex flex-col">
@@ -202,14 +196,12 @@ export default function Portfolio() {
                         {item.category}
                       </span>
                     </div>
-                    <p className="mb-3 text-gray-700 dark:text-gray-300">
-                      {item.description}
-                    </p>
+                    <p className="mb-3 text-gray-700">{item.description}</p>
                     <div className="mb-3 flex flex-wrap gap-2">
                       {item.technologies.map((tech, index) => (
                         <span
                           key={index}
-                          className="bg-gray-200 dark:bg-neutral-700 text-gray-700 dark:text-gray-200 px-2 py-1 rounded text-xs font-medium"
+                          className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs font-medium"
                         >
                           {tech}
                         </span>
@@ -231,7 +223,7 @@ export default function Portfolio() {
                           href={item.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="border border-blue-600 text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 dark:hover:bg-neutral-800 transition flex items-center"
+                          className="border border-blue-600 text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition flex items-center"
                         >
                           <i className="bi bi-github mr-2"></i>Code
                         </a>
@@ -245,7 +237,7 @@ export default function Portfolio() {
       </section>
 
       {/* All Projects */}
-      <section className="py-16 bg-white dark:bg-neutral-900">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-center">
@@ -259,9 +251,9 @@ export default function Portfolio() {
             {portfolioItems.map((item) => (
               <div
                 key={item.id}
-                className="bg-gray-100 dark:bg-neutral-800 rounded-lg shadow flex flex-col overflow-hidden"
+                className="bg-gray-100 rounded-lg shadow flex flex-col overflow-hidden"
               >
-                <div className="flex items-center justify-center bg-gray-200 dark:bg-neutral-700 h-48">
+                <div className="flex items-center justify-center bg-gray-200 h-48">
                   <i className="bi bi-image text-4xl text-gray-400"></i>
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
@@ -271,20 +263,20 @@ export default function Portfolio() {
                       {item.category}
                     </span>
                   </div>
-                  <p className="mb-2 text-gray-700 dark:text-gray-300 text-sm">
+                  <p className="mb-2 text-gray-700 text-sm">
                     {item.description}
                   </p>
                   <div className="mb-3 flex flex-wrap gap-2">
                     {item.technologies.slice(0, 3).map((tech, index) => (
                       <span
                         key={index}
-                        className="bg-gray-200 dark:bg-neutral-700 text-gray-700 dark:text-gray-200 px-2 py-1 rounded text-xs font-medium"
+                        className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs font-medium"
                       >
                         {tech}
                       </span>
                     ))}
                     {item.technologies.length > 3 && (
-                      <span className="bg-gray-200 dark:bg-neutral-700 text-gray-700 dark:text-gray-200 px-2 py-1 rounded text-xs font-medium">
+                      <span className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs font-medium">
                         +{item.technologies.length - 3} more
                       </span>
                     )}
@@ -305,7 +297,7 @@ export default function Portfolio() {
                         href={item.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="border border-blue-600 text-blue-600 px-3 py-1 rounded-lg font-semibold hover:bg-blue-50 dark:hover:bg-neutral-800 transition flex items-center text-xs"
+                        className="border border-blue-600 text-blue-600 px-3 py-1 rounded-lg font-semibold hover:bg-blue-50 transition flex items-center text-xs"
                       >
                         <i className="bi bi-github mr-1"></i>Code
                       </a>

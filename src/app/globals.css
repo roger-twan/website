@@ -1,5 +1,2 @@
 @import "tailwindcss";
 @import "animate.css";
-
-/* TODO: implement theme toggle */
-@custom-variant dark (&:where(.dark, .dark *));

@@ -54,21 +54,21 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-16 bg-gray-100 dark:bg-neutral-800">
+      <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
           <AboutModule />
         </div>
       </section>
 
       {/* Skills Section */}
-      <section className="py-16 bg-white dark:bg-neutral-900">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <SkillsModule />
         </div>
       </section>
 
       {/* Characters Section */}
-      <section className="bg-gray-100 dark:bg-neutral-800 py-16">
+      <section className="bg-gray-100 py-16">
         <div className="container mx-auto px-4">
           <CharacterModule />
         </div>
