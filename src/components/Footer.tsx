@@ -1,4 +1,25 @@
 import Link from 'next/link';
+import Image from 'next/image';
+
+import IconEmail from '@public/icons/email.svg';
+import IconPhone from '@public/icons/phone.svg';
+import IconLocation from '@public/icons/location.svg';
+
+import { socialLinks } from './SocialMedia';
+
+interface NavItem {
+  href: string;
+  label: string;
+}
+
+export const navLinks: NavItem[] = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/contact', label: 'Contact' },
+];
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -6,112 +27,75 @@ export default function Footer() {
   return (
     <footer className="bg-black text-white py-10 mt-auto">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
           {/* Company/Portfolio Info */}
           <div>
-            <h5 className="font-bold text-lg mb-3">Longjian Duan</h5>
-            <p className="mb-3 text-white/80">
-              Professional digital designer and developer creating innovative
-              web experiences and mobile applications that drive business
-              growth.
+            <Link
+              href="/"
+              className="flex items-center justify-center mb-3 md:justify-start md:-ml-1.5"
+            >
+              <Image src="/logo.svg" alt="Logo" width={40} height={40} />
+              <span className="font-bold text-lg pt-2.5 -ml-1.5">
+                oger Twan
+              </span>
+            </Link>
+            <p className="text-white/80">
+              Professional digital creator building elegant, performant web and
+              mobile applications through a blend of design thinking and modern
+              technologies.
             </p>
-            <div className="flex gap-3">
-              <a
-                href="https://www.linkedin.com/in/roger-twan/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-80 transition"
-              >
-                <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white">
-                  <i className="bi bi-linkedin text-xl"></i>
-                </span>
-              </a>
-              <a
-                href="https://github.com/roger-twan"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-80 transition"
-              >
-                <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-neutral-800 text-white border border-neutral-700">
-                  <i className="bi bi-github text-xl"></i>
-                </span>
-              </a>
-            </div>
           </div>
 
           {/* Quick Links */}
           <div>
             <h6 className="font-bold mb-3">Quick Links</h6>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/" className="footer-link">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="footer-link">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="footer-link">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/portfolio" className="footer-link">
-                  Portfolio
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="footer-link">
-                  Contact
-                </Link>
-              </li>
+            <ul className="grid grid-cols-2 gap-2 w-40 m-auto md:m-0 text-left">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-white/80 hover:text-white"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Social Media */}
           <div>
-            <h6 className="font-bold mb-3">Services</h6>
-            <ul className="space-y-2">
-              <li>
-                <span className="text-white/80">Web Development</span>
-              </li>
-              <li>
-                <span className="text-white/80">Mobile Development</span>
-              </li>
-              <li>
-                <span className="text-white/80">UI/UX Design</span>
-              </li>
-              <li>
-                <span className="text-white/80">Consulting</span>
-              </li>
-              <li>
-                <span className="text-white/80">Brand Identity</span>
-              </li>
-            </ul>
+            <h6 className="font-bold mb-3">Social Media</h6>
+            <div className="inline-block space-y-2">
+              {socialLinks.map((link) => (
+                <div
+                  key={link.name}
+                  className="flex items-center text-white/80 hover:text-white"
+                >
+                  <div className="mr-2 size-4">{link.icon}</div>
+                  <a href={link.url} target="_blank" rel="noopener noreferrer">
+                    {link.name}
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Contact Info */}
           <div>
             <h6 className="font-bold mb-3">Contact Info</h6>
-            <div className="flex flex-col gap-2">
-              <div className="flex items-center">
-                <i className="bi bi-envelope mr-2 text-white/80"></i>
-                <a href="mailto:roger.twan@gmail.com" className="footer-link">
-                  roger.twan@gmail.com
-                </a>
+            <div className="inline-block space-y-2">
+              <div className="flex items-center text-white/80 hover:text-white">
+                <IconEmail className="size-5 mr-2" />
+                <a href="mailto:roger.twan@gmail.com">roger.twan@gmail.com</a>
               </div>
-              <div className="flex items-center">
-                <i className="bi bi-telephone mr-2 text-white/80"></i>
-                <a href="tel:+1234567890" className="footer-link">
-                  +1 (613) 862-1168
-                </a>
+              <div className="flex items-center text-white/80 hover:text-white">
+                <IconPhone className="size-5 mr-2" />
+                <a href="tel:+1234567890">+1 (613) 862-1168</a>
               </div>
-              <div className="flex items-center">
-                <i className="bi bi-geo-alt mr-2 text-white/80"></i>
-                <span className="text-white/80">Ottawa, Ontario, Canada</span>
+              <div className="flex items-center text-white/80">
+                <IconLocation className="size-5 mr-1" />
+                <span>Ottawa, Ontario, Canada</span>
               </div>
             </div>
           </div>
@@ -120,11 +104,36 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-10 pt-6 border-t border-neutral-800 flex flex-col md:flex-row items-center justify-between text-sm text-white/60">
           <p className="mb-2 md:mb-0">
-            © {currentYear} Longjian Duan. All rights reserved.
+            © {currentYear} Roger Twan. All rights reserved.
           </p>
           <p>
-            Built with <i className="bi bi-heart-fill text-red-500"></i> using
-            Next.js &amp; Tailwind CSS
+            Built with{' '}
+            <a
+              className="hover:text-white"
+              href="https://nextjs.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Next.js
+            </a>{' '}
+            &amp;{' '}
+            <a
+              className="hover:text-white"
+              href="https://tailwindcss.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Tailwind CSS
+            </a>
+            , seamlessly integrated with{' '}
+            <a
+              className="hover:text-white"
+              href="https://obsidian.md/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Obsidian
+            </a>
           </p>
         </div>
       </div>

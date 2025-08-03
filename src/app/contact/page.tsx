@@ -1,40 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import SocialMedia from '@/components/SocialMedia';
 import IconEmail from '@public/icons/email.svg';
 import IconPhone from '@public/icons/phone.svg';
 import IconLocation from '@public/icons/location.svg';
-import IconLinkedin from '@public/icons/linkedin.svg';
-import IconGithub from '@public/icons/github.svg';
-import IconInstagram from '@public/icons/instagram.svg';
-import IconFacebook from '@public/icons/facebook.svg';
-
-const socialLinks = [
-  {
-    name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/roger-twan',
-    icon: <IconLinkedin className="size-5" />,
-    backgroundColor: 'bg-blue-600',
-  },
-  {
-    name: 'GitHub',
-    url: 'https://github.com/roger-twan',
-    icon: <IconGithub className="size-5" />,
-    backgroundColor: 'bg-neutral-800',
-  },
-  {
-    name: 'Instagram',
-    url: 'https://www.instagram.com/roger.twan',
-    icon: <IconInstagram className="size-5" />,
-    backgroundColor: 'bg-red-500',
-  },
-  {
-    name: 'Facebook',
-    url: 'https://www.facebook.com/roger.twan',
-    icon: <IconFacebook className="size-5" />,
-    backgroundColor: 'bg-blue-500',
-  },
-];
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -135,23 +105,7 @@ export default function Contact() {
               {/* Social Media Links */}
               <div className="mt-8">
                 <h5 className="font-bold mb-3">Follow Me</h5>
-                <div className="flex gap-4">
-                  {socialLinks.map((link) => (
-                    <a
-                      key={link.name}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:opacity-80 transition"
-                    >
-                      <span
-                        className={`inline-flex items-center justify-center w-10 h-10 rounded-full text-white ${link.backgroundColor}`}
-                      >
-                        {link.icon}
-                      </span>
-                    </a>
-                  ))}
-                </div>
+                <SocialMedia />
               </div>
             </div>
 

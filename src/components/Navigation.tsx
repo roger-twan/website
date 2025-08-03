@@ -7,17 +7,7 @@ import { usePathname } from 'next/navigation';
 import IconMenu from '@public/icons/menu.svg';
 import IconClose from '@public/icons/close.svg';
 
-interface NavItem {
-  href: string;
-  label: string;
-}
-
-const navLinks: NavItem[] = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/portfolio', label: 'Portfolio' },
-  { href: '/contact', label: 'Contact' },
-];
+import { navLinks } from './Footer';
 
 export default function Navigation() {
   const pathname = usePathname();
