@@ -1,6 +1,40 @@
 'use client';
 
 import { useState } from 'react';
+import IconEmail from '@public/icons/email.svg';
+import IconPhone from '@public/icons/phone.svg';
+import IconLocation from '@public/icons/location.svg';
+import IconLinkedin from '@public/icons/linkedin.svg';
+import IconGithub from '@public/icons/github.svg';
+import IconInstagram from '@public/icons/instagram.svg';
+import IconFacebook from '@public/icons/facebook.svg';
+
+const socialLinks = [
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/roger-twan',
+    icon: <IconLinkedin className="size-5" />,
+    backgroundColor: 'bg-blue-600',
+  },
+  {
+    name: 'GitHub',
+    url: 'https://github.com/roger-twan',
+    icon: <IconGithub className="size-5" />,
+    backgroundColor: 'bg-neutral-800',
+  },
+  {
+    name: 'Instagram',
+    url: 'https://www.instagram.com/roger.twan',
+    icon: <IconInstagram className="size-5" />,
+    backgroundColor: 'bg-red-500',
+  },
+  {
+    name: 'Facebook',
+    url: 'https://www.facebook.com/roger.twan',
+    icon: <IconFacebook className="size-5" />,
+    backgroundColor: 'bg-blue-500',
+  },
+];
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -20,9 +54,15 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real application, this would send the form data to a server
+    await fetch('https://formsubmit.co/roger.twan@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
     alert('Thank you for your message! I will get back to you soon.');
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
@@ -30,15 +70,15 @@ export default function Contact() {
   return (
     <div className="w-full p-0">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 to-purple-700 text-white py-16">
+      <section className="bg-gradient-to-br from-blue-600 to-purple-700 text-white pt-24 pb-16">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center animate__animated animate__fadeInDown">
               Get In Touch
             </h1>
-            <p className="text-lg mb-8 text-center max-w-2xl">
-              Ready to start your next project? Let&apos;s discuss how I can
-              help bring your ideas to life.
+            <p className="text-lg mb-8 text-center max-w-2xl animate__animated animate__flipInX">
+              I&apos;m always happy to connect, learn from others, and explore
+              new perspectives. Don&apos;t hesitate to reach out.
             </p>
           </div>
         </div>
@@ -54,7 +94,7 @@ export default function Contact() {
               <div className="flex flex-col gap-6">
                 <div className="flex items-center">
                   <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-600 text-white mr-4">
-                    <i className="bi bi-envelope text-xl"></i>
+                    <IconEmail className="size-5" />
                   </span>
                   <div>
                     <h6 className="font-bold mb-1">Email</h6>
@@ -68,12 +108,12 @@ export default function Contact() {
                 </div>
                 <div className="flex items-center">
                   <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-600 text-white mr-4">
-                    <i className="bi bi-telephone text-xl"></i>
+                    <IconPhone className="size-5" />
                   </span>
                   <div>
                     <h6 className="font-bold mb-1">Phone</h6>
                     <a
-                      href="tel:+1234567890"
+                      href="tel:+16138621168"
                       className="text-blue-700 hover:underline"
                     >
                       +1 (613) 862-1168
@@ -82,7 +122,7 @@ export default function Contact() {
                 </div>
                 <div className="flex items-center">
                   <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-600 text-white mr-4">
-                    <i className="bi bi-geo-alt text-xl"></i>
+                    <IconLocation className="size-5" />
                   </span>
                   <div>
                     <h6 className="font-bold mb-1">Location</h6>
@@ -96,29 +136,25 @@ export default function Contact() {
               <div className="mt-8">
                 <h5 className="font-bold mb-3">Follow Me</h5>
                 <div className="flex gap-4">
-                  <a
-                    href="https://www.linkedin.com/in/roger-twan/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:opacity-80 transition"
-                  >
-                    <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white">
-                      <i className="bi bi-linkedin text-xl"></i>
-                    </span>
-                  </a>
-                  <a
-                    href="https://github.com/roger-twan"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:opacity-80 transition"
-                  >
-                    <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-neutral-800 text-white border border-neutral-700">
-                      <i className="bi bi-github text-xl"></i>
-                    </span>
-                  </a>
+                  {socialLinks.map((link) => (
+                    <a
+                      key={link.name}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:opacity-80 transition"
+                    >
+                      <span
+                        className={`inline-flex items-center justify-center w-10 h-10 rounded-full text-white ${link.backgroundColor}`}
+                      >
+                        {link.icon}
+                      </span>
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>
+
             {/* Contact Form */}
             <div className="md:w-2/3 w-full">
               <h2 className="text-2xl font-bold mb-6">Send Me a Message</h2>
@@ -184,91 +220,12 @@ export default function Contact() {
                 <div>
                   <button
                     type="submit"
-                    className="bg-blue-600 text-white font-semibold px-8 py-4 rounded-lg shadow hover:bg-blue-700 transition flex items-center"
+                    className="bg-blue-600 text-white font-semibold px-8 py-4 rounded-lg shadow hover:bg-gradient-to-br hover:from-blue-600 hover:to-purple-700 transition-all duration-300 flex items-center cursor-pointer"
                   >
-                    <i className="bi bi-send mr-2"></i>
                     Send Message
                   </button>
                 </div>
               </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="bg-gray-100 py-16">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-center">
-              What I Can Help You With
-            </h2>
-            <p className="text-lg text-center max-w-2xl">
-              Professional services tailored to your needs
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg shadow p-8 flex flex-col items-center">
-              <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-600 text-white text-2xl mb-4">
-                <i className="bi bi-laptop"></i>
-              </span>
-              <h5 className="font-bold mb-2">Web Development</h5>
-              <p className="text-center text-gray-700">
-                Custom websites and web applications built with modern
-                technologies and best practices.
-              </p>
-            </div>
-            <div className="bg-white rounded-lg shadow p-8 flex flex-col items-center">
-              <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-600 text-white text-2xl mb-4">
-                <i className="bi bi-phone"></i>
-              </span>
-              <h5 className="font-bold mb-2">Mobile Development</h5>
-              <p className="text-center text-gray-700">
-                Cross-platform mobile applications for iOS and Android
-                platforms.
-              </p>
-            </div>
-            <div className="bg-white rounded-lg shadow p-8 flex flex-col items-center">
-              <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-yellow-400 text-white text-2xl mb-4">
-                <i className="bi bi-palette"></i>
-              </span>
-              <h5 className="font-bold mb-2">UI/UX Design</h5>
-              <p className="text-center text-gray-700">
-                User-centered design solutions that enhance user experience and
-                drive engagement.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Availability Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-center">
-              Current Availability
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-green-5 rounded-lg shadow p-8 flex flex-col items-center">
-              <h5 className="text-green-600 font-bold mb-3 flex items-center">
-                <i className="bi bi-check-circle mr-2"></i>Available for New
-                Projects
-              </h5>
-              <p className="text-center text-gray-700">
-                I&apos;m currently accepting new client work and excited to
-                collaborate on interesting projects.
-              </p>
-            </div>
-            <div className="bg-blue-50 rounded-lg shadow p-8 flex flex-col items-center">
-              <h5 className="text-blue-600 font-bold mb-3 flex items-center">
-                <i className="bi bi-clock mr-2"></i>Response Time
-              </h5>
-              <p className="text-center text-gray-700">
-                I typically respond to inquiries within 24 hours during business
-                days.
-              </p>
             </div>
           </div>
         </div>

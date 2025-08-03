@@ -114,9 +114,7 @@ export default function skillsModule() {
                 {skill.skills.map((skill, index) => (
                   <div key={index} className="mb-4">
                     <div className="mb-2 font-bold">{skill.name}</div>
-                    <div
-                      className={`grid grid-cols-${skillLevelStyles.length} gap-[1px]`}
-                    >
+                    <div className={`grid grid-cols-5 gap-[1px]`}>
                       {Array.from({ length: skillLevelStyles.length }).map(
                         (_, i) => (
                           <div
