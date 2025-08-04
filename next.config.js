@@ -1,4 +1,8 @@
 module.exports = {
+  images: {
+    domains: ['assets-obsidian.roger.ink'],
+    unoptimized: true,
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
