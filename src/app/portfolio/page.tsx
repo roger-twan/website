@@ -58,7 +58,7 @@ export interface Portfolio {
 const portfolio: Portfolio[] = [
   {
     title: 'E-Commerce Platform',
-    categories: ['Web'],
+    categories: ['Web', 'Design'],
     image: 'https://roger.ink/_next/static/media/sso.9cdc335d.jpeg',
     technologies: ['Next.js', 'TypeScript', 'Stripe', 'MongoDB'],
     description:

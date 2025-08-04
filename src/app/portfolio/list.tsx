@@ -59,14 +59,16 @@ export default function PortfolioList({
             <div className="p-6 flex-1 flex flex-col">
               <div className="flex justify-between items-center mb-2">
                 <h6 className="font-bold text-lg mb-0">{item.title}</h6>
-                {item.categories.map((category, index) => (
-                  <span
-                    key={index}
-                    className={`${CategoryObj[category].textColor} border ${CategoryObj[category].borderColor} ${CategoryObj[category].backgroundColor} px-1 py-0.5 rounded-full text-xs`}
-                  >
-                    {category}
-                  </span>
-                ))}
+                <div className="flex justify-end gap-1">
+                  {item.categories.map((category, index) => (
+                    <span
+                      key={index}
+                      className={`${CategoryObj[category].textColor} border ${CategoryObj[category].borderColor} ${CategoryObj[category].backgroundColor} px-1 py-0.5 rounded-full text-xs`}
+                    >
+                      {category}
+                    </span>
+                  ))}
+                </div>
               </div>
               <div className="mb-3 flex flex-wrap gap-2">
                 {item.technologies.map((tech, index) => (
