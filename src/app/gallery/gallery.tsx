@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import { Photo } from './gallery.data';
 import LightGallery from 'lightgallery/react';
 import lgAutoplay from 'lightgallery/plugins/autoplay';
-import Masonry from 'masonry-layout';
 import imagesLoaded from 'imagesloaded';
 import { format } from 'date-fns';
 import LazyLoadImage from '@/components/LazyLoadImage';
@@ -18,15 +17,20 @@ interface GalleryModuleProps {
 
 export default function GalleryModule(props: GalleryModuleProps) {
   useEffect(() => {
-    const container = document.querySelector('.gallery-container');
-    if (container) {
-      const masonry = new Masonry(container, {
-        itemSelector: '.gallery-item',
-        columnWidth: '.gallery-item',
-        percentPosition: true,
-      });
+    if (typeof window !== 'undefined') {
+      import('masonry-layout').then(({ default: Masonry }) => {
+        console.log(11111);
+        const container = document.querySelector('.gallery-container');
+        if (container) {
+          const masonry = new Masonry(container, {
+            itemSelector: '.gallery-item',
+            columnWidth: '.gallery-item',
+            percentPosition: true,
+          });
 
-      imagesLoaded(container).on('progress', () => masonry.layout());
+          imagesLoaded(container).on('progress', () => masonry.layout());
+        }
+      });
     }
   }, []);
 
