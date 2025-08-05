@@ -1,9 +1,20 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-
+import IconLive from '@public/icons/live.svg';
+import IconGithub from '@public/icons/github.svg';
+import IconFigma from '@public/icons/figma.svg';
+import IconBlog from '@public/icons/blog.svg';
 import ClientImage from '@/components/ClientImage';
-import { Portfolio, CategoryObj, Category, LinkTypeIconMap } from './page';
+import { Portfolio, Category, CategoryObj } from './portfolio.data';
+
+const svgClasses = 'size-4 mr-1';
+export const LinkTypeIconMap = {
+  GitHub: <IconGithub className={svgClasses} />,
+  Blog: <IconBlog className={svgClasses} />,
+  Figma: <IconFigma className={svgClasses} />,
+  Live: <IconLive className={svgClasses} />,
+};
 
 export default function PortfolioList({
   portfolio,
@@ -23,7 +34,7 @@ export default function PortfolioList({
         ),
       );
     }
-  }, [selectedCategory]);
+  }, [selectedCategory, portfolio]);
 
   return (
     <>
@@ -81,7 +92,7 @@ export default function PortfolioList({
                 ))}
               </div>
               <p className="mb-2 text-gray-700 text-sm">{item.description}</p>
-              <div className="flex gap-2 mt-auto">
+              <div className="flex flex-wrap gap-1 mt-auto">
                 {item.links.map((item) => (
                   <a
                     className="inline-flex items-center py-1 px-2 rounded-full border border-gray-300 bg-white text-sm  hover:bg-gray-200 transition"
