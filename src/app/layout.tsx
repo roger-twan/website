@@ -10,6 +10,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="robots" content="index, follow" />
+      </head>
       <body className="min-h-screen flex flex-col bg-white text-neutral-900">
         <Navigation />
         <main className="flex-grow">{children}</main>
