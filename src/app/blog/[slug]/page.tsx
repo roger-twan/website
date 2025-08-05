@@ -10,7 +10,7 @@ import Article from './article';
 import Toc from './toc';
 
 type BlogPostProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({
