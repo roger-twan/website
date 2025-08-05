@@ -1,6 +1,8 @@
 import IconQuestion from '@public/icons/question.svg';
+import getSkills, { Skill } from './skills.data';
+import SkillItem from './skill-item';
 
-enum SkillLevel {
+export enum SkillLevel {
   BEGINNER = 'Beginner',
   INTERMEDIATE = 'Intermediate',
   PROFICIENT = 'Proficient',
@@ -8,7 +10,7 @@ enum SkillLevel {
   EXPERT = 'Expert',
 }
 
-const skillLevelStyles = [
+export const skillLevelStyles = [
   {
     level: SkillLevel.BEGINNER,
     color: 'bg-blue-300',
@@ -41,32 +43,9 @@ const skillLevelStyles = [
   },
 ];
 
-const skills = [
-  {
-    category: 'UX/UI Design',
-    skills: [
-      { name: 'User Research', level: SkillLevel.EXPERT },
-      { name: 'Wireframing & Prototyping', level: SkillLevel.ADVANCED },
-      { name: 'Visual Design', level: SkillLevel.PROFICIENT },
-      { name: 'Usability Testing', level: SkillLevel.INTERMEDIATE },
-      { name: 'Design Systems', level: SkillLevel.BEGINNER },
-      { name: 'Interactive Prototypes', level: SkillLevel.BEGINNER },
-    ],
-  },
-  {
-    category: 'Web Development',
-    skills: [
-      { name: 'HTML', level: SkillLevel.EXPERT },
-      { name: 'CSS', level: SkillLevel.ADVANCED },
-      { name: 'JavaScript', level: SkillLevel.PROFICIENT },
-      { name: 'React', level: SkillLevel.INTERMEDIATE },
-      { name: 'Node.js', level: SkillLevel.BEGINNER },
-      { name: 'Express.js', level: SkillLevel.BEGINNER },
-    ],
-  },
-];
+export default async function skillsModule() {
+  const skills = await getSkills();
 
-export default function skillsModule() {
   return (
     <div className="flex flex-col items-center">
       <h2 className="text-3xl font-bold mb-4 text-center">Skills</h2>
@@ -101,37 +80,12 @@ export default function skillsModule() {
         </li>
       </ul>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-        {skills.map((skill, index) => (
+        {skills.map((skill: Skill, index) => (
           <div
             key={index}
             className="bg-gray-100 rounded-lg shadow p-4 flex flex-col h-full hover:bg-gradient-to-br hover:from-blue-600 hover:to-purple-700 transition-colors duration-300"
           >
-            <div className="p-4 bg-gray-100 rounded">
-              <h4 className="font-bold text-xl mb-0 text-center">
-                {skill.category}
-              </h4>
-              <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-8 w-full">
-                {skill.skills.map((skill, index) => (
-                  <div key={index} className="mb-4">
-                    <div className="mb-2 font-bold">{skill.name}</div>
-                    <div className={`grid grid-cols-5 gap-[1px]`}>
-                      {Array.from({ length: skillLevelStyles.length }).map(
-                        (_, i) => (
-                          <div
-                            key={i}
-                            className="w-full bg-gray-200 rounded-full h-2 overflow-hidden"
-                          >
-                            <div
-                              className={`w-full h-full ${skillLevelStyles.findIndex((level) => level.level === skill.level) >= i ? skillLevelStyles[i].color : ''}`}
-                            ></div>
-                          </div>
-                        ),
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <SkillItem skill={skill} />
           </div>
         ))}
       </div>

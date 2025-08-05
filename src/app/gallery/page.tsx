@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import getPhotos, { Photo } from './gallery.data';
-import GalleryModule from './gallery.module';
+import GalleryModule from './gallery';
 
 export const metadata: Metadata = {
   title: 'Gallery | Roger Twan',

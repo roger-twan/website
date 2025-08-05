@@ -4,7 +4,7 @@ const process = [
     title: 'Discovery',
     description:
       'Understanding requirements and goals through detailed conversations and documentation.',
-    skills: ['Google productivity suite', 'FigJam', 'ChatGPT'],
+    skills: ['Google Productivity Suite', 'FigJam', 'ChatGPT'],
   },
   {
     step: '02',

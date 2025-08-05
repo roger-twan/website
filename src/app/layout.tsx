@@ -1,13 +1,7 @@
-import type { Metadata } from 'next';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import './globals.css';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-
-const metadata: Metadata = {
-  title: 'Creative Portfolio - Digital Designer & Developer',
-  description:
-    'Professional portfolio showcasing web design, development, and creative projects',
-};
 
 export default function RootLayout({
   children,
@@ -21,6 +15,9 @@ export default function RootLayout({
         <main className="flex-grow">{children}</main>
         <Footer />
       </body>
+      {process.env.NODE_ENV === 'production' && (
+        <GoogleAnalytics gaId="G-4MLJN88VXV" />
+      )}
     </html>
   );
 }

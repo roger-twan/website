@@ -12,6 +12,7 @@
     "@akebifiky/remark-simple-plantuml": "^1.0.2",
     "@giscus/react": "^3.1.0",
     "@jsdevtools/rehype-toc": "^3.0.2",
+    "@next/third-parties": "^15.4.5",
     "@react-three/drei": "^10.6.1",
     "@react-three/fiber": "^9.3.0",
     "animate.css": "^4.1.1",
