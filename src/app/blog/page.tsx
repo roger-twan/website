@@ -8,10 +8,10 @@ import IconChevronRight from '@public/icons/chevron-right.svg';
 import getPosts, { Post } from './blog.data';
 
 type BlogListProps = {
-  searchParams: {
+  searchParams: Promise<{
     page?: string;
     tag?: string;
-  };
+  }>;
 };
 
 interface Tags {
