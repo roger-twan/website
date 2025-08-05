@@ -9,11 +9,13 @@ import getPosts, { Post } from '../blog.data';
 import Article from './article';
 import Toc from './toc';
 
+type BlogPostProps = {
+  params: { slug: string };
+};
+
 export async function generateMetadata({
   params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata> {
+}: BlogPostProps): Promise<Metadata> {
   const { slug } = await params;
   const posts = await getPosts();
   const post: Post | undefined = posts.find(
@@ -32,11 +34,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function BlogPost({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function BlogPost({ params }: BlogPostProps) {
   const { slug } = await params;
   const posts = await getPosts();
   const post: Post | undefined = posts.find(
