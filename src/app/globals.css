@@ -1,2 +1,23 @@
 @import "tailwindcss";
 @import "animate.css";
+@plugin "@tailwindcss/typography";
+
+@layer components {
+  mjx-container[jax="SVG"][display="true"] {
+    text-align: left !important;
+    overflow-x: auto;
+  }
+  mjx-container > svg {
+    display: inline;
+  }
+  pre {
+    padding: 0 !important;
+    background-color: transparent !important;
+  }
+}
+
+@layer utilities {
+  .prose [id] {
+    @apply scroll-mt-20;
+  }
+}

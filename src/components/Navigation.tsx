@@ -57,6 +57,8 @@ export default function Navigation() {
   }, [isMobileMenuOpen]);
 
   const toggleMobileMenu = () => setMobileMenuOpen(!isMobileMenuOpen);
+  const isActive = (path: string) =>
+    path === '/' ? pathname === '/' : pathname.startsWith(path);
 
   return (
     <nav
@@ -94,7 +96,7 @@ export default function Navigation() {
                 key={link.href}
                 href={link.href}
                 className={`nav-link text-gray-300 hover:text-white transition-colors duration-200 ${
-                  pathname === link.href ? 'text-white border-b' : ''
+                  isActive(link.href) ? 'text-white border-b' : ''
                 }`}
               >
                 {link.label}
@@ -116,7 +118,7 @@ export default function Navigation() {
               key={link.href}
               href={link.href}
               className={`block px-3 py-2 rounded-md text-base text-center font-medium text-gray-300 hover:text-white hover:bg-neutral-800 transition-colors duration-300 ${
-                pathname === link.href ? 'text-white bg-neutral-800' : ''
+                isActive(link.href) ? 'text-white bg-neutral-800' : ''
               }`}
               onClick={toggleMobileMenu}
             >
