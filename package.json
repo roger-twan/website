@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier": "prettier --check **/*.{js,jsx,ts,tsx}"
   },
   "dependencies": {
     "@akebifiky/remark-simple-plantuml": "^1.0.2",
