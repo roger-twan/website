@@ -1,9 +1,16 @@
-import PortfolioList from './list';
+import { Metadata } from 'next';
 
 import IconLive from '@public/icons/live.svg';
 import IconGithub from '@public/icons/github.svg';
 import IconFigma from '@public/icons/figma.svg';
 import IconBlog from '@public/icons/blog.svg';
+import PortfolioList from './list';
+
+// export const metadata: Metadata = {
+//   title: 'Portfolio | Roger Twan',
+//   description:
+//     'A collection of my work showcasing across system architecture, web development, mobile apps, creative design, and custom-built tools that streamline workflows and boost efficiency.',
+// };
 
 export const CategoryObj = {
   Web: {

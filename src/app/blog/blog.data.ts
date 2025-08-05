@@ -1,6 +1,6 @@
-import { fetchNotesRepo } from '@/utils/octokit';
 import { compareAsc } from 'date-fns';
 import metadataParser from 'markdown-yaml-metadata-parser';
+import { fetchNotesRepo } from '@/utils/octokit';
 
 export interface Post {
   title: string;

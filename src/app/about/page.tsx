@@ -1,8 +1,15 @@
+import { Metadata } from 'next';
 import SkillsModule from './skills';
 import StoryModule from './story';
 import WorkModule from './work';
 import EducationModule from './education';
 import InterestModule from './interest';
+
+export const metadata: Metadata = {
+  title: 'About | Roger Twan',
+  description:
+    'A passionate digital creator with a love for innovative technology and beautiful design. ',
+};
 
 export default function About() {
   const education = [

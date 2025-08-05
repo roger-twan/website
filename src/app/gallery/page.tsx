@@ -1,5 +1,12 @@
+import { Metadata } from 'next';
 import getPhotos, { Photo } from './gallery.data';
 import GalleryModule from './gallery.module';
+
+export const metadata: Metadata = {
+  title: 'Gallery | Roger Twan',
+  description:
+    'A collection of my favorite photos from my travels and daily life.',
+};
 
 export default async function Gallery() {
   const photoData: Photo[] = await getPhotos();
