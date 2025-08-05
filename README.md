@@ -38,9 +38,10 @@ Integrated with GitHub Actions, will automatically run code check whenever there
 
 ### 4.0.0 (2025-08-05)
 
+- [New Feature] Post comments support
+- [New Feature] GitHub Webhook handler
 - [Improvement] Redesign the interface, upgrade Next version to v15
 - [Improvement] [SEO Integration](https://github.com/roger-twan/website/issues/34), add sitemap and robots.txt
-- [New Feature] Support for comments
 - [Improvement] Dynamic portfolio & skills data fetching from Obsidian
 
 ### 3.4.2 (2025-06-10)
