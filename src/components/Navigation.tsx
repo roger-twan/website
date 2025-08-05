@@ -1,0 +1,132 @@
+'use client';
+
+import Link from 'next/link';
+import Image from 'next/image';
+import { useState, useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
+import IconMenu from '@public/icons/menu.svg';
+import IconClose from '@public/icons/close.svg';
+
+import { navLinks } from './Footer';
+
+export default function Navigation() {
+  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [menuHeight, setMenuHeight] = useState(0);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const threshold = 10;
+    setScrolled(window.scrollY > threshold);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > threshold);
+      setMobileMenuOpen(false);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (isMobileMenuOpen && mobileMenuRef.current) {
+      const height = mobileMenuRef.current.scrollHeight;
+      setMenuHeight(height);
+    } else {
+      setMenuHeight(0);
+    }
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
+
+  const toggleMobileMenu = () => setMobileMenuOpen(!isMobileMenuOpen);
+  const isActive = (path: string) =>
+    path === '/' ? pathname === '/' : pathname.startsWith(path);
+
+  return (
+    <nav
+      ref={navRef}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled || isMobileMenuOpen ? 'bg-black shadow-md' : 'bg-transparent'
+      }`}
+    >
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          <Link
+            href="/"
+            className="hover:scale-110 transition-transform duration-300"
+          >
+            <Image src="/logo.svg" alt="Logo" width={40} height={40} />
+          </Link>
+          <div className="flex md:hidden">
+            <button
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              aria-controls="mobile-menu"
+              aria-expanded={isMobileMenuOpen}
+              onClick={toggleMobileMenu}
+            >
+              <span className="sr-only">Open main menu</span>
+              {isMobileMenuOpen ? (
+                <IconClose className="size-6" />
+              ) : (
+                <IconMenu className="size-6" />
+              )}
+            </button>
+          </div>
+          <div className="hidden md:flex md:items-center md:space-x-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`nav-link text-gray-300 hover:text-white transition-colors duration-200 ${
+                  isActive(link.href) ? 'text-white border-b' : ''
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile menu */}
+      <div
+        className="md:hidden overflow-hidden transition-[max-height] duration-200 ease-in-out bg-black bg-opacity-90"
+        style={{ maxHeight: `${menuHeight}px` }}
+        ref={mobileMenuRef}
+      >
+        <div className="container mx-auto px-4 pb-2">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`block px-3 py-2 rounded-md text-base text-center font-medium text-gray-300 hover:text-white hover:bg-neutral-800 transition-colors duration-300 ${
+                isActive(link.href) ? 'text-white bg-neutral-800' : ''
+              }`}
+              onClick={toggleMobileMenu}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </nav>
+  );
+}

@@ -1,13 +1,4 @@
-/** @type {import('next').NextConfig} */
-
-const nextConfig = {
-  assetPrefix: process.env.NODE_ENV === 'development' ? '/proxy/3000/' : '',
-  output: 'export',
-  reactStrictMode: false,
-  eslint: {
-    dirs: ['components', 'pages', 'utils'],
-  },
-  pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
+module.exports = {
   images: {
     domains: ['assets-obsidian.roger.ink'],
     unoptimized: true,
@@ -16,9 +7,7 @@ const nextConfig = {
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
-    })
-    return config
+    });
+    return config;
   },
-}
-
-module.exports = nextConfig
+};
