@@ -19,7 +19,6 @@ export default function GalleryModule(props: GalleryModuleProps) {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       import('masonry-layout').then(({ default: Masonry }) => {
-        console.log(11111);
         const container = document.querySelector('.gallery-container');
         if (container) {
           const masonry = new Masonry(container, {

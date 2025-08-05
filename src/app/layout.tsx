@@ -1,4 +1,6 @@
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -19,7 +21,11 @@ export default function RootLayout({
         <Footer />
       </body>
       {process.env.NODE_ENV === 'production' && (
-        <GoogleAnalytics gaId="G-4MLJN88VXV" />
+        <>
+          <GoogleAnalytics gaId="G-4MLJN88VXV" />
+          <Analytics />
+          <SpeedInsights />
+        </>
       )}
     </html>
   );

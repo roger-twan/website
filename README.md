@@ -36,48 +36,25 @@ Integrated with GitHub Actions, will automatically run code check whenever there
 
 ## 📝 Change Logs
 
-### 3.0.0 (2024-09-02)
+### 4.0.0 (2025-08-05)
 
-- New UI presentation, along with innovative technology and a new architecture.
+- [Improvement] Redesign the interface, upgrade Next version to v15
+- [Improvement] [SEO Integration](https://github.com/roger-twan/website/issues/34), add sitemap and robots.txt
+- [New Feature] Support for comments
+- [Improvement] Dynamic portfolio & skills data fetching from Obsidian
 
-### 3.0.1 (2024-09-03)
+### 3.4.2 (2025-06-10)
 
-- [Bug fix] [Menu disappear animation](https://github.com/roger-twan/website/issues/20)
+- [Improvement] Adjust configuration for cloud development environment.
+- [Improvement] Update skills & portfolio
 
-### 3.0.2 (2024-09-04)
+### 3.4.1 (2025-01-05)
 
-- [Improvement] Support for multiple project links.
+- [Improvement] Add new skill & update project tags
 
-### 3.0.3 (2024-09-11)
+### 3.4.0 (2024-12-28)
 
-- [Improvement] Remove the cursor pointer on the project title to avoid causing confusion.
-
-### 3.0.4 (2024-09-21)
-
-- [Improvement] Add a Python project.
-
-### 3.1.0 (2024-09-22)
-
-- [New Feature] Add Gallery page.
-
-### 3.1.1 (2024-09-28)
-
-- [Improvement] [Optimize the photos quality in the Gallery page](https://github.com/roger-twan/website/issues/24)
-- [Improvement] Upgrade Next version to v14.
-
-### 3.1.2 (2024-11-29)
-
-- [Improvement] Add a Node.js project -- Simple API.
-
-### 3.1.3 (2024-12-22)
-
-- [Improvement] Add a Java project -- SSO.
-
-### 3.2.0 (2024-12-26)
-
-- [Improvement] [Add loading to the homepage](https://github.com/roger-twan/website/issues/27)
-- [Improvement] [Display menu on the homepage instead of the value](https://github.com/roger-twan/website/issues/21)
-- [Bugfix] Fix len model display issue.
+- [New Feature] Add skills screenshot feature using Playwright
 
 ### 3.3.0 (2024-12-28)
 
@@ -85,22 +62,45 @@ Integrated with GitHub Actions, will automatically run code check whenever there
 - [Improvement] Add skill journey to About page
 - [Improvement] Improve SVG file
 
-### 3.4.0 (2024-12-28)
+### 3.2.0 (2024-12-26)
 
-- [New Feature] Add skills screenshot feature using Playwright
+- [Improvement] [Add loading to the homepage](https://github.com/roger-twan/website/issues/27)
+- [Improvement] [Display menu on the homepage instead of the value](https://github.com/roger-twan/website/issues/21)
+- [Bugfix] Fix len model display issue.
 
-### 3.4.1 (2025-01-05)
+### 3.1.3 (2024-12-22)
 
-- [Improvement] Add new skill & update project tags
+- [Improvement] Add a Java project -- SSO.
 
-### 3.4.2 (2025-06-10)
+### 3.1.2 (2024-11-29)
 
-- [Improvement] Adjust configuration for cloud development environment.
-- [Improvement] Update skills & portfolio
+- [Improvement] Add a Node.js project -- Simple API.
 
-### 4.0.0 (2025-08-05)
+### 3.1.1 (2024-09-28)
 
-- [Improvement] Redesign the interface, upgrade Next version to v15
-- [Improvement] [SEO Integration](https://github.com/roger-twan/website/issues/34), add sitemap and robots.txt
-- [New Feature] Support for comments
-- [Improvement] Dynamic portfolio & skills data fetching from Obsidian
+- [Improvement] [Optimize the photos quality in the Gallery page](https://github.com/roger-twan/website/issues/24)
+- [Improvement] Upgrade Next version to v14.
+
+### 3.1.0 (2024-09-22)
+
+- [New Feature] Add Gallery page.
+
+### 3.0.4 (2024-09-21)
+
+- [Improvement] Add a Python project.
+
+### 3.0.3 (2024-09-11)
+
+- [Improvement] Remove the cursor pointer on the project title to avoid causing confusion.
+
+### 3.0.2 (2024-09-04)
+
+- [Improvement] Support for multiple project links.
+
+### 3.0.1 (2024-09-03)
+
+- [Bug fix] [Menu disappear animation](https://github.com/roger-twan/website/issues/20)
+
+### 3.0.0 (2024-09-02)
+
+- New UI presentation, along with innovative technology and a new architecture.
