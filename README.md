@@ -2,18 +2,13 @@
   <image src="doc/logo.png" with="128" height="128">
 </p>
 <h3 align="center">Roger Twan</h3>
-<p align="center">Personal website developed using Next and Tailwind. Visit <a href="https://roger.ink" target="_blank">here</a></p>
+<p align="center">Personal website developed using Next and Tailwind. Seamlessly integrated with Obsidian. Visit <a href="https://roger.ink" target="_blank">here</a></p>
 <p align="center">
   <image src="https://img.shields.io/badge/dynamic/json?label=Version&query=version&url=https%3A%2F%2Fraw.githubusercontent.com%2FRoger-twan%2Flab%2Fmain%2Fpackage.json&color=cyan">
   <image src="https://img.shields.io/badge/dynamic/json?label=NODE&query=engines.node&url=https%3A%2F%2Fraw.githubusercontent.com%2FRoger-twan%2Flab%2Fmain%2Fpackage.json&color=purple">
   <image src="https://img.shields.io/badge/dynamic/json?label=NPM&query=engines.npm&url=https%3A%2F%2Fraw.githubusercontent.com%2FRoger-twan%2Flab%2Fmain%2Fpackage.json&color=purple">
   <image src="https://img.shields.io/badge/dynamic/json?label=Next&query=dependencies.next&url=https%3A%2F%2Fraw.githubusercontent.com%2FRoger-twan%2Flab%2Fmain%2Fpackage.json">
   <image src="https://img.shields.io/badge/dynamic/json?label=Tailwind&query=devDependencies.tailwindcss&url=https%3A%2F%2Fraw.githubusercontent.com%2FRoger-twan%2Flab%2Fmain%2Fpackage.json">
-  <image src="https://img.shields.io/badge/dynamic/json?label=Three&query=dependencies.three&url=https%3A%2F%2Fraw.githubusercontent.com%2FRoger-twan%2Flab%2Fmain%2Fpackage.json">
-  <image src="https://img.shields.io/badge/dynamic/json?label=D3&query=dependencies.d3&url=https%3A%2F%2Fraw.githubusercontent.com%2FRoger-twan%2Flab%2Fmain%2Fpackage.json">
-  <image src="https://github.com/Roger-twan/lab/actions/workflows/nextjs.yml/badge.svg">
-  <image src="https://coveralls.io/repos/github/Roger-twan/lab/badge.svg?branch=main">
-  <image src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg">
 </p>
 <hr>
 
@@ -23,7 +18,7 @@
 
 ## ⚒️ Development
 
-Create a `.env.local` file on the root directory and add `GITHUB_TOKEN` to it.
+Create a `.env` file on the root directory and add `GITHUB_TOKEN` to it.
 
 ```bash
 # install dependencies
@@ -31,21 +26,13 @@ npm install
 
 # run server
 npm run dev
-
-# run unit test
-npm run test
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in the browser to view the result.
 
-## 📑 GitHub Pages & Actions
+## 🤖 GitHub Actions
 
-Integrated with GitHub Actions, GitHub Pages will automatically deploy whenever there is a push to the main branch.
-
-## 🚀 Test Coverage
-
-Unit test coverage report has uploaded to Coveralls.
-See [here](https://coveralls.io/github/Roger-twan/lab?branch=main).
+Integrated with GitHub Actions, will automatically run code check whenever there is a push to the main branch.
 
 ## 📝 Change Logs
 
@@ -108,9 +95,12 @@ See [here](https://coveralls.io/github/Roger-twan/lab?branch=main).
 
 ### 3.4.2 (2025-06-10)
 
-- [improvement] Adjust configuration for cloud development environment.
-- [improvement] Update skills & portfolio
+- [Improvement] Adjust configuration for cloud development environment.
+- [Improvement] Update skills & portfolio
 
-### 4.0.0 (2025-07-29)
+### 4.0.0 (2025-08-05)
 
-- [improvement] New interface design
+- [Improvement] Redesign the interface, upgrade Next version to v15
+- [Improvement] [SEO Integration](https://github.com/roger-twan/website/issues/34), add sitemap and robots.txt
+- [New Feature] Support for comments
+- [Improvement] Dynamic portfolio & skills data fetching from Obsidian
