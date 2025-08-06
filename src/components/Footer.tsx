@@ -49,7 +49,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h6 className="font-bold mb-3">Quick Links</h6>
-            <ul className="grid grid-cols-2 gap-2 w-40 m-auto md:m-0 text-left">
+            <ul className="grid grid-cols-2 gap-2 w-40 m-auto md:m-0 text-center md:text-left">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -106,7 +106,7 @@ export default function Footer() {
           <p className="mb-2 md:mb-0">
             © {currentYear} Roger Twan. All rights reserved.
           </p>
-          <p>
+          <p className="text-center">
             Built with{' '}
             <a
               className="hover:text-white"

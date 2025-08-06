@@ -59,7 +59,7 @@ export default async function skillsModule() {
           </li>
         ))}
         <li className="relative group flex items-center">
-          <span className="cursor-pointer text-gray-600">
+          <span className="cursor-pointer text-gray-600 hidden md:block">
             <IconQuestion className="size-5" />
           </span>
           <div className="absolute top-full left-0 -translate-x-1/2 hidden bg-gray-800 text-white text-sm p-3 rounded-lg shadow group-hover:block">

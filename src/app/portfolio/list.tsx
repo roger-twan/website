@@ -40,7 +40,7 @@ export default function PortfolioList({
     <>
       <div className="flex flex-col items-center mb-12">
         <h2 className="text-3xl font-bold mb-4 text-center">All Projects</h2>
-        <div className="text-center">
+        <div className="text-center max-w-full overflow-x-auto">
           <div className="inline-flex rounded-md shadow-sm border border-gray-200 overflow-hidden">
             <button
               className={`px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-100 border-r border-gray-200 cursor-pointer ${selectedCategory === 'All' ? 'bg-gray-100' : 'bg-white'}`}

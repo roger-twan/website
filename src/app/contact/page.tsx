@@ -14,7 +14,7 @@ export default function Contact() {
   return (
     <div className="w-full p-0">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 to-purple-700 text-white pt-24 pb-16">
+      <section className="bg-gradient-to-br from-blue-600 to-purple-700 text-white pt-16 pb-8 sm:pt-24 sm:pb-16">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center animate__animated animate__fadeInDown">

@@ -11,6 +11,7 @@
     display: inline;
   }
   pre {
+    max-width: 100%;
     padding: 0 !important;
     background-color: transparent !important;
   }

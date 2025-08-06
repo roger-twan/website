@@ -31,7 +31,7 @@ export default function About() {
   return (
     <div className="w-full p-0">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 to-purple-700 text-white pt-24 pb-16">
+      <section className="bg-gradient-to-br from-blue-600 to-purple-700 text-white pt-16 pb-8 sm:pt-24 sm:pb-16">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center">
             <div className="lg:w-1/2 w-full mb-10 lg:mb-0 text-center lg:text-left">
