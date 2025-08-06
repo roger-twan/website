@@ -7,7 +7,7 @@ const stories = [
   {
     title: 'My Philosophy',
     p1: 'I treat every project as my own, taking initiative and responsibility from concept to launch, with a strong focus on user needs and product excellence.',
-    p2: 'Collaboration and continuous learning are at the heart of my work ethic. I&apos;m always exploring new technologies and design trends to stay ahead of the curve.',
+    p2: "Collaboration and continuous learning are at the heart of my work ethic. I'm always exploring new technologies and design trends to stay ahead of the curve.",
   },
 ];
 

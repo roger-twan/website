@@ -24,7 +24,7 @@ const process = [
     step: '04',
     title: 'Development',
     description:
-      'Building your solution using modern technologies and best practices.',
+      'Building solutions using modern technologies and best practices.',
     skills: ['Node.js', 'Next.js', 'Flutter', 'PostgreSQL', 'Git'],
   },
   {

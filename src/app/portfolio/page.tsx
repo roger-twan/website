@@ -40,8 +40,8 @@ export default async function Portfolio() {
             <p className="text-lg text-center max-w-2xl">
               I specialize in creating innovative digital solutions across
               multiple platforms. My work spans from responsive web applications
-              to native mobile apps, with a focus on user experience and modern
-              design principles.
+              to mobile apps, with a focus on user experience and modern design
+              principles.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
