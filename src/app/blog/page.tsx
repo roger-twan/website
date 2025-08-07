@@ -7,11 +7,37 @@ import IconChevronLeft from '@public/icons/chevron-left.svg';
 import IconChevronRight from '@public/icons/chevron-right.svg';
 import getPosts, { Post } from './blog.data';
 
+export const revalidate = 3600;
+
+const POSTS_PER_PAGE = 12;
+
+export async function generateStaticParams() {
+  const posts = await getPosts();
+  const tags = [...new Set(posts.flatMap((post) => post.tags))];
+  const allParams = [];
+
+  const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
+  for (let page = 1; page <= totalPages; page++) {
+    allParams.push({ page: page.toString() });
+  }
+
+  for (const tag of tags) {
+    const filteredPosts = posts.filter((post) => post.tags.includes(tag));
+    const tagPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE) || 1;
+
+    for (let page = 1; page <= tagPages; page++) {
+      allParams.push({
+        page: page.toString(),
+        tag: tag,
+      });
+    }
+  }
+
+  return allParams;
+}
+
 type BlogListProps = {
-  searchParams: Promise<{
-    page?: string;
-    tag?: string;
-  }>;
+  searchParams: Promise<{ page?: string; tag?: string }>;
 };
 
 interface Tags {
@@ -24,31 +50,22 @@ export const metadata: Metadata = {
     'Thoughts, tutorials, and updates about web development, photography, and more.',
 };
 
-const POSTS_PER_PAGE = 12;
-
 const getTags = (posts: Post[]) => {
   const allTags: Tags = {};
   const tags: Tags = {};
 
   for (const post of posts) {
     for (const tag of post.tags) {
-      if (allTags[tag]) {
-        allTags[tag] = ++allTags[tag];
-      } else {
-        allTags[tag] = 1;
-      }
+      allTags[tag] = (allTags[tag] || 0) + 1;
     }
   }
 
-  const sortedTags: string[] = Object.keys(allTags).sort(
-    (a: string, b: string) => {
-      if (allTags[b] !== allTags[a]) {
-        return allTags[b] - allTags[a];
-      } else {
-        return a.localeCompare(b);
-      }
-    },
-  );
+  const sortedTags = Object.keys(allTags).sort((a, b) => {
+    if (allTags[b] !== allTags[a]) {
+      return allTags[b] - allTags[a];
+    }
+    return a.localeCompare(b);
+  });
 
   for (const tag of sortedTags) {
     tags[tag] = allTags[tag];
@@ -60,29 +77,22 @@ const getTags = (posts: Post[]) => {
 export default async function BlogList({ searchParams }: BlogListProps) {
   const blogPosts = await getPosts();
   const tags = getTags(blogPosts);
+  const currentPage = Number((await searchParams).page) || 1;
+  const selectedTag = (await searchParams).tag || '';
 
-  const resolvedSearchParams = await searchParams;
-  const currentPage = Number(resolvedSearchParams.page) || 1;
-  const selectedTag = resolvedSearchParams.tag || '';
+  const filteredPosts = selectedTag
+    ? blogPosts.filter((post) => post.tags.includes(selectedTag))
+    : blogPosts;
 
-  // Filter posts by tag if specified
-  const filteredPosts = blogPosts.filter((post) => {
-    const matchesTag =
-      !selectedTag || (post.tags && post.tags.includes(selectedTag));
-    return matchesTag;
-  });
-
-  // Calculate pagination
-  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
+  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE) || 1;
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
   const paginatedPosts = filteredPosts.slice(
     startIndex,
     startIndex + POSTS_PER_PAGE,
   );
 
-  // Generate page numbers for pagination
   const pageNumbers = [];
-  const maxPageNumbers = 3; // Maximum number of page numbers to show
+  const maxPageNumbers = 3;
   let startPage = Math.max(1, currentPage - Math.floor(maxPageNumbers / 2));
   const endPage = Math.min(totalPages, startPage + maxPageNumbers - 1);
 
@@ -94,15 +104,13 @@ export default async function BlogList({ searchParams }: BlogListProps) {
     pageNumbers.push(i);
   }
 
-  // Function to generate URL with updated query parameters
-  const getPageUrl = (page: number) => {
+  const getPageUrl = (page: number, tag?: string) => {
     const params = new URLSearchParams();
-    if (selectedTag) params.set('tag', selectedTag);
+    if (tag) params.set('tag', tag);
     if (page > 1) params.set('page', page.toString());
     return `/blog${params.toString() ? `?${params.toString()}` : ''}`;
   };
 
-  // Function to generate URL for tag filter
   const getTagUrl = (tag: string) => {
     const params = new URLSearchParams();
     params.set('tag', tag);

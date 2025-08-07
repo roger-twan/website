@@ -2,8 +2,7 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { format } from 'date-fns';
 import 'highlight.js/styles/github-dark-dimmed.css';
-
-import md2html from '@/utils/md2html';
+import { getToc } from '@/utils/mdx';
 import GiscusComment from '@/components/Giscus';
 import getPosts, { Post } from '../blog.data';
 import Article from './article';
@@ -12,6 +11,13 @@ import Toc from './toc';
 type BlogPostProps = {
   params: Promise<{ slug: string }>;
 };
+
+export async function generateStaticParams() {
+  const posts = await getPosts();
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
 
 export async function generateMetadata({
   params,
@@ -44,7 +50,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
   if (!post) {
     notFound();
   }
-  const { content, toc } = await md2html(post.content);
+  const toc = await getToc(post.content);
 
   return (
     <div className="w-full p-0">
@@ -77,7 +83,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
 
       <section className="container mx-auto flex justify-center px-4 py-16">
         <div className="max-w-full">
-          <Article content={content} />
+          <Article content={post.content} />
 
           <hr className="my-8 border-gray-300" />
           <GiscusComment />
