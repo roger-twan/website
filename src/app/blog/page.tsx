@@ -7,8 +7,6 @@ import IconChevronLeft from '@public/icons/chevron-left.svg';
 import IconChevronRight from '@public/icons/chevron-right.svg';
 import getPosts, { Post } from './blog.data';
 
-export const revalidate = 3600;
-
 const POSTS_PER_PAGE = 12;
 
 export async function generateStaticParams() {
