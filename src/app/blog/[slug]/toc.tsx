@@ -79,7 +79,7 @@ export default function Toc({ toc, isMobile = false }: TocProps) {
 
   return (
     <aside className="hidden border-l border-gray-300 ml-10 pl-6 opacity-30 md:block transition duration-500 delay-1000 min-w-52 max-w-80 hover:opacity-100 hover:delay-0">
-      <div className="sticky top-[80px] h-screen overflow-y-auto">
+      <div className="sticky top-[80px] max-h-[calc(100vh-80px)] overflow-y-auto">
         {renderTOC(toc)}
       </div>
     </aside>
