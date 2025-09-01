@@ -16,13 +16,13 @@ const _fetchAccessToken = async () => {
     const data = await response.json();
 
     if (!data.access_token) {
-      console.error('Failed to fetch access token', data);
-      throw new Error('Failed to fetch access token');
+      throw new Error('Failed to fetch access token: ' + data);
     }
 
     _accessToken = data.access_token;
   } catch (error) {
     console.error('Error fetching access token:', error);
+    throw error;
   }
 };
 

@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
         WECHAT_TRIGGER_PATHS.some((path: string) => file.includes(path)),
       );
 
-      await wechatSync(files);
+      wechatSync(files);
     }
   }
 
