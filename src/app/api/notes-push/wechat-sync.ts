@@ -9,11 +9,15 @@ let _accessToken: string | null = null;
 const _fetchAccessToken = async () => {
   if (_accessToken) return _accessToken;
 
-  const response = await fetch(
-    `${WECHAT_API_URL}/token?grant_type=client_credential&appid=${process.env.WECHAT_APP_ID}&secret=${process.env.WECHAT_APP_SECRET}`,
-  );
-  const data = await response.json();
-  _accessToken = data.access_token;
+  try {
+    const response = await fetch(
+      `${WECHAT_API_URL}/token?grant_type=client_credential&appid=${process.env.WECHAT_APP_ID}&secret=${process.env.WECHAT_APP_SECRET}`,
+    );
+    const data = await response.json();
+    _accessToken = data.access_token;
+  } catch (error) {
+    console.error('Error fetching access token:', error);
+  }
 };
 
 const _uploadImage = async (url: string) => {
@@ -22,16 +26,21 @@ const _uploadImage = async (url: string) => {
   const file = new File([buffer], 'image.jpg');
   const formData = new FormData();
   formData.append('media', file);
-  const response = await fetch(
-    `${WECHAT_API_URL}/media/uploadimg?access_token=${_accessToken}`,
-    {
-      method: 'POST',
-      body: formData,
-    },
-  );
-  const data = await response.json();
-  console.log(data);
-  return data.url;
+
+  try {
+    const response = await fetch(
+      `${WECHAT_API_URL}/media/uploadimg?access_token=${_accessToken}`,
+      {
+        method: 'POST',
+        body: formData,
+      },
+    );
+    const data = await response.json();
+    return data.url;
+  } catch (error) {
+    console.error('Error uploading image:', error);
+    return null;
+  }
 };
 
 const _uploadThumbnail = async (content: string) => {
@@ -45,16 +54,22 @@ const _uploadThumbnail = async (content: string) => {
   const file = new File([buffer], 'image.jpg');
   const formData = new FormData();
   formData.append('media', file);
-  const response = await fetch(
-    `${WECHAT_API_URL}/material/add_material?access_token=${_accessToken}&type=thumb`,
-    {
-      method: 'POST',
-      body: formData,
-    },
-  );
-  const data = await response.json();
-  console.log(data);
-  return data.media_id;
+
+  try {
+    const response = await fetch(
+      `${WECHAT_API_URL}/material/add_material?access_token=${_accessToken}&type=thumb`,
+      {
+        method: 'POST',
+        body: formData,
+      },
+    );
+    const data = await response.json();
+    console.log(data);
+    return data.media_id;
+  } catch (error) {
+    console.error('Error uploading thumbnail:', error);
+    return null;
+  }
 };
 
 const _replaceImages = async (content: string) => {
@@ -88,15 +103,19 @@ const _addDrafts = async (
     need_open_comment: number;
   }[],
 ) => {
-  await fetch(`${WECHAT_API_URL}/draft/add?access_token=${_accessToken}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      articles,
-    }),
-  });
+  try {
+    await fetch(`${WECHAT_API_URL}/draft/add?access_token=${_accessToken}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        articles,
+      }),
+    });
+  } catch (error) {
+    console.error('Error adding draft:', error);
+  }
 };
 
 export default async function wechatSync(files: string[]) {
