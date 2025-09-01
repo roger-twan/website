@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import wechatSync from './wechat-sync';
 
 const BLOG_TRIGGER_PATHS = ['Technical/', 'Gallery/', 'Portfolio/', 'Skills'];
-const WECHAT_TRIGGER_PATHS = ['General/'];
+const WECHAT_TRIGGER_PATHS = ['General/', 'Living/', 'Reading/'];
 
 export async function POST(request: NextRequest) {
   if (request.headers.get('Content-Type') === 'application/json') {

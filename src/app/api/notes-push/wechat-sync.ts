@@ -145,7 +145,7 @@ export default async function wechatSync(files: string[]) {
     if (metadata && metadata.publish) {
       await _fetchAccessToken();
 
-      const title = file.replace('.md', '');
+      const title = file.replace('.md', '').split('/').pop()!;
       const newContent = await _replaceImages(content);
       const thumbnailId = await _uploadThumbnail(newContent);
       articles.push({
