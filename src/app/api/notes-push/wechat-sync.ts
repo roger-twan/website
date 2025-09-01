@@ -50,7 +50,7 @@ const _uploadImage = async (url: string) => {
 };
 
 const _uploadThumbnail = async (content: string) => {
-  const regex = /!\[title\]\(([^)]+)\)/;
+  const regex = /!\[thumb\]\(([^)]+)\)/;
   const match = content.match(regex);
 
   if (!match) return null;
