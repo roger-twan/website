@@ -3,7 +3,7 @@ import metadataParser from 'markdown-yaml-metadata-parser';
 import { remark } from 'remark';
 import remarkHtml from 'remark-html';
 
-const WECHAT_API_URL = 'https://api.weixin.qq.com/cgi-bin';
+const WECHAT_API_AGENT_HOST = 'https://wechat.roger.ink';
 let _accessToken: string | null = null;
 
 const _fetchAccessToken = async () => {
@@ -11,17 +11,12 @@ const _fetchAccessToken = async () => {
 
   try {
     const response = await fetch(
-      `${WECHAT_API_URL}/token?grant_type=client_credential&appid=${process.env.WECHAT_APP_ID}&secret=${process.env.WECHAT_APP_SECRET}`,
+      `${WECHAT_API_AGENT_HOST}/cgi-bin/token?grant_type=client_credential&appid=${process.env.WECHAT_APP_ID}&secret=${process.env.WECHAT_APP_SECRET}`,
     );
     const data = await response.json();
 
     if (!data.access_token) {
-      console.error(
-        'Failed to fetch access token',
-        data,
-        process.env.WECHAT_APP_ID,
-        process.env.WECHAT_APP_SECRET,
-      );
+      console.error('Failed to fetch access token', data);
       throw new Error('Failed to fetch access token');
     }
 
@@ -40,7 +35,7 @@ const _uploadImage = async (url: string) => {
 
   try {
     const response = await fetch(
-      `${WECHAT_API_URL}/media/uploadimg?access_token=${_accessToken}`,
+      `${WECHAT_API_AGENT_HOST}/cgi-bin/media/uploadimg?access_token=${_accessToken}`,
       {
         method: 'POST',
         body: formData,
@@ -68,7 +63,7 @@ const _uploadThumbnail = async (content: string) => {
 
   try {
     const response = await fetch(
-      `${WECHAT_API_URL}/material/add_material?access_token=${_accessToken}&type=thumb`,
+      `${WECHAT_API_AGENT_HOST}/cgi-bin/material/add_material?access_token=${_accessToken}&type=thumb`,
       {
         method: 'POST',
         body: formData,
@@ -114,15 +109,18 @@ const _addDrafts = async (
   }[],
 ) => {
   try {
-    await fetch(`${WECHAT_API_URL}/draft/add?access_token=${_accessToken}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+    await fetch(
+      `${WECHAT_API_AGENT_HOST}/cgi-bin/draft/add?access_token=${_accessToken}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          articles,
+        }),
       },
-      body: JSON.stringify({
-        articles,
-      }),
-    });
+    );
   } catch (error) {
     console.error('Error adding draft:', error);
   }
