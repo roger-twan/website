@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
+import wechatSync from './wechat-sync';
 
-const TRIGGER_PATHS = ['Technical/', 'Gallery/', 'Portfolio/', 'Skills'];
+const BLOG_TRIGGER_PATHS = ['Technical/', 'Gallery/', 'Portfolio/', 'Skills'];
+const WECHAT_TRIGGER_PATHS = ['General/'];
 
 export async function POST(request: NextRequest) {
   if (request.headers.get('Content-Type') === 'application/json') {
@@ -13,8 +15,8 @@ export async function POST(request: NextRequest) {
     const wechatFiles = [...addedFiles, ...modifiedFiles];
 
     if (
-      websiteFiles.some((file) =>
-        TRIGGER_PATHS.some((path) => file.includes(path)),
+      websiteFiles.some((file: string) =>
+        BLOG_TRIGGER_PATHS.some((path: string) => file.includes(path)),
       )
     ) {
       await fetch(
@@ -23,11 +25,15 @@ export async function POST(request: NextRequest) {
     }
 
     if (
-      wechatFiles.some((file) =>
-        TRIGGER_PATHS.some((path) => file.includes(path)),
+      wechatFiles.some((file: string) =>
+        WECHAT_TRIGGER_PATHS.some((path: string) => file.includes(path)),
       )
     ) {
-      // TODO: Trigger wechat build
+      const files = wechatFiles.filter((file: string) =>
+        WECHAT_TRIGGER_PATHS.some((path: string) => file.includes(path)),
+      );
+
+      await wechatSync(files);
     }
   }
 

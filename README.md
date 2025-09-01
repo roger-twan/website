@@ -36,6 +36,10 @@ Integrated with GitHub Actions, will automatically run code check whenever there
 
 ## 📝 Change Logs
 
+### 4.1.0 (2025-09-01)
+
+- [New Feature] Add WeChat draft post push feature
+
 ### 4.0.1 (2025-08-25)
 
 - [Improvement] Adjust the height of the TOC to be the same as the blog content
