@@ -14,6 +14,17 @@ const _fetchAccessToken = async () => {
       `${WECHAT_API_URL}/token?grant_type=client_credential&appid=${process.env.WECHAT_APP_ID}&secret=${process.env.WECHAT_APP_SECRET}`,
     );
     const data = await response.json();
+
+    if (!data.access_token) {
+      console.error(
+        'Failed to fetch access token',
+        data,
+        process.env.WECHAT_APP_ID,
+        process.env.WECHAT_APP_SECRET,
+      );
+      throw new Error('Failed to fetch access token');
+    }
+
     _accessToken = data.access_token;
   } catch (error) {
     console.error('Error fetching access token:', error);
@@ -64,7 +75,6 @@ const _uploadThumbnail = async (content: string) => {
       },
     );
     const data = await response.json();
-    console.log(data);
     return data.media_id;
   } catch (error) {
     console.error('Error uploading thumbnail:', error);
