@@ -30,6 +30,7 @@ const _uploadImage = async (url: string) => {
     },
   );
   const data = await response.json();
+  console.log(data);
   return data.url;
 };
 
@@ -52,7 +53,7 @@ const _uploadThumbnail = async (content: string) => {
     },
   );
   const data = await response.json();
-
+  console.log(data);
   return data.media_id;
 };
 
