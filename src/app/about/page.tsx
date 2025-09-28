@@ -66,7 +66,7 @@ export default function About() {
       </section>
 
       {/* Skills */}
-      <section className="py-16 bg-white">
+      <section id="skills" className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <SkillsModule />
         </div>

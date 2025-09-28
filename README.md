@@ -36,6 +36,10 @@ Integrated with GitHub Actions, will automatically run code check whenever there
 
 ## 📝 Change Logs
 
+### 4.2.0 (2025-09-28)
+
+- [Improvement] Add Portfolio & Blog sections to the homepage
+
 ### 4.1.0 (2025-09-01)
 
 - [New Feature] Add WeChat draft post push feature

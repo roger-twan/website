@@ -25,14 +25,14 @@ const process = [
     title: 'Development',
     description:
       'Building solutions using modern technologies and best practices.',
-    skills: ['Node.js', 'Next.js', 'Flutter', 'PostgreSQL', 'Git'],
+    skills: ['JavaScript', 'Node.js', 'Java', 'Flutter', 'PostgreSQL', 'Git'],
   },
   {
     step: '05',
     title: 'Testing',
     description:
       'Rigorous testing across devices and browsers to ensure quality and performance.',
-    skills: ['Jest', 'Playwright', 'Postman'],
+    skills: ['Jest', 'Playwright', 'JUnit5'],
   },
   {
     step: '06',

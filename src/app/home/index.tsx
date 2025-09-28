@@ -1,9 +1,24 @@
 import Link from 'next/link';
+import IconArrowRight from '@public/icons/arrow-right.svg';
 import Avatar from './avatar';
 import AboutModule from './about';
 import SkillsModule from './skills';
 import CharacterModule from './character';
-import IconArrowRight from '@public/icons/arrow-right.svg';
+import BlogModule from './blog';
+import PortfolioOverview from '../portfolio/overview';
+
+const LearnMoreLink = ({ href, text }: { href: string; text: string }) => {
+  return (
+    <div className="flex justify-center mt-8">
+      <Link
+        href={href}
+        className="text-gray-600 hover:text-blue-600 transition duration-300"
+      >
+        {text} <IconArrowRight className="-mt-1 size-4 inline-block" />
+      </Link>
+    </div>
+  );
+};
 
 export default function Home() {
   return (
@@ -57,6 +72,7 @@ export default function Home() {
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
           <AboutModule />
+          <LearnMoreLink href="/about" text="Learn More" />
         </div>
       </section>
 
@@ -64,6 +80,23 @@ export default function Home() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <SkillsModule />
+          <LearnMoreLink href="/about#skills" text="Learn More" />
+        </div>
+      </section>
+
+      {/* Portfolio Section */}
+      <section className="py-16 bg-gray-100">
+        <div className="container mx-auto px-4">
+          <PortfolioOverview heading="My Portfolio" />
+          <LearnMoreLink href="/portfolio" text="View All" />
+        </div>
+      </section>
+
+      {/* Blog Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <BlogModule />
+          <LearnMoreLink href="/blog" text="View All" />
         </div>
       </section>
 
