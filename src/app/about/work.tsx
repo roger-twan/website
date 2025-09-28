@@ -28,7 +28,7 @@ interface Job {
 
 const workExperiences: Job[] = [
   {
-    period: 'Dec 2024 - Aug 2025',
+    period: 'Dec 2024 - Present',
     title: 'Software Engineer',
     jobCategory: JobCategory.CONTRACT,
     workMethod: WorkMethod.REMOTE,
