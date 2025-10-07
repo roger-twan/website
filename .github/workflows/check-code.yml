@@ -31,3 +31,6 @@ jobs:
 
       - name: Run Prettier check
         run: npm run prettier
+
+      - name: Run unit tests
+        run: npm run test:unit

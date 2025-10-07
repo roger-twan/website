@@ -36,6 +36,11 @@ Integrated with GitHub Actions, will automatically run code check whenever there
 
 ## 📝 Change Logs
 
+### 4.2.1 (2025-10-07)
+
+- [Improvement] Implement WCAG
+- [Improvement] Add unit & e2e tests
+
 ### 4.2.0 (2025-09-28)
 
 - [Improvement] Add Portfolio & Blog sections to the homepage

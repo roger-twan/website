@@ -16,6 +16,12 @@ const eslintConfig = [
       '@typescript-eslint/no-explicit-any': 'off',
     },
   },
+  {
+    files: ['**/*.test.{ts,tsx}'],
+    rules: {
+      'react/display-name': 'off'
+    }
+  }
 ];
 
 export default eslintConfig;
