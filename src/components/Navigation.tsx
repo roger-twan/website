@@ -9,7 +9,7 @@ import IconClose from '@public/icons/close.svg';
 
 import { navLinks } from './Footer';
 
-export default function Navigation() {
+export default function Navigation(props: React.HTMLAttributes<HTMLElement>) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -62,6 +62,7 @@ export default function Navigation() {
 
   return (
     <nav
+      {...props}
       ref={navRef}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled || isMobileMenuOpen ? 'bg-black shadow-md' : 'bg-transparent'
@@ -71,6 +72,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16">
           <Link
             href="/"
+            aria-label="Roger Twan, homepage"
             className="hover:scale-110 transition-transform duration-300"
           >
             <Image src="/logo.svg" alt="Logo" width={40} height={40} />
@@ -84,9 +86,9 @@ export default function Navigation() {
             >
               <span className="sr-only">Open main menu</span>
               {isMobileMenuOpen ? (
-                <IconClose className="size-6" />
+                <IconClose className="size-6" aria-hidden="true" />
               ) : (
-                <IconMenu className="size-6" />
+                <IconMenu className="size-6" aria-hidden="true" />
               )}
             </button>
           </div>
@@ -108,6 +110,7 @@ export default function Navigation() {
 
       {/* Mobile menu */}
       <div
+        id="mobile-menu"
         className="md:hidden overflow-hidden transition-[max-height] duration-200 ease-in-out bg-black bg-opacity-90"
         style={{ maxHeight: `${menuHeight}px` }}
         ref={mobileMenuRef}
