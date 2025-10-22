@@ -1,4 +1,4 @@
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
@@ -28,6 +28,7 @@ export default function RootLayout({
       {process.env.NODE_ENV === 'production' && (
         <>
           <GoogleAnalytics gaId="G-4MLJN88VXV" />
+          <GoogleTagManager gtmId="GTM-MMP9CTB6" />
           <Analytics />
           <SpeedInsights />
         </>
