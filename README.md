@@ -36,6 +36,10 @@ Integrated with GitHub Actions, will automatically run code check whenever there
 
 ## 📝 Change Logs
 
+### 4.3.0 (2025-10-22)
+
+- [Improvement] Add Google Tag Manager
+
 ### 4.2.1 (2025-10-07)
 
 - [Improvement] Implement WCAG
