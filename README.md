@@ -1,5 +1,5 @@
 <p align="center">
-  <image src="doc/logo.png" with="128" height="128">
+  <image src="docs/logo.png" with="128" height="128">
 </p>
 <h3 align="center">Roger Twan</h3>
 <p align="center">Personal website developed using Next and Tailwind. Seamlessly integrated with Obsidian. Visit <a href="https://roger.ink" target="_blank">here</a></p>
@@ -14,7 +14,7 @@
 
 ## 📸 Screenshot
 
-![screenshot](doc/screenshot.jpeg)
+![screenshot](docs/screenshot.jpeg)
 
 ## ⚒️ Development
 
@@ -35,6 +35,10 @@ Open [http://localhost:3000](http://localhost:3000) in the browser to view the r
 Integrated with GitHub Actions, will automatically run code check whenever there is a push to the main branch.
 
 ## 📝 Change Logs
+
+### 4.3.1 (2025-11-10)
+
+- [Improvement] Update description
 
 ### 4.3.0 (2025-10-22)
 
