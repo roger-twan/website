@@ -8,7 +8,7 @@ import InterestModule from './interest';
 export const metadata: Metadata = {
   title: 'About | Roger Twan',
   description:
-    'A passionate digital creator with a love for innovative technology and beautiful design. ',
+    'A passionate full stack developer with a love for innovative technology and beautiful design. ',
 };
 
 export default function About() {
@@ -39,10 +39,10 @@ export default function About() {
                 About Me
               </h1>
               <p className="text-lg md:text-xl mb-6 animate__animated animate__flipInX">
-                I&apos;m a passionate digital creator with a love for innovative
-                technology and beautiful design. My journey in the digital world
-                has been driven by curiosity and a desire to solve real-world
-                problems.
+                I&apos;m a passionate full stack developer with a love for
+                innovative technology and beautiful design. My journey in the
+                digital world has been driven by curiosity and a desire to solve
+                real-world problems.
               </p>
             </div>
             <div className="lg:w-1/2 w-full flex justify-center">

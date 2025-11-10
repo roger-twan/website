@@ -29,12 +29,12 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row items-center min-h-[75vh] text-center lg:text-left">
             <div className="lg:w-1/2 w-full mb-10 lg:mb-0">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 animate__animated animate__fadeInDown">
-                I Build Complete Digital Products
+                Full Stack Developer Building Modern Solutions
               </h1>
               <p className="text-lg md:text-xl mb-6 animate__animated animate__flipInX">
-                From UX design to system architecture, full-stack development,
-                mobile app creation, and deployment — I deliver end-to-end
-                solutions.
+                From UX/UI design to system architecture, full-stack
+                development, mobile apps, and cloud deployment — I create
+                scalable, end-to-end digital solutions.
               </p>
               <div className="flex gap-4 justify-center lg:justify-start">
                 <Link

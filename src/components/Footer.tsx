@@ -41,9 +41,9 @@ export default function Footer(props: React.HTMLAttributes<HTMLElement>) {
               </span>
             </Link>
             <p className="text-white/80">
-              Professional digital creator building elegant, performant web and
-              mobile applications through a blend of design thinking and modern
-              technologies.
+              Professional full stack developer building elegant, performant web
+              and mobile applications through a blend of design thinking and
+              modern technologies.
             </p>
           </section>
 

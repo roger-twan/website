@@ -35,9 +35,9 @@ export default function AboutModule() {
     <div className="flex flex-col items-center">
       <h2 className="text-3xl font-bold mb-6 text-center">About Me</h2>
       <p className="text-lg mb-8 text-center max-w-2xl">
-        I&apos;m a passionate digital creator with extensive experience building
-        compelling web platforms, mobile applications, and interactive digital
-        solutions.
+        I&apos;m a passionate full stack developer with extensive experience
+        building compelling web platforms, mobile applications, and interactive
+        digital solutions.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         {skills.map((skill, index) => (
