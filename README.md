@@ -36,6 +36,11 @@ Integrated with GitHub Actions, will automatically run code check whenever there
 
 ## 📝 Change Logs
 
+### 4.3.2 (2025-12-07)
+
+- [Improvement] Update Next version to v15.4.8 due to [Resources for protecting against 'React2Shell'](https://vercel.com/blog/resources-for-protecting-against-react2shell)
+
+
 ### 4.3.1 (2025-11-10)
 
 - [Improvement] Update description
