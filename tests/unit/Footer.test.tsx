@@ -7,9 +7,6 @@ jest.mock('@public/icons/email.svg', () => (props: any) => (
 jest.mock('@public/icons/phone.svg', () => (props: any) => (
   <svg {...props} data-testid="phone-icon" />
 ));
-jest.mock('@public/icons/location.svg', () => (props: any) => (
-  <svg {...props} data-testid="location-icon" />
-));
 jest.mock('@public/icons/linkedin.svg', () => (props: any) => (
   <svg {...props} data-testid="linkedin-icon" />
 ));

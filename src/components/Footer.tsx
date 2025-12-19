@@ -3,7 +3,6 @@ import Image from 'next/image';
 
 import IconEmail from '@public/icons/email.svg';
 import IconPhone from '@public/icons/phone.svg';
-import IconLocation from '@public/icons/location.svg';
 
 import { socialLinks } from './SocialMedia';
 
@@ -17,7 +16,6 @@ export const navLinks: NavItem[] = [
   { href: '/about', label: 'About' },
   { href: '/portfolio', label: 'Portfolio' },
   { href: '/blog', label: 'Blog' },
-  { href: '/gallery', label: 'Gallery' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -94,10 +92,6 @@ export default function Footer(props: React.HTMLAttributes<HTMLElement>) {
               <div className="flex items-center text-white/80 hover:text-white">
                 <IconPhone className="size-5 mr-2" aria-hidden="true" />
                 <a href="tel:+1234567890">+1 (613) 862-1168</a>
-              </div>
-              <div className="flex items-center text-white/80">
-                <IconLocation className="size-5 mr-1" aria-hidden="true" />
-                <span>Ottawa, Ontario, Canada</span>
               </div>
             </div>
           </section>
