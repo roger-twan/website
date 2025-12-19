@@ -49,9 +49,6 @@ describe('Navigation', () => {
       screen.getAllByRole('link', { name: /Blog/i }).length,
     ).toBeGreaterThan(0);
     expect(
-      screen.getAllByRole('link', { name: /Gallery/i }).length,
-    ).toBeGreaterThan(0);
-    expect(
       screen.getAllByRole('link', { name: /Contact/i }).length,
     ).toBeGreaterThan(0);
   });

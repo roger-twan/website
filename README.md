@@ -36,6 +36,11 @@ Integrated with GitHub Actions, will automatically run code check whenever there
 
 ## 📝 Change Logs
 
+### 4.4.0 (2025-12-19)
+
+- [Improvement] Remove location information
+- [Improvement] Remove gallery module
+
 ### 4.3.3 (2025-12-17)
 
 - Update work information
@@ -43,7 +48,6 @@ Integrated with GitHub Actions, will automatically run code check whenever there
 ### 4.3.2 (2025-12-07)
 
 - [Improvement] Update Next version to v15.4.8 due to [Resources for protecting against 'React2Shell'](https://vercel.com/blog/resources-for-protecting-against-react2shell)
-
 
 ### 4.3.1 (2025-11-10)
 

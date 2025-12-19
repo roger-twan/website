@@ -12,7 +12,7 @@ Streamlined end-to-end tests for the Roger Twan website using Playwright.
   - Logo link functionality
 
 - **`navigation.spec.ts`** (7 tests)
-  - Navigation to all pages (About, Portfolio, Blog, Gallery, Contact)
+  - Navigation to all pages (About, Portfolio, Blog, Contact)
   - Navigation menu presence on all pages
   - Footer presence on all pages
 
@@ -30,26 +30,31 @@ Streamlined end-to-end tests for the Roger Twan website using Playwright.
 ## Running Tests
 
 ### Run all e2e tests
+
 ```bash
 npm run test:e2e
 ```
 
 ### Run specific test file
+
 ```bash
 npx playwright test homepage.spec.ts
 ```
 
 ### Run in headed mode (see browser)
+
 ```bash
 npx playwright test --headed
 ```
 
 ### Run in debug mode
+
 ```bash
 npx playwright test --debug
 ```
 
 ### View test report
+
 ```bash
 npx playwright show-report
 ```
@@ -65,6 +70,7 @@ npx playwright show-report
 ## Test Coverage
 
 **Total: 17 tests** covering:
+
 - ✅ Homepage functionality
 - ✅ Navigation to all pages
 - ✅ Footer and navigation presence
@@ -75,6 +81,7 @@ npx playwright show-report
 ## Changes from Previous Version
 
 **Reduced from 189 tests to 17 tests** by:
+
 - Consolidating page-specific tests into navigation tests
 - Combining accessibility checks into fewer tests
 - Reducing browser coverage to Chromium only

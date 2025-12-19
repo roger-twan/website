@@ -1,6 +1,6 @@
 {
   "name": "Roger Twan",
-  "version": "4.3.3",
+  "version": "4.4.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -23,13 +23,9 @@
     "@vercel/speed-insights": "^1.2.0",
     "animate.css": "^4.1.1",
     "date-fns": "^4.1.0",
-    "exifreader": "^4.31.1",
     "highlight.js": "^11.11.1",
     "i": "^0.3.7",
-    "imagesloaded": "^5.0.0",
-    "lightgallery": "^2.9.0-beta.1",
     "markdown-yaml-metadata-parser": "^3.0.0",
-    "masonry-layout": "^4.2.2",
     "next": "15.4.8",
     "next-mdx-remote": "^5.0.0",
     "next-mdx-remote-client": "^2.1.3",

@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import SocialMedia from '@/components/SocialMedia';
 import IconEmail from '@public/icons/email.svg';
 import IconPhone from '@public/icons/phone.svg';
-import IconLocation from '@public/icons/location.svg';
 import Form from './form';
 
 export const metadata: Metadata = {
@@ -62,17 +61,6 @@ export default function Contact() {
                     >
                       +1 (613) 862-1168
                     </a>
-                  </div>
-                </div>
-                <div className="flex items-center">
-                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-600 text-white mr-4">
-                    <IconLocation className="size-5" />
-                  </span>
-                  <div>
-                    <h6 className="font-bold mb-1">Location</h6>
-                    <p className="mb-0 text-gray-700">
-                      Ottawa, Ontario, Canada
-                    </p>
                   </div>
                 </div>
               </div>
