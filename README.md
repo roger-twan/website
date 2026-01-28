@@ -36,6 +36,9 @@ Integrated with GitHub Actions, will automatically run code check whenever there
 
 ## 📝 Change Logs
 
+### 4.4.1 (2026-01-28)
+- [Improvement] Add new phone number
+
 ### 4.4.0 (2025-12-19)
 
 - [Improvement] Remove location information

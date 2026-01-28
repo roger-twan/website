@@ -61,6 +61,13 @@ export default function Contact() {
                     >
                       +1 (613) 862-1168
                     </a>
+                    <br />
+                    <a
+                      href="tel:+8618788528878"
+                      className="text-blue-700 hover:underline"
+                    >
+                      +86 187-8852-8878
+                    </a>
                   </div>
                 </div>
               </div>
