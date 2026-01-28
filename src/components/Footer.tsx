@@ -91,7 +91,11 @@ export default function Footer(props: React.HTMLAttributes<HTMLElement>) {
               </div>
               <div className="flex items-center text-white/80 hover:text-white">
                 <IconPhone className="size-5 mr-2" aria-hidden="true" />
-                <a href="tel:+1234567890">+1 (613) 862-1168</a>
+                <a href="tel:+16138621168">+1 (613) 862-1168</a>
+              </div>
+              <div className="flex items-center text-white/80 hover:text-white">
+                <IconPhone className="size-5 mr-2" aria-hidden="true" />
+                <a href="tel:+8618788528878">+86 187-8852-8878</a>
               </div>
             </div>
           </section>
