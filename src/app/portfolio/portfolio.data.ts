@@ -118,7 +118,9 @@ const _fetchPortfolio = async () => {
 };
 
 const getPortfolio = async () => {
-  !_data.length && (await _fetchPortfolio());
+  if (!_data.length) {
+    await _fetchPortfolio();
+  }
 
   return _data;
 };

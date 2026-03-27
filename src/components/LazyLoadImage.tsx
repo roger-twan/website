@@ -27,13 +27,14 @@ const LazyLoadImage = ({ src, alt, className }: LazyLoadImageProps) => {
       },
     );
 
-    if (imageRef.current) {
-      observer.observe(imageRef.current);
+    const currentRef = imageRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (imageRef.current) {
-        observer.unobserve(imageRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);

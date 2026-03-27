@@ -44,7 +44,7 @@ const _parseMarkdownSkill = (md: string) => {
     const skills = skillLines
       .slice(2)
       .map((line) => {
-        const [_, skill, level] = line.split('|').map((s) => s.trim());
+        const [, skill, level] = line.split('|').map((s) => s.trim());
         return { name: skill, level };
       })
       .sort(
@@ -60,7 +60,9 @@ const _parseMarkdownSkill = (md: string) => {
 };
 
 const getSkills = async () => {
-  !_data.length && (await _fetchSkills());
+  if (!_data.length) {
+    await _fetchSkills();
+  }
 
   return _data;
 };

@@ -14,7 +14,11 @@ export default function Drawer(props: DrawerProps) {
 
   useEffect(() => {
     setIsOpen(props.open);
-    props.open ? setVisible(true) : setTimeout(() => setVisible(false), 200);
+    if (props.open) {
+      setVisible(true);
+    } else {
+      setTimeout(() => setVisible(false), 200);
+    }
     document.body.style.overflow = props.open ? 'hidden' : 'auto';
   }, [props.open]);
 

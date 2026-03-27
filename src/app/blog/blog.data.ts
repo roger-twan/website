@@ -84,7 +84,9 @@ const _fetchPosts = async () => {
 };
 
 const getPosts = async () => {
-  !_data.length && (await _fetchPosts());
+  if (!_data.length) {
+    await _fetchPosts();
+  }
 
   return _data;
 };
