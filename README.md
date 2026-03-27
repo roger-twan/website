@@ -14,7 +14,7 @@
 
 ## 📸 Screenshot
 
-![screenshot]\(docs/screenshot.jpeg null)
+![screenshot](docs/screenshot.jpeg)
 
 ## ⚒️ Development
 
