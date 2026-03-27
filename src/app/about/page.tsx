@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import SkillsModule from './skills';
 import StoryModule from './story';
 import WorkModule from './work';
@@ -12,22 +13,6 @@ export const metadata: Metadata = {
 };
 
 export default function About() {
-  const education = [
-    {
-      year: '2018',
-      degree: 'Bachelor of Computer Science',
-      school: 'University of Technology',
-      description:
-        'Specialized in Software Engineering and Human-Computer Interaction',
-    },
-    {
-      year: '2016',
-      degree: 'Associate Degree in Web Design',
-      school: 'Community College',
-      description: 'Focused on modern web technologies and design principles',
-    },
-  ];
-
   return (
     <div className="w-full p-0">
       {/* Hero Section */}
@@ -47,10 +32,12 @@ export default function About() {
             </div>
             <div className="lg:w-1/2 w-full flex justify-center">
               <div className="bg-white/20 rounded-full flex items-center justify-center w-72 h-72 shadow-lg animate__animated animate__fadeIn">
-                <img
+                <Image
                   className="rounded-full w-full h-full object-cover"
                   src="/avatar.jpg"
                   alt="Avatar"
+                  width={288}
+                  height={288}
                 />
               </div>
             </div>

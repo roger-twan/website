@@ -28,7 +28,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in the browser to view the result.
+Open <http://localhost:3000> in the browser to view the result.
 
 ## 🤖 GitHub Actions
 
@@ -36,8 +36,13 @@ Integrated with GitHub Actions, will automatically run code check whenever there
 
 ## 📝 Change Logs
 
+### 4.4.2 (2026-03-27)
+
+- [Improvement] Fix potential issues found by AI
+
 ### 4.4.1 (2026-01-28)
-- [Improvement] Add new phone number
+
+- [Improvement] Add a new phone number
 
 ### 4.4.0 (2025-12-19)
 
