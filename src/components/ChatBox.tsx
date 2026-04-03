@@ -110,14 +110,33 @@ export default function ChatBox({
     addMessage('user', userMessage);
     setIsLoading(true);
 
-    // Simulate AI response - replace with actual AI API call
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: userMessage,
+          history: messages.map(({ role, content }) => ({ role, content })),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to get response');
+      }
+
+      const data = await response.json();
+      addMessage('assistant', data.response);
+    } catch (error) {
+      console.error('Chat API error:', error);
       addMessage(
         'assistant',
-        `I received your message: "${userMessage}". This is a demo response. Connect this to your AI assistant API.`,
+        'Sorry, I encountered an error. Please try again later.',
       );
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
