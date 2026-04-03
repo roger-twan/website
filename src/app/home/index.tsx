@@ -5,6 +5,7 @@ import AboutModule from './about';
 import SkillsModule from './skills';
 import CharacterModule from './character';
 import BlogModule from './blog';
+import ChatModule from './chat';
 import PortfolioOverview from '../portfolio/overview';
 
 const LearnMoreLink = ({ href, text }: { href: string; text: string }) => {
@@ -36,7 +37,8 @@ export default function Home() {
                 development, mobile apps, and cloud deployment — I create
                 scalable, end-to-end digital solutions.
               </p>
-              <div className="flex gap-4 justify-center lg:justify-start">
+              <div className="flex gap-4 justify-center lg:justify-start flex-wrap">
+                <ChatModule />
                 <Link
                   href="/portfolio"
                   className="relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium text-white bg-gradient-to-br from-blue-600 to-purple-700 transition duration-300 ease-out border-1 border-white rounded-lg group z-10"
@@ -44,7 +46,7 @@ export default function Home() {
                   <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full group-hover:translate-x-0 ease">
                     <IconArrowRight className="size-6" />
                   </span>
-                  <span className="absolute flex items-center justify-center w-full h-full text-blue-700 bg-white transition-all duration-300 transform group-hover:translate-x-full ease">
+                  <span className="absolute flex items-center justify-center w-full h-full text-blue-700 bg-gray-200 transition-all duration-300 transform group-hover:translate-x-full ease">
                     View Portfolio
                   </span>
                   <span className="relative invisible">View Portfolio</span>
