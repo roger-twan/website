@@ -1,11 +1,16 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import IconArrowRight from '@public/icons/arrow-right.svg';
+import IconChatbot from '@public/icons/chatbot.svg';
 import Avatar from './avatar';
 import AboutModule from './about';
 import SkillsModule from './skills';
 import CharacterModule from './character';
 import BlogModule from './blog';
 import PortfolioOverview from '../portfolio/overview';
+import ChatBox from '@/components/ChatBox';
 
 const LearnMoreLink = ({ href, text }: { href: string; text: string }) => {
   return (
@@ -21,6 +26,19 @@ const LearnMoreLink = ({ href, text }: { href: string; text: string }) => {
 };
 
 export default function Home() {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
+  useEffect(() => {
+    if (isChatOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isChatOpen]);
+
   return (
     <div className="w-full p-0">
       {/* Hero Section */}
@@ -36,7 +54,24 @@ export default function Home() {
                 development, mobile apps, and cloud deployment — I create
                 scalable, end-to-end digital solutions.
               </p>
-              <div className="flex gap-4 justify-center lg:justify-start">
+              <div className="flex gap-4 justify-center lg:justify-start flex-wrap">
+                <button
+                  onClick={() => setIsChatOpen(true)}
+                  data-gtm-action="click_ai_chat_btn"
+                  className="relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium text-white bg-gradient-to-r from-blue-600 via-purple-700 to-blue-600 transition duration-300 ease-out border-1 border-white rounded-lg group cursor-pointer z-10 animate-gradient"
+                >
+                  <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-white group-hover:translate-x-0 ease">
+                    <IconChatbot className="size-8 text-blue-700" />
+                  </span>
+                  <span className="absolute flex items-center justify-center w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease gap-2">
+                    <IconChatbot className="size-5 text-white" />
+                    Chat with My AI Assistant
+                  </span>
+                  <span className="relative invisible flex items-center gap-2">
+                    <IconChatbot className="size-5 text-white" />
+                    Chat with My AI Assistant
+                  </span>
+                </button>
                 <Link
                   href="/portfolio"
                   className="relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium text-white bg-gradient-to-br from-blue-600 to-purple-700 transition duration-300 ease-out border-1 border-white rounded-lg group z-10"
@@ -44,7 +79,7 @@ export default function Home() {
                   <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full group-hover:translate-x-0 ease">
                     <IconArrowRight className="size-6" />
                   </span>
-                  <span className="absolute flex items-center justify-center w-full h-full text-blue-700 bg-white transition-all duration-300 transform group-hover:translate-x-full ease">
+                  <span className="absolute flex items-center justify-center w-full h-full text-blue-700 bg-gray-200 transition-all duration-300 transform group-hover:translate-x-full ease">
                     View Portfolio
                   </span>
                   <span className="relative invisible">View Portfolio</span>
@@ -106,6 +141,15 @@ export default function Home() {
           <CharacterModule />
         </div>
       </section>
+
+      {/* Chat Modal */}
+      {isChatOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs">
+          <div className="w-full max-w-2xl h-[80vh] sm:h-[70vh] md:h-[600px] rounded-2xl shadow-2xl overflow-hidden bg-white">
+            <ChatBox isOpen={true} onClose={() => setIsChatOpen(false)} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
