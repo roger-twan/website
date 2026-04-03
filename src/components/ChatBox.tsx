@@ -193,7 +193,7 @@ export default function ChatBox({
               className="p-1 hover:bg-white/20 rounded transition-colors"
               aria-label="Close"
             >
-              <IconClose className="size-5" />
+              <IconClose className="size-5 cursor-pointer" />
             </button>
           )}
         </div>
@@ -300,7 +300,7 @@ export default function ChatBox({
             onKeyDown={handleKeyDown}
             placeholder="Type a message... (Enter to send, Shift+Enter for new line)"
             rows={1}
-            className="flex-1 resize-none px-4 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent min-h-[40px] max-h-[100px] leading-5 [field-sizing:content]"
+            className="flex-1 resize-none px-4 py-2 text-sm text-black placeholder-gray-500 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent min-h-[40px] max-h-[100px] leading-5 [field-sizing:content]"
             disabled={isLoading}
           />
           <button
