@@ -109,6 +109,46 @@
     background: rgba(8, 145, 178, 0.48);
   }
 
+  .not-found-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+    background-size: 52px 52px;
+    mask-image: radial-gradient(circle at 55% 50%, black, transparent 78%);
+  }
+
+  .not-found-radar {
+    animation: radar-spin 7s linear infinite;
+  }
+
+  .not-found-glitch {
+    position: relative;
+    text-shadow:
+      -3px 0 rgba(34, 211, 238, 0.7),
+      3px 0 rgba(190, 242, 100, 0.45);
+  }
+
+  .not-found-glitch::before,
+  .not-found-glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .not-found-glitch::before {
+    color: rgb(103, 232, 249);
+    animation: signal-glitch 4.8s infinite;
+    clip-path: inset(20% 0 58% 0);
+  }
+
+  .not-found-glitch::after {
+    color: rgb(190, 242, 100);
+    animation: signal-glitch 4.8s 80ms infinite reverse;
+    clip-path: inset(63% 0 13% 0);
+  }
+
   @keyframes gradient-shift {
     0% {
       background-position: 0% 50%;
@@ -182,12 +222,42 @@
     }
   }
 
+  @keyframes radar-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes signal-glitch {
+    0%,
+    90%,
+    100% {
+      opacity: 0;
+      transform: translateX(0);
+    }
+    92% {
+      opacity: 0.75;
+      transform: translateX(-5px);
+    }
+    94% {
+      opacity: 0.45;
+      transform: translateX(6px);
+    }
+    96% {
+      opacity: 0;
+      transform: translateX(-2px);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .animate-gradient,
     .animate-workflow-rise,
     .animate-workflow-scan,
     .animate-workflow-pulse,
     .animate-workflow-border,
+    .not-found-radar,
+    .not-found-glitch::before,
+    .not-found-glitch::after,
     .reveal-on-scroll[data-revealed="true"] {
       animation: none;
     }
