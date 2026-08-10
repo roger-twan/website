@@ -83,6 +83,12 @@ GitHub Actions runs code checks whenever changes are pushed to the main branch.
 
 See [docs/BUILD_LOGS.md](docs/BUILD_LOGS.md) for the full history.
 
+### 5.2.0 (2026-08-10)
+
+- [Improvement] Replace the default 404 page with a responsive route-scanner experience
+- [Improvement] Add radar and signal-glitch visuals with reduced-motion support
+- [Improvement] Provide clear paths back to the homepage and projects archive
+
 ### 5.1.0 (2026-07-07)
 
 - [Improvement] Highlight evaluated RAG-backed answers with LangSmith tracing and RAGAS-backed evaluation
