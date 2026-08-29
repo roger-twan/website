@@ -83,6 +83,10 @@ GitHub Actions runs code checks whenever changes are pushed to the main branch.
 
 See [docs/BUILD_LOGS.md](docs/BUILD_LOGS.md) for the full history.
 
+### 5.2.1 (2026-08-29)
+
+- [Fix] Preserve Wiki Link capitalization and encode spaces as `%20` in generated URLs
+
 ### 5.2.0 (2026-08-10)
 
 - [Improvement] Replace the default 404 page with a responsive route-scanner experience
@@ -93,10 +97,3 @@ See [docs/BUILD_LOGS.md](docs/BUILD_LOGS.md) for the full history.
 
 - [Improvement] Highlight evaluated RAG-backed answers with LangSmith tracing and RAGAS-backed evaluation
 - [Improvement] Limit homepage selected work preview to the first three projects
-
-### 5.0.0 (2026-07-05)
-
-- [Revamp] Reposition the site around AI-assisted product engineering
-- [Improvement] Redesign homepage, projects, journal, about, contact, and chat experiences
-- [Improvement] Rename portfolio and blog surfaces to projects and journal
-- [Improvement] Refresh README structure and move full build logs into docs
