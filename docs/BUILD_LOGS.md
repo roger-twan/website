@@ -1,5 +1,9 @@
 # Build Logs
 
+## 5.2.1 (2026-08-29)
+
+- [Fix] Preserve Wiki Link capitalization and encode spaces as `%20` in generated URLs
+
 ## 5.2.0 (2026-08-10)
 
 - [Improvement] Replace the default 404 page with a responsive route-scanner experience

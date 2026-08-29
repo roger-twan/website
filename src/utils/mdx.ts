@@ -44,7 +44,7 @@ export const options: SerializeOptions = {
         remarkWikiLink,
         {
           pageResolver: (name: string) => [
-            name.replace('.', '').replace(/ /g, '-').toLowerCase(),
+            name.replace('.', '').replace(/ /g, '%20'),
           ],
           hrefTemplate: (href: string) => href,
         },
